@@ -21,6 +21,7 @@ import java.util.Map;
 public class YTActivity extends AppCompatActivity implements SnappingStepperValueChangeListener {
 
 
+    private static final int REQUEST_CODE_SCAN = 123;
     TextView tvValue;
 
 
@@ -73,6 +74,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
 
         ListView listView = (ListView) findViewById(R.id.yt_listview);
         listView.setAdapter(simp_ada);
+
 
     }
 

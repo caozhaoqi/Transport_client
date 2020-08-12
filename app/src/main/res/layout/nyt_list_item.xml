@@ -12,27 +12,19 @@
 
         <TextView
             android:id="@+id/phone_number"
-            android:layout_weight="0.2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="0.2"
             android:text="11111111111">
 
         </TextView>
-
-        <com.bigkoo.snappingstepper.SnappingStepper
-            android:id="@+id/stepper"
-            android:layout_width="120dp"
-            android:layout_height="30dp"
-            android:layout_weight="0.2"
-            tools:ignore="MissingClass" />
-
 
 
         <Button
             android:id="@+id/delete"
             android:layout_width="wrap_content"
-            android:layout_weight="0.2"
             android:layout_height="wrap_content"
+            android:layout_weight="0.2"
 
             android:text="删除">
 
