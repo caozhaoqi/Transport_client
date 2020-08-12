@@ -1,5 +1,6 @@
 package com.example.transportclient;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -23,6 +24,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
 
     private static final int REQUEST_CODE_SCAN = 123;
     TextView tvValue;
+    CustomFAB scan;
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -31,29 +33,21 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_y_t);
 
+        scan = findViewById(R.id.scan_btn_yt);
 
-//        ImageButton ib = (ImageButton) findViewById(R.id.fab);
-//        int diameter = getResources().getDimensionPixelSize(R.dimen.fab_size);
-//        System.out.println("Diameter ["+diameter+"]");
-//        Outline outline = new Outline();
-//        outline.setOval(0, 0, diameter, diameter);
-//        //ib.setOutline(outline);
-//
-//        ib.setClipToOutline(true);
-
+        scan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(YTActivity.this, ScanActivity.class);
+                startActivity(i);
+            }
+        });
 
         View convertView = LayoutInflater.from(this).inflate(R.layout.yt_list_item,
                 null);
-        // viewHolder.bt1 = (Button) convertView.findViewById(R.id.bt1);
-        // tvValue = (TextView) findViewById(R.id.tvValue);
+
         SnappingStepper stepper = convertView.findViewById(R.id.stepper);
-//        tvValue.setText(String.valueOf(stepper.getValue()));
-//        tvValue.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
+
         stepper.setOnValueChangeListener(this);
 
         ArrayList<Map<String, Object>> arr_data = new ArrayList<>();
