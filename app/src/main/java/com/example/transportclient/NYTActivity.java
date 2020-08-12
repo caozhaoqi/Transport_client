@@ -50,7 +50,7 @@ public class NYTActivity extends AppCompatActivity {
         // 新建适配器 ，绑定数据
         String[] from = {"pn"};
         int[] to = {R.id.phone_number};
-        SimpleAdapter simp_ada = new SimpleAdapter(this, arr_data, R.layout.yt_list_item, from, to);
+        SimpleAdapter simp_ada = new SimpleAdapter(this, arr_data, R.layout.nyt_list_item, from, to);
 
         ListView listView = (ListView) findViewById(R.id.yt_listview);
         listView.setAdapter(simp_ada);
