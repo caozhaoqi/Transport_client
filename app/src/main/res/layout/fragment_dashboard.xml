@@ -1,23 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.dashboard.DashboardFragment">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/text_dashboard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="20dp"
         android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         android:gravity="center_horizontal"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="个人中心"
+        android:textSize="20dp">
+
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_launcher_background">
+
+        </ImageView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="登陆账号："
+                android:textSize="20dp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/txt_login_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1111111111"
+                android:textSize="20dp"></TextView>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/syts_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_horizontal"
+        android:text="300"
+        android:textAlignment="center"
+        android:textSize="20dp">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:gravity="center_horizontal"
+        android:text="剩余短信条数"
+        android:textAlignment="center"
+        android:textSize="20dp">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/cj"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_horizontal"
+        android:text="充值"
+        android:textAlignment="center"
+        android:textSize="20dp">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/cz_jl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_horizontal"
+        android:text="充值记录"
+        android:textAlignment="center"
+        android:textSize="20dp">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/txt_history"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="150dp"
+        android:gravity="center_horizontal"
+        android:text="历史记录"
+        android:textAlignment="center"
+        android:textSize="20dp">
+
+    </TextView>
+
+    <Button
+        android:id="@+id/logut_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="退出登录">
+
+    </Button>
+</LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
