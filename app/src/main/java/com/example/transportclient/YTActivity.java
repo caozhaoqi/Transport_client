@@ -45,15 +45,15 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
         View convertView = LayoutInflater.from(this).inflate(R.layout.yt_list_item,
                 null);
         // viewHolder.bt1 = (Button) convertView.findViewById(R.id.bt1);
-        tvValue = (TextView) findViewById(R.id.tvValue);
+        // tvValue = (TextView) findViewById(R.id.tvValue);
         SnappingStepper stepper = convertView.findViewById(R.id.stepper);
-        tvValue.setText(String.valueOf(stepper.getValue()));
-        tvValue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
+//        tvValue.setText(String.valueOf(stepper.getValue()));
+//        tvValue.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//        });
         stepper.setOnValueChangeListener(this);
 
         ArrayList<Map<String, Object>> arr_data = new ArrayList<>();
@@ -84,7 +84,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
 
         switch (view.getId()) {
             case R.id.stepper:
-                tvValue.setText(String.valueOf(value));
+                // tvValue.setText(String.valueOf(value));
                 break;
 //            case R.id.stepperCustom:
 //                tvValueCustom.setText(String.valueOf(value));

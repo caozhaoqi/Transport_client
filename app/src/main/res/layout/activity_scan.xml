@@ -10,6 +10,27 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <ImageView
+            android:id="@+id/scan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </ImageView>
+
+        <ListView
+            android:id="@+id/ls_sc"
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+
+        </ListView>
+
+        <Button
+            android:id="@+id/finish"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="结束扫描">
+
+        </Button>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
