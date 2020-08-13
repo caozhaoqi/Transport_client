@@ -20,4 +20,10 @@
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintTop_creator="1" />
 
+    <ListView
+        android:id="@+id/list_fs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
 </androidx.constraintlayout.widget.ConstraintLayout>
