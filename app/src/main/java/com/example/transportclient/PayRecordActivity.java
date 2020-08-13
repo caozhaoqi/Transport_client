@@ -13,8 +13,9 @@ public class PayRecordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay_record);
 
-        ListView mlistView = (ListView) findViewById(R.id.listView);
-        String[] films = new String[0];
+        ListView mlistView = findViewById(R.id.listView);
+        String[] films = new String[1];
+        films[0] = "1111";
         final TitleAdapter titleAdapter = new TitleAdapter(LayoutInflater.from(this), films);
         mlistView.setAdapter(titleAdapter);
 
