@@ -2,5 +2,8 @@
     <string name="app_name">TranSportClient</string>
     <string name="title_home">首页</string>
     <string name="title_dashboard">个人中心</string>
+    <string name="title_activity_detail">DetailActivity</string>
+    <string name="tab_text_1">发送成功</string>
+    <string name="tab_text_2">未发送</string>
 
 </resources>

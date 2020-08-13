@@ -1,24 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".PayHistoryActivity">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:orientation="vertical">
 
         <TextView
+            android:id="@+id/date_item_ph"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="历史记录"
-            android:textAlignment="center"
-            android:textSize="26dp" />
+            android:text="2020/08/13"
+            android:textAlignment="center">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/date_ph_de"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:gravity="start"
+            android:text="2020/08/13 13:00"
+            android:textAlignment="textStart">
+
+        </TextView>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -33,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
+                android:layout_marginRight="60dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -48,7 +57,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="今日发送成功">
+                    android:text="发送成功">
 
                 </TextView>
             </LinearLayout>
@@ -56,7 +65,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
+                android:layout_marginLeft="60dp"
                 android:layout_marginRight="50dp"
                 android:orientation="vertical">
 
@@ -74,55 +83,10 @@
                     android:layout_height="wrap_content"
 
                     android:layout_marginRight="20dp"
-                    android:text="今日未发送">
+                    android:text="未发送">
 
                 </TextView>
             </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/date_begin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="选择开始日期">
-
-            </EditText>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="-----">
-
-            </TextView>
-
-            <EditText
-                android:id="@+id/date_end"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="选择结束日期">
-
-            </EditText>
-
-            <Button
-                android:id="@+id/search"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="搜索">
-
-            </Button>
-        </LinearLayout>
-
-        <ListView
-            android:id="@+id/lisview_ph"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </ListView>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
