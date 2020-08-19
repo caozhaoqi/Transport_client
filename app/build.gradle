@@ -37,7 +37,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.github.open-android:ShoppingCartAddSubtract:0.1.0'
     implementation 'com.github.yuzhiqiang1993:zxing:2.1.4'
-    compile 'com.github.codbking:CalendarExaple:v1.0.0'
+    implementation 'com.github.codbking:CalendarExaple:v1.0.0'
     implementation 'com.contrarywind:Android-PickerView:3.2.7'
-    compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:1.1.6'
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:1.1.6'
 }

@@ -33,6 +33,23 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_y_t);
 
+        TextView cm = findViewById(R.id.companyName);
+
+
+        Intent i = getIntent();
+        String companyName = i.getStringExtra("companyName");
+        if (companyName.equals("圆通")) {
+
+            cm.setText("圆通");
+        } else if (companyName.equals("韵达")) {
+            cm.setText("韵达");
+        } else if (companyName.equals("中通")) {
+
+            cm.setText("中通");
+        } else {
+            cm.setText(companyName);
+        }
+
         scan = findViewById(R.id.scan_btn_yt);
 
         scan.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +83,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
         int[] to = {R.id.phone_number};
         SimpleAdapter simp_ada = new SimpleAdapter(this, arr_data, R.layout.yt_list_item, from, to);
 
-        ListView listView = (ListView) findViewById(R.id.yt_listview);
+        ListView listView = findViewById(R.id.yt_listview);
         listView.setAdapter(simp_ada);
 
 

@@ -16,6 +16,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:text="圆通"
+            android:id="@+id/companyName"
             android:textAlignment="center"
             android:textSize="20dp">
 
