@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="2020/08/13"
+            android:text="@string/_2020_08_13"
             android:textAlignment="center">
 
         </TextView>
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:gravity="start"
-            android:text="2020/08/13 13:00"
+            android:text="@string/_2020_08_13_13_00"
             android:textAlignment="textStart">
 
         </TextView>
@@ -49,7 +49,7 @@
                     android:id="@+id/send_successful"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="96条"
+                    android:text="@string/_96"
                     android:textSize="20dp">
 
                 </TextView>
@@ -57,7 +57,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="发送成功">
+                    android:text="@string/send_success">
 
                 </TextView>
             </LinearLayout>
@@ -72,7 +72,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="10条"
+                    android:text="@string/_10"
 
                     android:textSize="20dp">
 
@@ -83,7 +83,7 @@
                     android:layout_height="wrap_content"
 
                     android:layout_marginRight="20dp"
-                    android:text="未发送">
+                    android:text="@string/fail">
 
                 </TextView>
             </LinearLayout>

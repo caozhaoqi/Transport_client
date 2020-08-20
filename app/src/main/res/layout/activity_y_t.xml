@@ -15,10 +15,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="圆通"
+            android:text="@string/yut"
             android:id="@+id/companyName"
             android:textAlignment="center"
-            android:textSize="20dp">
+            android:textSize="20sp">
 
         </TextView>
 
@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.2"
-                android:text="取货码">
+                android:text="@string/qhmm">
 
             </CheckBox>
 
@@ -40,7 +40,7 @@
                 android:id="@+id/today_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="12">
+                android:text="@string/_12">
 
             </TextView>
 
@@ -49,8 +49,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.8"
-                android:hint="请输入取货码"
-                android:text="A 111">
+                android:hint="@string/inq"
+                android:text="@string/a_111">
 
             </EditText>
         </LinearLayout>
@@ -65,7 +65,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="发送总条数：">
+                android:text="@string/st">
 
             </TextView>
 
@@ -73,7 +73,7 @@
                 android:id="@+id/fsts_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="111条">
+                android:text="@string/_111">
 
 
             </TextView>
@@ -89,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="60dp"
                 android:layout_marginRight="50dp"
-                android:text="手机号">
+                android:text="@string/phon">
 
             </TextView>
 
@@ -98,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="60dp"
                 android:layout_marginRight="20dp"
-                android:text="取货码">
+                android:text="@string/qhm">
 
             </TextView>
 
@@ -119,7 +119,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="【遵旨】您的圆通快递快件已经到达">
+                android:text="@string/sms1">
 
             </TextView>
 
@@ -127,7 +127,7 @@
                 android:id="@+id/input_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="请输入快递点地址">
+                android:hint="@string/inad">
 
             </EditText>
         </LinearLayout>
@@ -140,7 +140,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=",请凭取货码">
+                android:text="@string/inqhm">
 
             </TextView>
 
@@ -148,14 +148,14 @@
                 android:id="@+id/input_getnum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="#取货码位置">
+                android:hint="@string/qhm_l">
 
             </EditText>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="请尽快来取，快递员电话">
+                android:text="@string/qhm_dh">
 
             </TextView>
         </LinearLayout>
@@ -169,7 +169,7 @@
                 android:id="@+id/input_ph"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="请输入电话">
+                android:hint="@string/in_ph">
 
             </EditText>
         </LinearLayout>
@@ -182,7 +182,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="用遵旨app一元代取快递">
+                android:text="@string/app">
 
             </TextView>
 
@@ -194,7 +194,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:gravity="end"
-            android:text="发送"
+            android:text="@string/se"
             android:textAlignment="center"
             tools:ignore="RtlCompat">
 

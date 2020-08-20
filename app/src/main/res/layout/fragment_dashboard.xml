@@ -15,7 +15,7 @@
         android:layout_marginBottom="20dp"
         android:textAlignment="center"
         android:gravity="center_horizontal"
-        android:text="个人中心"
+        android:text="@string/personCenrral"
         android:textSize="20dp">
 
     </TextView>
@@ -40,7 +40,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="登陆账号："
+                android:text="@string/loginAccount"
                 android:textSize="20dp">
 
             </TextView>
@@ -49,7 +49,7 @@
                 android:id="@+id/txt_login_account"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1111111111"
+                android:text="@string/_1111111111"
                 android:textSize="20dp"></TextView>
 
         </LinearLayout>
@@ -63,7 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:gravity="center_horizontal"
-        android:text="300"
+        android:text="@string/_300"
         android:textAlignment="center"
         android:textSize="20dp">
 
@@ -74,7 +74,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
         android:gravity="center_horizontal"
-        android:text="剩余短信条数"
+        android:text="@string/sy"
         android:textAlignment="center"
         android:textSize="20dp">
 
@@ -86,7 +86,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:gravity="center_horizontal"
-        android:text="充值"
+        android:text="@string/cz"
         android:textAlignment="center"
         android:textSize="20dp">
 
@@ -98,7 +98,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:gravity="center_horizontal"
-        android:text="充值记录"
+        android:text="@string/czjl"
         android:textAlignment="center"
         android:textSize="20dp">
 
@@ -110,7 +110,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="150dp"
         android:gravity="center_horizontal"
-        android:text="历史记录"
+        android:text="@string/lsjl"
         android:textAlignment="center"
         android:textSize="20dp">
 
@@ -120,7 +120,7 @@
         android:id="@+id/logut_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="退出登录">
+        android:text="@string/logout">
 
     </Button>
 </LinearLayout>

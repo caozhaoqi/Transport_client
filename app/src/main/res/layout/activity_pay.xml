@@ -16,14 +16,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="短信充值"
+            android:text="@string/sms_c"
             android:textAlignment="center"
             android:textSize="20dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="请选择短信套餐：">
+            android:text="@string/input_sms_tc">
 
         </TextView>
 
@@ -46,7 +46,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    android:text="20元"
+                    android:text="@string/_20"
                     android:textAlignment="center"
                     android:textSize="16dp">
 
@@ -55,7 +55,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1100条">
+                    android:text="@string/_1100">
 
                 </TextView>
             </LinearLayout>
@@ -73,7 +73,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    android:text="50元"
+                    android:text="@string/_50"
                     android:textAlignment="center"
                     android:textSize="16dp">
 
@@ -82,7 +82,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2500条">
+                    android:text="@string/_2500">
 
                 </TextView>
             </LinearLayout>
@@ -100,7 +100,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    android:text="100元"
+                    android:text="@string/_100"
                     android:textAlignment="center"
                     android:textSize="16dp">
 
@@ -109,7 +109,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="5000条">
+                    android:text="@string/_5000">
 
                 </TextView>
             </LinearLayout>

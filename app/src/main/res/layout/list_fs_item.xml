@@ -20,8 +20,7 @@
             android:id="@+id/fs_item_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="【遵旨】您的圆通快递快件到达北门菜鸟，请凭取货码20-01-9898请尽快来取，快递员电话：14323243343
-用微臣遵旨APP一元代取快递">
+            android:text="@string/_20_01_9898_14323243343_app">
 
         </TextView>
     </LinearLayout>

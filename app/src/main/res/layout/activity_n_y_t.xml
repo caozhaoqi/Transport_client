@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="圆通"
+            android:text="@string/yt"
             android:textAlignment="center"
             android:textSize="20dp">
 
@@ -30,7 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.2"
-                android:text="取货码">
+                android:text="@string/qhm">
 
             </CheckBox>
 
@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.8"
-                android:hint="请输入取货码"
+                android:hint="@string/inputQhm"
                 android:text="A 111">
 
             </EditText>
@@ -64,7 +64,7 @@
                 android:layout_width="wrap_content"
                 android:textSize="20dp"
                 android:layout_height="wrap_content"
-                android:text="发送总条数：">
+                android:text="@string/sendTotal">
 
             </TextView>
 
@@ -73,7 +73,7 @@
                 android:layout_width="wrap_content"
                 android:textSize="20dp"
                 android:layout_height="wrap_content"
-                android:text="111条">
+                android:text="@string/_111">
 
 
             </TextView>
@@ -98,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="60dp"
                 android:layout_marginRight="20dp"
-                android:text="取货码">
+                android:text="@string/qhm_">
 
             </TextView>
 
@@ -119,7 +119,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="【遵旨】您的圆通快递快件已经到达">
+                android:text="@string/sms1">
 
             </TextView>
 
@@ -127,7 +127,7 @@
                 android:id="@+id/input_address_nyt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="请输入快递点地址">
+                android:hint="@string/sms2">
 
             </EditText>
         </LinearLayout>
@@ -141,7 +141,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="请尽快来取，快递员电话">
+                android:text="@string/sms3">
 
             </TextView>
         </LinearLayout>
@@ -155,7 +155,7 @@
                 android:id="@+id/input_ph_nyt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="请输入电话">
+                android:hint="@string/sms4">
 
             </EditText>
         </LinearLayout>
@@ -168,7 +168,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="用遵旨app一元代取快递">
+                android:text="@string/sms5">
 
             </TextView>
 
@@ -180,7 +180,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:gravity="end"
-            android:text="发送"
+            android:text="@string/send"
             android:textAlignment="center"
             tools:ignore="RtlCompat">
 

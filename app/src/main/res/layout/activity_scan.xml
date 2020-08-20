@@ -13,7 +13,8 @@
         <ImageView
             android:id="@+id/scan"
             android:layout_width="match_parent"
-            android:layout_height="200dp">
+            android:layout_height="200dp"
+            android:contentDescription="@string/todo">
 
         </ImageView>
 
@@ -28,7 +29,7 @@
             android:id="@+id/finish"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="结束扫描">
+            android:text="@string/end">
 
         </Button>
     </LinearLayout>

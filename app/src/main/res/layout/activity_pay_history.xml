@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="历史记录"
+            android:text="@string/history"
             android:textAlignment="center"
             android:textSize="26dp" />
 
@@ -40,7 +40,7 @@
                     android:id="@+id/send_successful"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="96条"
+                    android:text="@string/_96"
                     android:textSize="20dp">
 
                 </TextView>
@@ -48,7 +48,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="今日发送成功">
+                    android:text="@string/todaySc">
 
                 </TextView>
             </LinearLayout>
@@ -63,7 +63,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="10条"
+                    android:text="@string/_10"
 
                     android:textSize="20dp">
 
@@ -74,7 +74,7 @@
                     android:layout_height="wrap_content"
 
                     android:layout_marginRight="20dp"
-                    android:text="今日未发送">
+                    android:text="@string/wT">
 
                 </TextView>
             </LinearLayout>
@@ -90,14 +90,14 @@
                 android:id="@+id/date_begin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="选择开始日期">
+                android:hint="@string/choose">
 
             </EditText>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="-----">
+                android:text="@string/etc">
 
             </TextView>
 
@@ -105,7 +105,7 @@
                 android:id="@+id/date_end"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="选择结束日期">
+                android:hint="@string/che">
 
             </EditText>
 
@@ -113,7 +113,7 @@
                 android:id="@+id/search"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="搜索">
+                android:text="@string/search">
 
             </Button>
         </LinearLayout>

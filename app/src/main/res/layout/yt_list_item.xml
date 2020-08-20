@@ -15,7 +15,7 @@
             android:layout_weight="0.2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="11111111111">
+            android:text="@string/_1111111111">
 
         </TextView>
 

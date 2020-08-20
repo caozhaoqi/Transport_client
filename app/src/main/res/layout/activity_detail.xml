@@ -18,7 +18,7 @@
             android:gravity="center"
             android:minHeight="?actionBarSize"
             android:padding="@dimen/appbar_padding"
-            android:text="记录详情"
+            android:text="@string/recorddetail"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
 

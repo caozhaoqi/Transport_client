@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="快递点"
+            android:text="@string/kdd"
             android:textAlignment="center"
             android:textSize="20dp">
 
@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:text="圆通"
+            android:text="@string/ytk"
 
             >
 
@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:text="韵达"
+            android:text="@string/yiunda"
 
             >
 
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
 
-            android:text="中通">
+            android:text="@string/zto">
 
         </Button>
 
