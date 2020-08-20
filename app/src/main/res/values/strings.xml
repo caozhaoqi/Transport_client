@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">TranSportClient</string>
     <string name="title_home">首页</string>
     <string name="title_dashboard">个人中心</string>
@@ -86,5 +87,13 @@
     <string name="_10">10条</string>
     <string name="fail">未发送</string>
     <string name="de">删除</string>
+    <string name="n_1_n_2"><![CDATA[温馨提示：\n 1.短信条数不限时间，用完为止，不可退款。\n 2.发送条数>剩余条数时可续费后继续发送，如未续费则只能发送剩余条数。]]></string>
+    <string name="pay_choice">支付方式:</string>
+    <string name="_10000">10000条</string>
+    <string name="_200">200元</string>
+    <string name="phs">手机号</string>
+    <string name="_2020_08_13_15_05_23">2020/08/13 15:05:23</string>
+    <string name="_11111111111">44</string>
+    <string name="sc">删除</string>
 
 </resources>

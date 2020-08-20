@@ -16,7 +16,7 @@
         android:textAlignment="center"
         android:gravity="center_horizontal"
         android:text="@string/personCenrral"
-        android:textSize="20dp">
+        android:textSize="20sp">
 
     </TextView>
 
@@ -41,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/loginAccount"
-                android:textSize="20dp">
+                android:textSize="20sp">
 
             </TextView>
 
@@ -50,7 +50,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_1111111111"
-                android:textSize="20dp"></TextView>
+                android:textSize="20sp">
+
+            </TextView>
 
         </LinearLayout>
 
@@ -65,7 +67,7 @@
         android:gravity="center_horizontal"
         android:text="@string/_300"
         android:textAlignment="center"
-        android:textSize="20dp">
+        android:textSize="20sp">
 
     </TextView>
 
@@ -76,7 +78,7 @@
         android:gravity="center_horizontal"
         android:text="@string/sy"
         android:textAlignment="center"
-        android:textSize="20dp">
+        android:textSize="20sp">
 
     </TextView>
 
@@ -88,7 +90,7 @@
         android:gravity="center_horizontal"
         android:text="@string/cz"
         android:textAlignment="center"
-        android:textSize="20dp">
+        android:textSize="20sp">
 
     </TextView>
 
@@ -100,7 +102,7 @@
         android:gravity="center_horizontal"
         android:text="@string/czjl"
         android:textAlignment="center"
-        android:textSize="20dp">
+        android:textSize="20sp">
 
     </TextView>
 
@@ -112,7 +114,7 @@
         android:gravity="center_horizontal"
         android:text="@string/lsjl"
         android:textAlignment="center"
-        android:textSize="20dp">
+        android:textSize="20sp">
 
     </TextView>
 

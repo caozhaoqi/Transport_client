@@ -34,7 +34,7 @@
             android:layout_weight="0.2"
             android:layout_height="wrap_content"
 
-            android:text="删除">
+            android:text="@string/sc">
 
         </Button>
     </LinearLayout>

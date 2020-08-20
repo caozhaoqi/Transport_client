@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.8"
                 android:hint="@string/inputQhm"
-                android:text="A 111">
+                android:text="@string/a_111">
 
             </EditText>
         </LinearLayout>
@@ -89,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="60dp"
                 android:layout_marginRight="50dp"
-                android:text="手机号">
+                android:text="@string/phs">
 
             </TextView>
 

@@ -12,7 +12,7 @@
             android:id="@+id/date_list_fs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="2020/08/13 15:05:23">
+            android:text="@string/_2020_08_13_15_05_23">
 
         </TextView>
 
