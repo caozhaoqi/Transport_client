@@ -49,7 +49,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-
             android:text="@string/zto">
 
         </Button>
@@ -67,6 +66,5 @@
 
         </ImageView>
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

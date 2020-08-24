@@ -1,5 +1,6 @@
 package com.example.transportclient.ui.main;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,6 +47,7 @@ public class PlaceholderFragment extends Fragment {
         pageViewModel.setIndex(index);
     }
 
+    @SuppressLint("UnknownNullness")
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
@@ -57,7 +59,7 @@ public class PlaceholderFragment extends Fragment {
         ArrayList<Map<String, Object>> arr_data = new ArrayList<>();
         // 新增数据
         for (int i5 = 0; i5 < 20; i5++) {
-            Map map = new HashMap<String, Object>();
+            Map<String, Object> map = new HashMap<String, Object>();
             //map放入两个键值对，键名与from对应，
             map.put("pn", "13131313" + i5);
 
@@ -68,7 +70,8 @@ public class PlaceholderFragment extends Fragment {
         // 新建适配器 ，绑定数据
         String[] from = {"pn"};
         int[] to = {R.id.phone_number};
-        SimpleAdapter simp_ada = new SimpleAdapter(getContext(), arr_data, R.layout.list_fs_item, from, to);
+        SimpleAdapter simp_ada;
+        simp_ada = new SimpleAdapter(getContext(), arr_data, R.layout.list_fs_item, from, to);
 
         listView_wfs.setAdapter(simp_ada);
 
@@ -82,7 +85,7 @@ public class PlaceholderFragment extends Fragment {
         ArrayList<Map<String, Object>> arr_data2 = new ArrayList<>();
         // 新增数据
         for (int i5 = 0; i5 < 20; i5++) {
-            Map map = new HashMap<String, Object>();
+            Map<String, Object> map = new HashMap<String, Object>();
             //map放入两个键值对，键名与from对应，
             map.put("pn", "13131313" + i5);
 

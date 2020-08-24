@@ -24,7 +24,11 @@ public class NYTActivity extends AppCompatActivity {
 
         View convertView = LayoutInflater.from(this).inflate(R.layout.yt_list_item,
                 null);
-
+        /*
+         *
+         * System Message【遵旨】您的圆通快递快件已经到达
+         *
+         * */
 
         customFAB = findViewById(R.id.scan_btn);
 

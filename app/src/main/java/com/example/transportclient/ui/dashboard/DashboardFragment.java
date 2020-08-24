@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,6 +17,7 @@ import com.example.transportclient.PayActivity;
 import com.example.transportclient.PayHistoryActivity;
 import com.example.transportclient.PayRecordActivity;
 import com.example.transportclient.R;
+import com.example.transportclient.ui.login.LoginActivity;
 
 public class DashboardFragment extends Fragment {
 
@@ -29,6 +32,27 @@ public class DashboardFragment extends Fragment {
         TextView cj = root.findViewById(R.id.cj);
         TextView cjzl = root.findViewById(R.id.cz_jl);
         TextView czxq = root.findViewById(R.id.txt_history);
+        Button logout = root.findViewById(R.id.logut_btn);
+        ImageView my = root.findViewById(R.id.my_im);
+
+        my.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getContext(), MyActivity.class);
+                startActivity(i);
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent home = new Intent(getContext(), LoginActivity.class);
+
+                startActivity(home);
+
+            }
+        });
 
         cj.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,12 +82,7 @@ public class DashboardFragment extends Fragment {
 
             }
         });
-//        dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
+
         return root;
     }
 }
