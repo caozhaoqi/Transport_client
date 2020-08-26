@@ -28,6 +28,7 @@ public class PayHistoryActivity extends AppCompatActivity {
     EditText end;
     TimePickerView pvTime;
     ListView listView;
+    TextView send_fail;
 
 
     @Override
@@ -104,9 +105,19 @@ public class PayHistoryActivity extends AppCompatActivity {
             }
         });
 
-        send_successful = findViewById(R.id.send_successful);
+        send_successful = findViewById(R.id.send_successful_ph);
 
         send_successful.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(PayHistoryActivity.this, DetailActivity.class);
+                startActivity(i);
+            }
+        });
+
+        send_fail = findViewById(R.id.send_fail_ph);
+
+        send_fail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(PayHistoryActivity.this, DetailActivity.class);

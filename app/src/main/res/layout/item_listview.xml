@@ -2,6 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center_horizontal"
     android:orientation="vertical">
 
     <com.example.transportclient.SwipeLayout
@@ -11,6 +13,7 @@
 
         <include
             layout="@layout/layout_content"
+            android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

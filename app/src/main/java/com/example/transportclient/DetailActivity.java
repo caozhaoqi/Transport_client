@@ -33,6 +33,8 @@ public class DetailActivity extends AppCompatActivity {
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
+        // tabs.setSelectedTabIndicator(1);
+        tabs.setScrollPosition(1, 1, false);
         FloatingActionButton fab = findViewById(R.id.fab);
 
         fab.setOnClickListener(new View.OnClickListener() {

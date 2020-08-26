@@ -37,7 +37,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/send_successful"
+                    android:id="@+id/send_successful_ph"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/_96"
@@ -64,7 +64,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/_10"
-
+                    android:id="@+id/send_fail_ph"
                     android:textSize="20dp">
 
                 </TextView>
