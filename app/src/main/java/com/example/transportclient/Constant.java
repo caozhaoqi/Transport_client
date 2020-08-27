@@ -11,4 +11,6 @@ public class Constant {
     public static final String sign = "";
     public static final String signType = "";
 
+    public static final String IP = "192.168.0.15";
+    public static final String PORT = "8084";
 }

@@ -41,4 +41,6 @@ dependencies {
     implementation 'com.github.codbking:CalendarExaple:v1.0.0'
     implementation 'com.contrarywind:Android-PickerView:3.2.7'
     implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:1.1.6'
+    implementation 'com.google.code.gson:gson:2.6.2'
+    implementation 'com.squareup.okhttp3:okhttp:3.4.1'
 }

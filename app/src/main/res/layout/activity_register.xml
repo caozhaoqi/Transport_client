@@ -41,7 +41,7 @@
             </TextView>
 
             <EditText
-                android:id="@+id/username"
+                android:id="@+id/re_ph"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.2"
@@ -74,7 +74,7 @@
             </TextView>
 
             <EditText
-                android:id="@+id/password"
+                android:id="@+id/code"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
