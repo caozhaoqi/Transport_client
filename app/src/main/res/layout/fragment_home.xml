@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
     tools:context=".ui.home.HomeFragment">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:id="@+id/addli"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
         android:orientation="vertical">
 
         <TextView
@@ -21,50 +23,32 @@
             android:textSize="20sp">
 
         </TextView>
+        <!--        <Button-->
+        <!--            android:id="@+id/yt_btn"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="50dp"-->
+        <!--            android:text="@string/ytk"-->
 
-        <Button
-            android:id="@+id/yt_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="@string/ytk"
+        <!--            >-->
 
-            >
+        <!--        </Button>-->
 
-        </Button>
 
-        <Button
-            android:id="@+id/yd_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="@string/yiunda"
-
-            >
-
-        </Button>
-
-        <Button
-            android:id="@+id/zt_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="@string/zto">
-
-        </Button>
-
-        <ImageView
-            android:id="@+id/img_add"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginLeft="20dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="40dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="20dp"
-            android:background="@mipmap/add">
-
-        </ImageView>
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/img_add"
+        android:layout_width="78dp"
+        android:layout_height="82dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@mipmap/add"
+        tools:ignore="MissingConstraints">
+
+    </ImageView>
+
+</LinearLayout>

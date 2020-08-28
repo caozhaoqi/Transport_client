@@ -2,8 +2,31 @@ package com.example.transportclient;
 
 import android.app.Application;
 
+import androidx.annotation.NonNull;
+
 public class APPData extends Application {
-   public String code;
-   public String code2;
-   public String re_msg;
+   @NonNull
+   public String code;//login_code
+   @NonNull
+   public String code2;//register_code
+   @NonNull
+   public String re_msg;//register server return message
+   @NonNull
+   public int id;//kdy_id
+   @NonNull
+   public int[] ids;
+   @NonNull
+   public int[] logisticsId;
+   @NonNull
+   public int[] smsCount;
+   @NonNull
+   public String[] logisticsName;
+   @NonNull
+   public int s_length;
+   @NonNull
+   public int[] idss;
+   @NonNull
+   public String[] logisticsNames;
+   @NonNull
+   public int s_lengths;
 }
