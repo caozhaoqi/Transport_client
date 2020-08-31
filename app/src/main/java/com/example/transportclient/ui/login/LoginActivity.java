@@ -45,16 +45,19 @@ import okhttp3.Response;
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
+    EditText passwordEditText;
+    EditText usernameEditText;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
-        final EditText usernameEditText = findViewById(R.id.username);
-        final EditText passwordEditText = findViewById(R.id.password);
+        usernameEditText = findViewById(R.id.username);
+        passwordEditText = findViewById(R.id.password);
         final Button loginButton = findViewById(R.id.login);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
         TextView getCode = findViewById(R.id.tx_get_code);
@@ -254,89 +257,93 @@ public class LoginActivity extends AppCompatActivity {
 
                 });
 
-                APPData appData = (APPData) getApplicationContext();
-                String code = passwordEditText.getText().toString();
-                if (code.equals(appData.code)) {
-                    Intent i = new Intent(LoginActivity.this, MainActivity.class);
-                    String ids = String.valueOf(appData.id);
-                    i.putExtra("id", ids);
-                    startActivity(i);
-                } else {
-                    Intent i = new Intent(LoginActivity.this, MainActivity.class);
-                    String ids = String.valueOf(appData.id);
-                    i.putExtra("id", ids);
-                    startActivity(i);
-                    Toast.makeText(LoginActivity.this, "验证码错误，请重新输入", Toast.LENGTH_SHORT).show();
-                }
+                // call select data api
+                initHomeData();
+
+            }
+        });
+    }
+
+    private void initHomeData() {
+        APPData appData = (APPData) getApplicationContext();
+        String code = passwordEditText.getText().toString();
+        if (code.equals(appData.code)) {
+            Intent i = new Intent(LoginActivity.this, MainActivity.class);
+            String ids = String.valueOf(appData.id);
+            i.putExtra("id", ids);
+            startActivity(i);
+        } else {
+            Intent i = new Intent(LoginActivity.this, MainActivity.class);
+            String ids = String.valueOf(appData.id);
+            i.putExtra("id", ids);
+            startActivity(i);
+            Toast.makeText(LoginActivity.this, "验证码错误，请重新输入", Toast.LENGTH_SHORT).show();
+        }
 
 
-                String serviceUserId = String.valueOf(appData.id);
-                System.out.println(serviceUserId);
-                String url2 = "http://" + Constant.IP + ":" + Constant.PORT + "" +
-                        "/server/serviceUserLogistics/findByServiceUserId?serviceUserId=" + serviceUserId;
+        String serviceUserId = String.valueOf(appData.id);
+        System.out.println(serviceUserId);
+        String url2 = "http://" + Constant.IP + ":" + Constant.PORT + "" +
+                "/server/serviceUserLogistics/findByServiceUserId?serviceUserId=" + serviceUserId;
 
-                OkHttpClient client2 = new OkHttpClient();
-                //
-                Request request2 = new Request.Builder()
-                        .url(url2)
-                        //    .post(requestBody)
-                        .build();
-                Call call = client2.newCall(request2);
-                call.enqueue(new Callback() {
-                    @Override
-                    public void onFailure(Call call, IOException e) {
-                        Toast.makeText(LoginActivity.this, "internet error", Toast.LENGTH_SHORT).show();
-                    }
+        OkHttpClient client2 = new OkHttpClient();
+        //
+        Request request2 = new Request.Builder()
+                .url(url2)
+                //    .post(requestBody)
+                .build();
+        Call call = client2.newCall(request2);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Toast.makeText(LoginActivity.this, "internet error", Toast.LENGTH_SHORT).show();
+            }
 
-                    @Override
-                    public void onResponse(Call call, Response response) throws IOException {
-                        String result2 = response.body().string();
-                        try {
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String result2 = response.body().string();
+                try {
 
+                    //用JSON字符串来初始化一个JSON对象
+                    JSONArray jsonArray = new JSONArray(result2);
+                    if (jsonArray.length() == 0) {
+                        System.out.println("error");
+                    } else {
+                        //然后读取result后面的数组([]号里的内容)，用这个内容来初始化一个JSONArray对象
 
-                            //用JSON字符串来初始化一个JSON对象
-                            JSONArray jsonArray = new JSONArray(result2);
-                            if (jsonArray.length() == 0) {
-                                System.out.println("error");
-                            } else {
-                                //然后读取result后面的数组([]号里的内容)，用这个内容来初始化一个JSONArray对象
+                        int[] id = new int[jsonArray.length()];
+                        int[] logisticsId = new int[jsonArray.length()];
+                        int[] smsCount = new int[jsonArray.length()];
+                        String[] logisticsName = new String[jsonArray.length()];
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                            id[i] = jsonObject1.getInt("id");
+                            logisticsId[i] = jsonObject1.getInt("logisticsId");
+                            smsCount[i] = jsonObject1.getInt("smsCount");
+                            logisticsName[i] = jsonObject1.getString("logisticsName");
 
-                                int[] id = new int[jsonArray.length()];
-                                int[] logisticsId = new int[jsonArray.length()];
-                                int[] smsCount = new int[jsonArray.length()];
-                                String[] logisticsName = new String[jsonArray.length()];
-                                for (int i = 0; i < jsonArray.length(); i++) {
-                                    JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                                    id[i] = jsonObject1.getInt("id");
-                                    logisticsId[i] = jsonObject1.getInt("logisticsId");
-                                    smsCount[i] = jsonObject1.getInt("smsCount");
-                                    logisticsName[i] = jsonObject1.getString("logisticsName");
-
-                                    //  JSONArray aNews = new JSONArray(jsonObject.getString("data"));
-                                }
-                                // Log.i("the title: ", aNews.getJSONObject(0).getString("image"));
-
-
-                                APPData appData = (APPData) getApplicationContext();
-                                appData.ids = id;
-                                appData.logisticsId = logisticsId;
-                                appData.smsCount = smsCount;
-                                appData.logisticsName = logisticsName;
-                                appData.s_length = jsonArray.length();
-                            }
-                        } catch (JSONException ex) {
-
-                            Log.e("JSON Error: ", ex.toString());
-
-                        } catch (Exception e) {
 
                         }
 
 
+                        APPData appData = (APPData) getApplicationContext();
+                        appData.ids = id;
+                        appData.logisticsId = logisticsId;
+                        appData.smsCount = smsCount;
+                        appData.logisticsName = logisticsName;
+                        appData.s_length = jsonArray.length();
                     }
+                } catch (JSONException ex) {
 
-                });
+                    Log.e("JSON Error: ", ex.toString());
+
+                } catch (Exception e) {
+
+                }
+
+
             }
+
         });
     }
 

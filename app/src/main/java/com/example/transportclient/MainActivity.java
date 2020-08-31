@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
         //home page paint
-        home();
+        // home();
 
         ////调用快递公司data
         kdgscx();

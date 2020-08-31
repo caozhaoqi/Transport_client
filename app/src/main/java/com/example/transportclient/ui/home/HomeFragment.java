@@ -3,6 +3,7 @@ package com.example.transportclient.ui.home;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Looper;
 import android.util.Log;
@@ -17,7 +18,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.example.transportclient.APPData;
 import com.example.transportclient.Constant;
@@ -30,6 +30,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -43,35 +46,33 @@ import okhttp3.Response;
 public class HomeFragment extends Fragment {
 
     View root;
+    LinearLayout linearLayout;
+    List<String> list = new ArrayList<>();
+    APPData appData;
 
     @NonNull
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @NonNull ViewGroup container, @NonNull Bundle savedInstanceState) {
-        HomeViewModel homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
+
+
         root = inflater.inflate(R.layout.fragment_home, container, false);
 
+        linearLayout = root.findViewById(R.id.addli);
 
-        final LinearLayout linearLayout = root.findViewById(R.id.addli);
-        final APPData appData = (APPData) getActivity().getApplicationContext();
-        Button[] button = new Button[appData.s_length];
+        appData = (APPData) getActivity().getApplicationContext();
 
-        //显示需要显示的按钮
-        for (int i = 0; i < appData.s_length; i++) {
-            button[i] = new Button(getContext());
-            button[i].setText(appData.logisticsName[i]);
-            button[i].setTextSize(24);
-            //   button[i].setBackgroundColor(Color.BLUE);
 
-            final int index = i;
-            button[i].setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(getContext(), YTActivity.class);
-                    intent.putExtra("companyName", appData.logisticsName[index]);
-                    startActivity(intent);
-                }
-            });
-            linearLayout.addView(button[i]);
+        try {
+            //显示需要显示的按钮
+            assert appData.logisticsName != null;
+            list.addAll(Arrays.asList(appData.logisticsName).subList(0, appData.s_length));
+
+            setButton(list);
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
         }
         @SuppressLint("CutPasteId")
 
@@ -79,7 +80,7 @@ public class HomeFragment extends Fragment {
         im.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int[] index = new int[100];//record click add company count
+
                 try {
                     showSingleAlertDialog();
                 } catch (Exception e) {
@@ -93,13 +94,46 @@ public class HomeFragment extends Fragment {
     }
 
     /**
+     * @param list data list
+     * @serialData show select button
+     **/
+
+    private void setButton(final List<String> list) {
+
+        if (list.size() > 0) {
+
+            for (int i = 0; i < list.size(); i++) {
+
+                Button btn = new Button(getActivity());
+                //btn.setLayoutParams(linearLayout.getLayoutParams());
+                btn.setText(list.get(i));
+                btn.setBackgroundColor(Color.WHITE);
+                btn.setTag(i);
+                final int finalI = i;
+                btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getContext(), YTActivity.class);
+                        assert appData.logisticsName != null;
+                        intent.putExtra("companyName", appData.logisticsName[finalI]);
+                        startActivity(intent);
+                    }
+                });
+                linearLayout.addView(btn);
+
+            }
+        }
+    }
+
+
+    /**
      * show dialog
      *
      * @param
      * @return null
      */
 
-    public void showSingleAlertDialog() throws Exception {
+    public void showSingleAlertDialog() {
 
         final APPData appData = (APPData) getContext().getApplicationContext();
         final String[] items = appData.logisticsNames;
@@ -109,13 +143,16 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
+                assert items != null;
                 Toast.makeText(getContext(), items[i], Toast.LENGTH_SHORT).show();
 
                 final LinearLayout linearLayout = root.findViewById(R.id.addli);
                 final Button button = new Button(getContext());
+                assert appData.logisticsNames != null;
                 String cm = appData.logisticsNames[i];
 
                 int logisticsId = appData.id;
+                assert appData.idss != null;
                 int servicesUserCpId = appData.idss[i];
                 APPData appData1 = (APPData) getActivity().getApplicationContext();
                 appData1.index[i] += 1;

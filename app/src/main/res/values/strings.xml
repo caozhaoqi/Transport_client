@@ -9,12 +9,12 @@
     <string name="data">data=</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Phone</string>
-    <string name="prompt_password">Password</string>
+    <string name="prompt_password">code</string>
     <string name="action_sign_in">登陆</string>
     <string name="action_sign_in_short">Login</string>
     <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="invalid_username">Not a valid phoneNumber</string>
+    <string name="invalid_password">Please input a code must > 5</string>
     <string name="login_failed">"Login failed"</string>
     <string name="end">结束扫描</string>
     <string name="todo">TODO</string>
@@ -79,7 +79,7 @@
     <string name="_22222222222222222222222222">22222222222222222222222222</string>
     <string name="_20">20元</string>
     <string name="delete">删除</string>
-    <string name="_20_01_9898_14323243343_app">【遵旨】您的圆通快递快件到达北门菜鸟，请凭取货码20-01-9898请尽快来取，快递员电话：14323243343 用微臣遵旨APP一元代取快递</string>
+    <string name="_20_01_9898_14323243343_app">【遵旨】您的圆通快递快件到达北门菜鸟，请凭取货码20–01-9898请尽快来取，快递员电话：14323243343 用微臣遵旨APP一元代取快递</string>
     <string name="_2020_08_13">2020/08/13</string>
     <string name="_2020_08_13_13_00">2020/08/13 13:00</string>
     <string name="_96">96条</string>

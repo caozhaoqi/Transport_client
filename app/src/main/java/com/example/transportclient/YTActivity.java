@@ -41,14 +41,12 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
         assert companyName != null;
         switch (companyName) {
             case "圆通":
-
                 cm.setText("圆通");
                 break;
             case "韵达":
                 cm.setText("韵达");
                 break;
             case "中通":
-
                 cm.setText("中通");
                 break;
             default:

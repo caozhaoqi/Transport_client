@@ -3,33 +3,34 @@ package com.example.transportclient;
 import android.app.Application;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public class APPData extends Application {
-    @NonNull
+    @Nullable
     public String code;//login_code
-    @NonNull
+    @Nullable
     public String code2;//register_code
-    @NonNull
+    @Nullable
     public String re_msg;//register server return message
-    @NonNull
+    @Nullable
     public String phoneNumber;//login account number
-    @NonNull
+
     public int id;//kdy_id serverUserCpID
-    @NonNull
-    public int[] ids;
-    @NonNull
+    @Nullable
+    public int[] ids;//login id
+    @Nullable
     public int[] logisticsId;
-    @NonNull
+    @Nullable
     public int[] smsCount;
-    @NonNull
+    @Nullable
     public String[] logisticsName;
-    @NonNull
+
     public int s_length;
-    @NonNull
-    public int[] idss;
-    @NonNull
+    @Nullable
+    public int[] idss;//select id
+    @Nullable
     public String[] logisticsNames;
-    @NonNull
+
     public int s_lengths;
     @NonNull
     public int[] index = new int[100];//array index logistic id
