@@ -1,21 +1,62 @@
 package com.example.transportclient.ui.login;
 
+import androidx.annotation.NonNull;
+
 public class ParamBean {
-    String phone;
-    String code;
-    String createTime;
-    int smsNumber = 0;
-    int id = 0;
+    private String phone;
+    private String code;
+    private String createTime;
+    private int smsNumber;
+    private int id;
+    private int logisticsId;
+    private int serviceUserCpId;
+    private int smsCount;
+
+    public ParamBean(int id, int logisticsId, int serviceUserCpId, int smsCount) {
+        this.id = id;
+        this.logisticsId = logisticsId;
+        this.serviceUserCpId = serviceUserCpId;
+        this.smsCount = smsCount;
+    }
+
+    public ParamBean(int logisticsId, int serviceUserCpId) {
+        this.logisticsId = logisticsId;
+        this.serviceUserCpId = serviceUserCpId;
+    }
+
+    public ParamBean(@NonNull String createTime, int id, @NonNull String phone, int smsNumber) {
+        this.phone = phone;
+        this.createTime = createTime;
+        this.smsNumber = smsNumber;
+        this.id = id;
+    }
+
+    public int getSmsCount() {
+        return smsCount;
+    }
 
     public ParamBean() {
 
     }
 
-    public ParamBean(String createTime, int id, String phone, int smsNumber) {
-        this.phone = phone;
-        this.createTime = createTime;
-        this.smsNumber = smsNumber;
-        this.id = id;
+    public void setSmsCount(int smsCount) {
+        this.smsCount = smsCount;
+    }
+
+    public int getlogisticsId() {
+        return logisticsId;
+    }
+
+    public void setlogisticsId(int logisticsId) {
+        this.logisticsId = logisticsId;
+    }
+
+    public int getserviceUserCpId() {
+        return serviceUserCpId;
+    }
+
+    public void setserviceUserCpId(int serviceUserCpId) {
+        this.serviceUserCpId = serviceUserCpId;
     }
 
     public ParamBean(String code) {

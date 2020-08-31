@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.transportclient.APPData;
 import com.example.transportclient.PayActivity;
 import com.example.transportclient.PayHistoryActivity;
 import com.example.transportclient.PayRecordActivity;
@@ -34,6 +35,10 @@ public class DashboardFragment extends Fragment {
         TextView czxq = root.findViewById(R.id.txt_history);
         Button logout = root.findViewById(R.id.logut_btn);
         ImageView my = root.findViewById(R.id.my_im);
+        TextView txt_login_number = root.findViewById(R.id.txt_login_account);
+        //show login account number
+        APPData appData = (APPData) getActivity().getApplicationContext();
+        txt_login_number.setText(appData.phoneNumber);
 
         my.setOnClickListener(new View.OnClickListener() {
             @Override

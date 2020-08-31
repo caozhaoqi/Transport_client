@@ -80,6 +80,7 @@ public class LoginActivity extends AppCompatActivity {
                 call2.enqueue(new Callback() {
                     @Override
                     public void onFailure(Call call, IOException e) {
+                        Toast.makeText(LoginActivity.this, "internet error", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -205,7 +206,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 //调用查询id接口
 
-                String param3 = usernameEditText.getText().toString();
+                final String param3 = usernameEditText.getText().toString();
                 ParamBean paramBean = new ParamBean();
                 //获取服务器data数据 为json形式
                 Gson gson = new Gson();
@@ -222,6 +223,7 @@ public class LoginActivity extends AppCompatActivity {
                 call2.enqueue(new Callback() {
                     @Override
                     public void onFailure(Call call, IOException e) {
+                        Toast.makeText(LoginActivity.this, "internet error", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -237,6 +239,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             APPData appData = (APPData) getApplicationContext();
                             appData.id = id;
+                            appData.phoneNumber = param3;
 
                         } catch (JSONException ex) {
 
@@ -282,6 +285,7 @@ public class LoginActivity extends AppCompatActivity {
                 call.enqueue(new Callback() {
                     @Override
                     public void onFailure(Call call, IOException e) {
+                        Toast.makeText(LoginActivity.this, "internet error", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override

@@ -38,16 +38,22 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
 
         Intent i = getIntent();
         String companyName = i.getStringExtra("companyName");
-        if (companyName.equals("圆通")) {
+        assert companyName != null;
+        switch (companyName) {
+            case "圆通":
 
-            cm.setText("圆通");
-        } else if (companyName.equals("韵达")) {
-            cm.setText("韵达");
-        } else if (companyName.equals("中通")) {
+                cm.setText("圆通");
+                break;
+            case "韵达":
+                cm.setText("韵达");
+                break;
+            case "中通":
 
-            cm.setText("中通");
-        } else {
-            cm.setText(companyName);
+                cm.setText("中通");
+                break;
+            default:
+                cm.setText(companyName);
+                break;
         }
 
         scan = findViewById(R.id.scan_btn_yt);
