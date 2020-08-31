@@ -25,10 +25,12 @@ public class APPData extends Application {
     public String[] logisticsName;
     @NonNull
     public int s_length;
-   @NonNull
-   public int[] idss;
-   @NonNull
-   public String[] logisticsNames;
-   @NonNull
-   public int s_lengths;
+    @NonNull
+    public int[] idss;
+    @NonNull
+    public String[] logisticsNames;
+    @NonNull
+    public int s_lengths;
+    @NonNull
+    public int[] index = new int[100];//array index logistic id
 }

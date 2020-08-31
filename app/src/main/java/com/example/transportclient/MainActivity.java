@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(MainActivity.this, YTActivity.class);
-                    intent.putExtra("kdgsc", appData.logisticsName[index]);
+                    intent.putExtra("companyName", appData.logisticsName[index]);
                     startActivity(intent);
                 }
             });

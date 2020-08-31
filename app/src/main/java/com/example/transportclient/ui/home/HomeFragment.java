@@ -44,7 +44,6 @@ public class HomeFragment extends Fragment {
 
     View root;
 
-
     @NonNull
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @NonNull ViewGroup container, @NonNull Bundle savedInstanceState) {
@@ -68,7 +67,7 @@ public class HomeFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(getContext(), YTActivity.class);
-                    intent.putExtra("kdgsc", appData.logisticsName[index]);
+                    intent.putExtra("companyName", appData.logisticsName[index]);
                     startActivity(intent);
                 }
             });
@@ -80,7 +79,7 @@ public class HomeFragment extends Fragment {
         im.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                int[] index = new int[100];//record click add company count
                 try {
                     showSingleAlertDialog();
                 } catch (Exception e) {
@@ -95,11 +94,12 @@ public class HomeFragment extends Fragment {
 
     /**
      * show dialog
+     *
+     * @param
+     * @return null
      */
 
-    public void showSingleAlertDialog() {
-
-        final int[] index = new int[100];
+    public void showSingleAlertDialog() throws Exception {
 
         final APPData appData = (APPData) getContext().getApplicationContext();
         final String[] items = appData.logisticsNames;
@@ -117,44 +117,55 @@ public class HomeFragment extends Fragment {
 
                 int logisticsId = appData.id;
                 int servicesUserCpId = appData.idss[i];
-                index[i] += 1;
+                APPData appData1 = (APPData) getActivity().getApplicationContext();
+                appData1.index[i] += 1;
                 int id = 0;
                 int smsCount = 0;
                 addCompany(id, logisticsId, servicesUserCpId, smsCount);
 
-                if (index[i] > 1) {
+                if (appData1.index[i] > 1) {
 
                     Toast.makeText(getContext(), "已经添加", Toast.LENGTH_SHORT).show();
-                    button.setVisibility(View.INVISIBLE);
+                    //  button.setVisibility(View.INVISIBL
+                    if (getActivity().isFinishing()) {
+                        System.exit(0);
+                    }
 
-                    // alertBuilder.getContext().set
+                } else {
+
+                    //第一次添加
+                    button.setText(cm);
+                    linearLayout.addView(button);
+
+                    button.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+
+                            // TODO other
+                            Intent i = new Intent(getContext(), YTActivity.class);
+                            i.putExtra("companyName", button.getText().toString());
+                            startActivity(i);
+
+                        }
+                    });
                 }
 
-                //第一次添加
-                button.setText(cm);
-                linearLayout.addView(button);
-
-                button.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                        // TODO other
-                        Intent i = new Intent(getContext(), YTActivity.class);
-                        i.putExtra("companyName", button.getText().toString());
-                        startActivity(i);
-
-                    }
-                });
             }
         });
-        // if (getActivity().isFinishing()) {
-
 
         alertBuilder.show();
 
-        //}
-
     }
+
+    /**
+     * *
+     *
+     * @param id
+     * @param logisticsId
+     * @param servicesUserCpId
+     * @param smsCount
+     * @return null
+     */
 
     void addCompany(int id, int logisticsId, int servicesUserCpId, int smsCount) {
         String url2 = "http://" + Constant.IP + ":" + Constant.PORT + "" +
