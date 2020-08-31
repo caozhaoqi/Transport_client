@@ -3,6 +3,7 @@ package com.example.transportclient.ui.login;
 import androidx.annotation.NonNull;
 
 public class ParamBean {
+
     private String phone;
     private String code;
     private String createTime;
@@ -59,20 +60,21 @@ public class ParamBean {
         this.serviceUserCpId = serviceUserCpId;
     }
 
-    public ParamBean(String code) {
+    public ParamBean(@NonNull String code) {
         this.code = code;
     }
 
-    public ParamBean(String phone, String code) {
+    public ParamBean(@NonNull String phone, @NonNull String code) {
         this.phone = phone;
         this.code = code;
     }
 
+    @NonNull
     public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(String createTime) {
+    public void setCreateTime(@NonNull String createTime) {
         this.createTime = createTime;
     }
 
@@ -92,19 +94,21 @@ public class ParamBean {
         this.id = id;
     }
 
+    @NonNull
     public String getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(@NonNull String phone) {
         this.phone = phone;
     }
 
+    @NonNull
     public String getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(@NonNull String code) {
         this.code = code;
     }
 }

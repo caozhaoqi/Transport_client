@@ -25,7 +25,8 @@
     <string name="sendTotal">发送总条数：</string>
     <string name="_111">111条</string>
     <string name="qhm_">取货码</string>
-    <string name="sms1">【遵旨】您的圆通快递快件已经到达</string>
+    <string name="sms1">【遵旨】您的</string>
+    <string name="sms11">快递快件已经到达</string>
     <string name="sms2">请输入快递点地址</string>
     <string name="sms3">请尽快来取，快递员电话</string>
     <string name="sms4">请输入电话</string>

@@ -1,5 +1,6 @@
 package com.example.transportclient.ui.main;
 
+import androidx.annotation.NonNull;
 import androidx.arch.core.util.Function;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -20,6 +21,7 @@ public class PageViewModel extends ViewModel {
         mIndex.setValue(index);
     }
 
+    @NonNull
     public LiveData<String> getText() {
         return mText;
     }

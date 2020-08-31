@@ -1,5 +1,8 @@
 package com.example.transportclient.data;
 
+import androidx.annotation.NonNull;
+
+
 /**
  * A generic class that holds a result success w/ data or an error exception.
  */
@@ -7,6 +10,7 @@ public class Result<T> {
     // hide the private constructor to limit subclass types (Success, Error)
     private Result() {
     }
+
 
     @Override
     public String toString() {
@@ -41,6 +45,7 @@ public class Result<T> {
             this.error = error;
         }
 
+        @NonNull
         public Exception getError() {
             return this.error;
         }

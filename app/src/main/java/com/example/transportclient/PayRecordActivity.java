@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.widget.AbsListView;
 import android.widget.ListView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
@@ -12,10 +13,10 @@ import java.util.List;
 public class PayRecordActivity extends AppCompatActivity {
 
     ListView mListView;
-    List list;
+    List<String> list;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@NonNull Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay_record);
 
@@ -25,7 +26,7 @@ public class PayRecordActivity extends AppCompatActivity {
     }
 
     private void initListView() {
-        list = new ArrayList<>();
+        list = new ArrayList<String>();
         for (int i = 0; i < 30; i++) {
             list.add(" " + i);
         }

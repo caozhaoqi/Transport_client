@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.example.transportclient.APPData;
 import com.example.transportclient.PayActivity;
@@ -22,12 +21,10 @@ import com.example.transportclient.ui.login.LoginActivity;
 
 public class DashboardFragment extends Fragment {
 
-    private DashboardViewModel dashboardViewModel;
-
+    @NonNull
     public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel.class);
+                             @NonNull ViewGroup container, @NonNull Bundle savedInstanceState) {
+
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
         final TextView textView = root.findViewById(R.id.home_txt);
         TextView cj = root.findViewById(R.id.cj);

@@ -1,5 +1,6 @@
 package com.example.transportclient;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -126,7 +127,11 @@ public class PayHistoryActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * @param date getDate
+     */
     private String getTimes(Date date) {//可根据需要自行截取数据显示
+        @SuppressLint("SimpleDateFormat")
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         return format.format(date);
     }

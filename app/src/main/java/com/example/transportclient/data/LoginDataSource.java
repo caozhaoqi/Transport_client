@@ -1,5 +1,8 @@
 package com.example.transportclient.data;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.example.transportclient.data.model.LoggedInUser;
 
 import java.io.IOException;
@@ -9,7 +12,8 @@ import java.io.IOException;
  */
 public class LoginDataSource {
 
-    public Result<LoggedInUser> login(String username, String password) {
+    @Nullable
+    public Result<LoggedInUser> login(@NonNull String username, @NonNull String password) {
 
         try {
             // TODO: handle loggedInUser authentication

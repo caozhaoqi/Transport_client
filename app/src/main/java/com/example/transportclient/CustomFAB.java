@@ -16,6 +16,7 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.ImageButton;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
 @SuppressLint("AppCompatCustomView")
@@ -26,26 +27,26 @@ public class CustomFAB extends ImageButton {
     private int bgColorPressed;
 
 
-    public CustomFAB(Context context) {
+    public CustomFAB(@NonNull Context context) {
         super(context);
         this.ctx = context;
         init(null);
     }
 
-    public CustomFAB(Context context, AttributeSet attrs) {
+    public CustomFAB(@NonNull Context context, @NonNull AttributeSet attrs) {
         super(context, attrs);
         this.ctx = context;
         init(attrs);
     }
 
-    public CustomFAB(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CustomFAB(@NonNull Context context, @NonNull AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.ctx = context;
         init(attrs);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    public CustomFAB(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public CustomFAB(@NonNull Context context, @NonNull AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         this.ctx = context;
         init(attrs);
@@ -63,15 +64,14 @@ public class CustomFAB extends ImageButton {
         sd1.setShaderFactory(new ShapeDrawable.ShaderFactory() {
             @Override
             public Shader resize(int width, int height) {
-                LinearGradient lg = new LinearGradient(0, 0, 0, height,
+
+                return new LinearGradient(0, 0, 0, height,
                         new int[]{
                                 Color.WHITE,
                                 Color.GRAY,
                                 Color.DKGRAY,
                                 Color.BLACK
                         }, null, Shader.TileMode.REPEAT);
-
-                return lg;
             }
         });
 
@@ -94,7 +94,7 @@ public class CustomFAB extends ImageButton {
             sld.addState(new int[]{android.R.attr.state_pressed}, createButton(bgColorPressed));
             sld.addState(new int[]{}, createButton(bgColor));
             setBackground(sld);
-        } catch (Throwable t) {
+        } catch (Throwable ignored) {
         } finally {
             arr.recycle();
         }

@@ -1,5 +1,7 @@
 package com.example.transportclient.data;
 
+import androidx.annotation.NonNull;
+
 import com.example.transportclient.data.model.LoggedInUser;
 
 /**
@@ -21,7 +23,8 @@ public class LoginRepository {
         this.dataSource = dataSource;
     }
 
-    public static LoginRepository getInstance(LoginDataSource dataSource) {
+    @NonNull
+    public static LoginRepository getInstance(@NonNull LoginDataSource dataSource) {
         if (instance == null) {
             instance = new LoginRepository(dataSource);
         }
@@ -43,12 +46,14 @@ public class LoginRepository {
         // @see https://developer.android.com/training/articles/keystore
     }
 
-    public Result<LoggedInUser> login(String username, String password) {
+    @NonNull
+    public Result<LoggedInUser> login(@NonNull String username, @NonNull String password) {
         // handle login
         Result<LoggedInUser> result = dataSource.login(username, password);
         if (result instanceof Result.Success) {
             setLoggedInUser(((Result.Success<LoggedInUser>) result).getData());
         }
+        assert result != null;
         return result;
     }
 }

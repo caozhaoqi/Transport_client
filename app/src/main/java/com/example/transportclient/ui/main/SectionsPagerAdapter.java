@@ -2,6 +2,7 @@ package com.example.transportclient.ui.main;
 
 import android.content.Context;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
@@ -20,11 +21,12 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2};
     private final Context mContext;
 
-    public SectionsPagerAdapter(Context context, FragmentManager fm) {
+    public SectionsPagerAdapter(@NonNull Context context, @NonNull FragmentManager fm) {
         super(fm);
         mContext = context;
     }
 
+    @NonNull
     @Override
     public Fragment getItem(int position) {
         // getItem is called to instantiate the fragment for the given page.

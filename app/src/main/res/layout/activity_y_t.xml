@@ -124,6 +124,21 @@
             </TextView>
 
             <EditText
+                android:id="@+id/edt_kd_fs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/app_name">
+
+            </EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sms11">
+
+            </TextView>
+
+            <EditText
                 android:id="@+id/input_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

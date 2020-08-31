@@ -71,6 +71,12 @@ public class ScanActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
+
     protected void onActivityResult(int requestCode, int resultCode, Intent
 
             data) {
@@ -81,9 +87,7 @@ public class ScanActivity extends AppCompatActivity {
             if (data != null) {
 
                 String content = data.getStringExtra(Constant.CODED_CONTENT);
-//                edt_scan_number.setText(String.format("%s", content));
-//                scan_result = content;
-//                kdgspd(scan_result);
+
             }
         }
     }

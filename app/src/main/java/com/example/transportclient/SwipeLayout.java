@@ -202,7 +202,7 @@ public class SwipeLayout extends FrameLayout {
         boolean result = mViewDragHelper.shouldInterceptTouchEvent(ev);
 
         //如果当前有打开的，则需要直接拦截，交给onTouch处理
-        if (!SwipeLayoutManager.getInstance().isShouldSwipe(this)) {
+        if (SwipeLayoutManager.getInstance().isShouldSwipe(this)) {
             //先关闭已经打开的layout
             SwipeLayoutManager.getInstance().closeCurrentLayout();
             result = true;
@@ -213,7 +213,7 @@ public class SwipeLayout extends FrameLayout {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         //如果当前有打开的，就不能再打开新的，要先关闭已经打开的,才能打开新的，则下面的逻辑不能执行
-        if (!SwipeLayoutManager.getInstance().isShouldSwipe(this)) {
+        if (SwipeLayoutManager.getInstance().isShouldSwipe(this)) {
             requestDisallowInterceptTouchEvent(true);  //listview不能滑动
             return true;
         }

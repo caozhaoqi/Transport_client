@@ -1,5 +1,6 @@
 package com.example.transportclient.ui.login;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -118,8 +119,11 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        /*
+        /**
+         * @deprecated date 2020 08 21
+         *
          * register api
+         *
          * */
 //        TextView re = findViewById(R.id.register_re);
 //        re.setOnClickListener(new View.OnClickListener() {
@@ -200,6 +204,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         loginButton.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SyntheticAccessor")
             @Override
             public void onClick(View v) {
                 loadingProgressBar.setVisibility(View.VISIBLE);
@@ -264,7 +269,12 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * @since 2020 08 20
+     */
+
     private void initHomeData() {
+
         APPData appData = (APPData) getApplicationContext();
         String code = passwordEditText.getText().toString();
         if (code.equals(appData.code)) {
@@ -347,12 +357,18 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * @param model fragment model
+     **/
     private void updateUiWithUser(LoggedInUserView model) {
         String welcome = getString(R.string.welcome) + model.getDisplayName();
         // TODO : initiate successful logged in experience
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
     }
 
+    /**
+     * @param errorString error
+     */
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }

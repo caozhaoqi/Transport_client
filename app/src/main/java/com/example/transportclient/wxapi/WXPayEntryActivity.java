@@ -3,6 +3,7 @@ package com.example.transportclient.wxapi;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.transportclient.R;
@@ -18,7 +19,7 @@ public class WXPayEntryActivity extends AppCompatActivity implements IWXAPIEvent
     private IWXAPI iwxapi;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@NonNull Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // 由第三方App个性化展示支付结果
         setContentView(R.layout.activity_w_x_pay_entry);
@@ -29,14 +30,14 @@ public class WXPayEntryActivity extends AppCompatActivity implements IWXAPIEvent
     }
 
     @Override
-    protected void onNewIntent(Intent intent) {
+    protected void onNewIntent(@NonNull Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
         iwxapi.handleIntent(intent, this);
     }
 
     @Override
-    public void onReq(BaseReq baseReq) {
+    public void onReq(@NonNull BaseReq baseReq) {
 
     }
 
@@ -44,7 +45,7 @@ public class WXPayEntryActivity extends AppCompatActivity implements IWXAPIEvent
      * TODO 微信支付回调
      */
     @Override
-    public void onResp(BaseResp baseResp) {
+    public void onResp(@NonNull BaseResp baseResp) {
 
         int errCode = baseResp.errCode;
 

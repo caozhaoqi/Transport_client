@@ -8,6 +8,7 @@ import android.telephony.gsm.SmsManager;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -25,7 +26,7 @@ public class DetailActivity extends AppCompatActivity {
     private static final int SEND_SMS = 100;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@NonNull Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
@@ -48,20 +49,18 @@ public class DetailActivity extends AppCompatActivity {
         });
     }
 
-    private void requestPermission() {
+    void requestPermission() {
         //判断Android版本是否大于23
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             int checkCallPhonePermission = ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE);
             if (checkCallPhonePermission != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS}, SEND_SMS);
-                return;
             } else {
                 sendSMSS();
                 //已有权限
             }
-        } else {
-            //API 版本在23以下
-        }
+        }  //API 版本在23以下
+
     }
 
     /**
@@ -72,18 +71,16 @@ public class DetailActivity extends AppCompatActivity {
      * @param grantResults 结果
      */
     @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        switch (requestCode) {
-            case SEND_SMS:
-                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    sendSMSS();
-                } else {
-                    // Permission Denied
-                    Toast.makeText(DetailActivity.this, "CALL_PHONE Denied", Toast.LENGTH_SHORT).show();
-                }
-                break;
-            default:
-                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == SEND_SMS) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                sendSMSS();
+            } else {
+                // Permission Denied
+                Toast.makeText(DetailActivity.this, "CALL_PHONE Denied", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 

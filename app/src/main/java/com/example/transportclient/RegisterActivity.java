@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.transportclient.ui.login.ParamBean;
@@ -32,7 +33,7 @@ public class RegisterActivity extends AppCompatActivity {
     Button re;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@NonNull Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 

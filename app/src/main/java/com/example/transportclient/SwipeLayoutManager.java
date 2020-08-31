@@ -1,5 +1,7 @@
 package com.example.transportclient;
 
+import androidx.annotation.NonNull;
+
 /**
  * 对SwipeLayout的管理类
  */
@@ -11,11 +13,12 @@ public class SwipeLayoutManager {
     private SwipeLayoutManager() {
     }
 
+    @NonNull
     public static SwipeLayoutManager getInstance() {
         return mInstance;
     }
 
-    public void setSwipeLayout(SwipeLayout layout) {
+    public void setSwipeLayout(@NonNull SwipeLayout layout) {
         this.currentLayout = layout;
     }
 
@@ -39,15 +42,15 @@ public class SwipeLayoutManager {
      * 判断当前是否应该能够滑动，如果没有打开的，则可以滑动。
      * 如果有打开的，则判断打开的layout和当前按下的layout是否是同一个,是同一个，可以滑动
      *
-     * @return
+     * @return boolean
      */
-    public boolean isShouldSwipe(SwipeLayout swipeLayout) {
+    public boolean isShouldSwipe(@NonNull SwipeLayout swipeLayout) {
         if (currentLayout == null) {
             //说明当前木有打开的layout
-            return true;
+            return false;
         } else { //说明有打开的layout
             //判断打开的layout和当前按下的layout是否是同一个
-            return currentLayout == swipeLayout;
+            return currentLayout != swipeLayout;
         }
     }
 }

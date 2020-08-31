@@ -1,5 +1,6 @@
 package com.example.transportclient;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
@@ -18,11 +20,11 @@ public class NYTActivity extends AppCompatActivity {
     CustomFAB customFAB;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@NonNull Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_n_y_t);
 
-        View convertView = LayoutInflater.from(this).inflate(R.layout.yt_list_item,
+        @SuppressLint("InflateParams") View convertView = LayoutInflater.from(this).inflate(R.layout.yt_list_item,
                 null);
         /*
          *
@@ -56,7 +58,7 @@ public class NYTActivity extends AppCompatActivity {
         int[] to = {R.id.phone_number};
         SimpleAdapter simp_ada = new SimpleAdapter(this, arr_data, R.layout.nyt_list_item, from, to);
 
-        ListView listView = (ListView) findViewById(R.id.yt_listview);
+        ListView listView = findViewById(R.id.yt_listview);
         listView.setAdapter(simp_ada);
 
 
