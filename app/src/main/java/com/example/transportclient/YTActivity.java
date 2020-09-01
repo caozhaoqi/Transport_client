@@ -46,7 +46,9 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
     TextView txt_get_code;
     String companyName;
     SimpleAdapter simp_ada;
+    TextView fsts_txt;
 
+    @SuppressLint("SetTextI18n")
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(@NonNull Bundle savedInstanceState) {
@@ -58,6 +60,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
         get_num = findViewById(R.id.get_num);
         get_num.setChecked(true);
         txt_get_code = findViewById(R.id.tx_get_code_yt);
+        fsts_txt = findViewById(R.id.fsts_txt);
         Intent i = getIntent();
         assert companyName != null;
         companyName = i.getStringExtra("companyName");
@@ -84,6 +87,9 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
 
 
         initData();
+        //show
+        // 对应的公司短信条数
+
         @SuppressLint("InflateParams") final View convertView = LayoutInflater.from(this).inflate(R.layout.yt_list_item,
                 null);
 
@@ -161,6 +167,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
                 // Toast.makeText(LoginActivity.this, "internet error", Toast.LENGTH_SHORT).show();
             }
 
+            @SuppressLint("SetTextI18n")
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String result2 = response.body().string();
@@ -182,6 +189,12 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
                     APPData appData = (APPData) getApplicationContext();
                     appData.smsCount_yt = smsCount;
                     appData.logisticName_yt = logisticsName;
+
+                    for (int k = 0; k < appData.logisticName_yt.length; k++) {
+                        if (appData.logisticName_yt[k].equals(companyName)) {
+                            fsts_txt.setText(appData.smsCount_yt[k] + "条");
+                        }
+                    }
                 } catch (JSONException ex) {
 
                     Log.e("JSON Error: ", ex.toString());

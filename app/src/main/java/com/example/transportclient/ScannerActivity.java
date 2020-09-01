@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
@@ -301,8 +302,11 @@ public class ScannerActivity extends AppCompatActivity implements Callback, Came
     public void onPictureTaken(@NonNull byte[] data, @NonNull Camera camera) {
         mCaptureActivityHandler.onPause();
         bmp = null;
-        bmp = Tools.getFocusedBitmap(this, camera, data, getCropRect());
-
+        try {
+            bmp = Tools.getFocusedBitmap(this, camera, data, getCropRect());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         TesseractThread mTesseractThread = new TesseractThread(bmp, new TesseractCallback() {
 
             @Override
@@ -359,6 +363,13 @@ public class ScannerActivity extends AppCompatActivity implements Callback, Came
                 restartPreview();
             }
         });
+        while (result != null) {
+            int i = 0;
+            APPData appData = (APPData) getApplicationContext();
+            appData.phoneNumber_scan[i] = result;
+            i++;
+        }
+        startActivity(new Intent(ScannerActivity.this, ScanActivity.class));
     }
 
     public void buildProgressDialog() {

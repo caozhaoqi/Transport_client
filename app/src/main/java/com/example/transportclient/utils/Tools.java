@@ -119,7 +119,8 @@ public class Tools {
         return scaledBitmap;
     }
 
-    public static Bitmap getFocusedBitmap(Context context, Camera camera, byte[] data, Rect box) {
+    public static Bitmap getFocusedBitmap(Context context, Camera camera, byte[] data, Rect box) throws
+            Exception {
         Point ScrRes = ScreenUtils.getScreenResolution(context);
         Point CamRes = CameraConfigurationUtils.findBestPreviewSizeValue(camera.getParameters(), ScrRes);
 

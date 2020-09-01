@@ -41,7 +41,7 @@ public class APPData extends Application {
     @NonNull
     public String[] logisticName_yt;//get code page
     @NonNull
-    public String[] phoneNumber_scan;//add Phone
+    public String[] phoneNumber_scan = new String[100];//add Phone
     @NonNull
     public int[] qhm;//ahm
 

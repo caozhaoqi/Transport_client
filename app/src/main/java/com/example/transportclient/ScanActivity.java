@@ -3,6 +3,7 @@ package com.example.transportclient;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -19,6 +20,7 @@ public class ScanActivity extends AppCompatActivity {
 
     ImageView scan;
     ListView ls;
+    Button finish;
     private static final String TAG = "ScanActivity";
 
     @Override
@@ -26,15 +28,18 @@ public class ScanActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan);
 
+        APPData appData = (APPData) getApplicationContext();
+
         scan = findViewById(R.id.scan);
         ls = findViewById(R.id.ls_sc);
+        finish = findViewById(R.id.finish);
 
         ArrayList<Map<String, Object>> arr_data = new ArrayList<>();
         // 新增数据
         for (int i5 = 0; i5 < 20; i5++) {
             Map map = new HashMap<String, Object>();
             //map放入两个键值对，键名与from对应，
-            map.put("pn", "13131313" + i5);
+            map.put("pn", appData.phoneNumber_scan);
 
             //往list添加数据
             arr_data.add(map);
@@ -63,6 +68,13 @@ public class ScanActivity extends AppCompatActivity {
 //                intent.putExtra(com.yzq.zxinglibrary.common.Constant.INTENT_ZXING_CONFIG, config);
 //                startActivityForResult(intent, REQUEST_CODE_SCAN);
 
+            }
+        });
+        finish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(ScanActivity.this, YTActivity.class);
+                startActivity(i);
             }
         });
 
