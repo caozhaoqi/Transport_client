@@ -9,10 +9,6 @@ import android.widget.SimpleAdapter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.yzq.zxinglibrary.android.CaptureActivity;
-import com.yzq.zxinglibrary.bean.ZxingConfig;
-import com.yzq.zxinglibrary.common.Constant;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,6 +19,7 @@ public class ScanActivity extends AppCompatActivity {
 
     ImageView scan;
     ListView ls;
+    private static final String TAG = "ScanActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,41 +51,21 @@ public class ScanActivity extends AppCompatActivity {
         scan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ScanActivity.this, CaptureActivity.class);
+                Intent intent = new Intent(ScanActivity.this, ScannerActivity.class);
 
-                ZxingConfig config = new ZxingConfig();
-                config.setShowbottomLayout(true);//底部布局（包括闪光灯和相册）
-                config.setPlayBeep(true);//是否播放提示音
-                config.setShake(true);//是否震动
-                config.setShowAlbum(true);//是否显示相册
-                config.setShowFlashLight(true);//是否显示闪光灯
-                intent.putExtra(com.yzq.zxinglibrary.common.Constant.INTENT_ZXING_CONFIG, config);
-                startActivityForResult(intent, REQUEST_CODE_SCAN);
+                startActivity(intent);
+//                ZxingConfig config = new ZxingConfig();
+//                config.setShowbottomLayout(true);//底部布局（包括闪光灯和相册）
+//                config.setPlayBeep(true);//是否播放提示音
+//                config.setShake(true);//是否震动
+//                config.setShowAlbum(true);//是否显示相册
+//                config.setShowFlashLight(true);//是否显示闪光灯
+//                intent.putExtra(com.yzq.zxinglibrary.common.Constant.INTENT_ZXING_CONFIG, config);
+//                startActivityForResult(intent, REQUEST_CODE_SCAN);
 
             }
         });
 
-
     }
 
-    /**
-     * @param requestCode
-     * @param resultCode
-     * @param data
-     */
-
-    protected void onActivityResult(int requestCode, int resultCode, Intent
-
-            data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        // 扫描二维码/条码回传
-        if (requestCode == REQUEST_CODE_SCAN && resultCode == RESULT_OK) {
-            if (data != null) {
-
-                String content = data.getStringExtra(Constant.CODED_CONTENT);
-
-            }
-        }
-    }
 }

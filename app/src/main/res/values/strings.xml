@@ -51,7 +51,8 @@
     <string name="qhmm">取货码</string>
     <string name="inq">请输入取货码</string>
     <string name="_12">12</string>
-    <string name="a_111">A 111</string>
+    <string name="a_111">A</string>
+    <string name="_222111">111</string>
     <string name="st">发送总条数：</string>
     <string name="phon">手机号</string>
     <string name="inad">请输入快递点地址</string>
@@ -63,6 +64,17 @@
     <string name="se">发送</string>
     <string name="personCenrral">个人中心</string>
     <string name="loginAccount">登陆账号：</string>
+    <!--扫一扫-->
+    <string name="title_activity_scan_qr_code">扫一扫</string>
+    <string name="close">关闭</string>
+    <string name="auto_scan_notification">将扫描内容放入框内，即可自动扫描</string>
+    <string name="notification">提示</string>
+    <string name="positive_button_confirm">确认</string>
+    <string name="could_not_read_qr_code_from_scanner">对不起，无法打开扫出的内容</string>
+    <string name="camera_not_found">未检测到相机</string>
+    <string name="is_qr_code_scanner">是否扫码 </string>
+    <string name="is_open_flashlight">是否打开闪光灯 </string>
+    <string name="take_photos">拍照识别号码</string>
     <string name="_1111111111">1111111111</string>
     <string name="_300">300</string>
     <string name="sy">剩余短信条数</string>

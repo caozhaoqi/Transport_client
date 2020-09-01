@@ -1,6 +1,7 @@
 package com.example.transportclient;
 
 import android.app.Application;
+import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -34,4 +35,21 @@ public class APPData extends Application {
     public int s_lengths;
     @NonNull
     public int[] index = new int[100];//array index logistic id
+    public static Context sAppContext;
+    @NonNull
+    public int[] smsCount_yt;//get_code page
+    @NonNull
+    public String[] logisticName_yt;//get code page
+    @NonNull
+    public String[] phoneNumber_scan;//add Phone
+    @NonNull
+    public int[] qhm;//ahm
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        sAppContext = this;
+
+    }
+
 }

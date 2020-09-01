@@ -249,6 +249,7 @@ public class LoginActivity extends AppCompatActivity {
                             appData.id = id;
                             appData.phoneNumber = param3;
 
+                            initHomeData();
                         } catch (JSONException ex) {
 
                             Log.e("JSON Error: ", ex.toString());
@@ -263,7 +264,7 @@ public class LoginActivity extends AppCompatActivity {
                 });
 
                 // call select data api
-                initHomeData();
+
 
             }
         });
@@ -276,19 +277,6 @@ public class LoginActivity extends AppCompatActivity {
     private void initHomeData() {
 
         APPData appData = (APPData) getApplicationContext();
-        String code = passwordEditText.getText().toString();
-        if (code.equals(appData.code)) {
-            Intent i = new Intent(LoginActivity.this, MainActivity.class);
-            String ids = String.valueOf(appData.id);
-            i.putExtra("id", ids);
-            startActivity(i);
-        } else {
-            Intent i = new Intent(LoginActivity.this, MainActivity.class);
-            String ids = String.valueOf(appData.id);
-            i.putExtra("id", ids);
-            startActivity(i);
-            Toast.makeText(LoginActivity.this, "验证码错误，请重新输入", Toast.LENGTH_SHORT).show();
-        }
 
 
         String serviceUserId = String.valueOf(appData.id);
@@ -342,6 +330,20 @@ public class LoginActivity extends AppCompatActivity {
                         appData.smsCount = smsCount;
                         appData.logisticsName = logisticsName;
                         appData.s_length = jsonArray.length();
+                        String code = passwordEditText.getText().toString();
+
+                        if (code.equals(appData.code)) {
+                            Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                            String ids = String.valueOf(appData.id);
+                            i.putExtra("id", ids);
+                            startActivity(i);
+                        } else {
+                            Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                            String ids = String.valueOf(appData.id);
+                            i.putExtra("id", ids);
+                            startActivity(i);
+                            Toast.makeText(LoginActivity.this, "验证码错误，请重新输入", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 } catch (JSONException ex) {
 
@@ -355,6 +357,7 @@ public class LoginActivity extends AppCompatActivity {
             }
 
         });
+
     }
 
     /**

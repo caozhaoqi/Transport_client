@@ -8,7 +8,10 @@ import androidx.annotation.NonNull;
  */
 public class Result<T> {
     // hide the private constructor to limit subclass types (Success, Error)
-    private Result() {
+    public Result() {
+    }
+
+    public Result(String result, Object o, Object o1, Object o2) {
     }
 
 

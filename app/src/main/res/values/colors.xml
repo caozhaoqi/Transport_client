@@ -4,4 +4,8 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="light_blue">@android:color/holo_blue_light</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="finder_mask">#80000000</color>
+    <color name="finder_frame">#FFFFFFFF</color>
+    <color name="finder_laser">#0db8f6</color>
 </resources>

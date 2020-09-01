@@ -33,14 +33,15 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'androidx.annotation:annotation:1.1.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation project(path: ':zxing')
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.github.open-android:ShoppingCartAddSubtract:0.1.0'
-    implementation 'com.github.yuzhiqiang1993:zxing:2.1.4'
     implementation 'com.github.codbking:CalendarExaple:v1.0.0'
     implementation 'com.contrarywind:Android-PickerView:3.2.7'
     implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:1.1.6'
     implementation 'com.google.code.gson:gson:2.6.2'
     implementation 'com.squareup.okhttp3:okhttp:3.4.1'
+    implementation 'com.rmtheis:tess-two:8.0.0'
 }

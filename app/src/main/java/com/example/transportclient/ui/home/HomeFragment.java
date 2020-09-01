@@ -72,6 +72,8 @@ public class HomeFragment extends Fragment {
         } catch (Exception e) {
 
             e.printStackTrace();
+            Toast.makeText(getActivity(), "网络错误", Toast.LENGTH_SHORT).show();
+
 
         }
         @SuppressLint("CutPasteId")
