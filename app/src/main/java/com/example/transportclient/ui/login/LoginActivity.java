@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Looper;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -231,7 +232,9 @@ public class LoginActivity extends AppCompatActivity {
                 call2.enqueue(new Callback() {
                     @Override
                     public void onFailure(Call call, IOException e) {
+                        Looper.prepare();
                         Toast.makeText(LoginActivity.this, "internet error", Toast.LENGTH_SHORT).show();
+                        System.out.println("error login");
                     }
 
                     @Override
@@ -271,7 +274,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     /**
+     *
      * @since 2020 08 20
+     *
      */
 
     private void initHomeData() {
@@ -351,6 +356,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 } catch (Exception e) {
 
+                    e.printStackTrace();
                 }
 
 
@@ -364,7 +370,7 @@ public class LoginActivity extends AppCompatActivity {
      * @param model fragment model
      **/
     private void updateUiWithUser(LoggedInUserView model) {
-        String welcome = getString(R.string.welcome) + model.getDisplayName();
+        String welcome = getString(R.string.welcome);// + model.getDisplayName();
         // TODO : initiate successful logged in experience
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
     }

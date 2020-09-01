@@ -35,6 +35,7 @@ public class APPData extends Application {
     public int s_lengths;
     @NonNull
     public int[] index = new int[100];//array index logistic id
+    @NonNull
     public static Context sAppContext;
     @NonNull
     public int[] smsCount_yt;//get_code page
@@ -44,6 +45,8 @@ public class APPData extends Application {
     public String[] phoneNumber_scan = new String[100];//add Phone
     @NonNull
     public int[] qhm;//ahm
+
+    public int i;//record add phone count
 
     @Override
     public void onCreate() {

@@ -95,14 +95,19 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
 
 
         final ArrayList<Map<String, Object>> arr_data = new ArrayList<>();
+        APPData appData = (APPData) getApplicationContext();
         // 新增数据
-        for (int i5 = 0; i5 < 1; i5++) {
-            Map map = new HashMap<String, Object>();
-            //map放入两个键值对，键名与from对应，
-            map.put("pn", "13131313" + i5);
+        try {
+            for (int i5 = 0; i5 < appData.i; i5++) {
+                Map map = new HashMap<String, Object>();
+                //map放入两个键值对，键名与from对应，
+                map.put("pn", appData.phoneNumber_scan[i5]);
 
-            //往list添加数据
-            arr_data.add(map);
+                //往list添加数据
+                arr_data.add(map);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         // 新建适配器 ，绑定数据

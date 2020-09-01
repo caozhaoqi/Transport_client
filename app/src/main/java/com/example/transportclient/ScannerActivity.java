@@ -99,6 +99,11 @@ public class ScannerActivity extends AppCompatActivity implements Callback, Came
         }
     }
 
+    /**
+     * @param requestCode  请求码
+     * @param grantResults 结果
+     * @param permissions  权限
+     */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -227,6 +232,9 @@ public class ScannerActivity extends AppCompatActivity implements Callback, Came
         }
     }
 
+    /**
+     * @param surfaceHolder 上级视图
+     */
     private void initCamera(SurfaceHolder surfaceHolder) {
         try {
             if (!CameraManager.get().openDriver(surfaceHolder)) {
@@ -258,10 +266,19 @@ public class ScannerActivity extends AppCompatActivity implements Callback, Came
         }
     }
 
+    /**
+     * @param format 格式
+     * @param height 高度
+     * @param holder 上级视图
+     * @param width  宽度
+     */
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
     }
 
+    /**
+     * @param holder 上级视图
+     */
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
         if (!mHasSurface) {
@@ -270,6 +287,9 @@ public class ScannerActivity extends AppCompatActivity implements Callback, Came
         }
     }
 
+    /**
+     * @param holder 上级视图
+     */
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
         mHasSurface = false;
@@ -279,6 +299,9 @@ public class ScannerActivity extends AppCompatActivity implements Callback, Came
         return mCaptureActivityHandler;
     }
 
+    /**
+     * @param result 返回结果
+     */
     private void handleResult(Result result) {
         if (TextUtils.isEmpty(result.getText())) {
             mDecodeManager.showCouldNotReadQrCodeFromScanner(this, new DecodeManager.OnRefreshCameraListener() {
@@ -298,8 +321,16 @@ public class ScannerActivity extends AppCompatActivity implements Callback, Came
         }
     }
 
+    /**
+     * @param data   得到数据
+     * @param camera 摄像机对象
+     */
     @Override
     public void onPictureTaken(@NonNull byte[] data, @NonNull Camera camera) {
+
+        if (data == null) {
+            return;
+        }
         mCaptureActivityHandler.onPause();
         bmp = null;
         try {
@@ -333,6 +364,9 @@ public class ScannerActivity extends AppCompatActivity implements Callback, Came
     public void onShutter() {
     }
 
+    /**
+     * @param result 返回结果
+     */
     private void qrSucceed(String result) {
         AlertDialog dialog = new AlertDialog.Builder(this).setTitle(R.string.notification)
                 .setMessage(result)
@@ -351,26 +385,32 @@ public class ScannerActivity extends AppCompatActivity implements Callback, Came
             }
         });
     }
-
-    void phoneSucceed(String result, Bitmap bitmap) {
+/**
+ * @param result 返回结果
+ * @param bitmap 拍照所得图片对象
+ * */
+void phoneSucceed(String result, Bitmap bitmap) {
         ImageDialog dialog = new ImageDialog(this);
         dialog.addBitmap(bitmap);
         dialog.addTitle(TextUtils.isEmpty(result) ? "未识别到手机号码" : result);
-        dialog.show();
-        dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+    dialog.addTitle(result.equals("") ? "未识别到手机号码" : result);
+    dialog.show();
+    dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialog) {
                 restartPreview();
             }
         });
-        while (result != null) {
-            int i = 0;
-            APPData appData = (APPData) getApplicationContext();
-            appData.phoneNumber_scan[i] = result;
-            i++;
-        }
+    while (!result.equals("")) {
+        int i = 0;
+        APPData appData = (APPData) getApplicationContext();
+        appData.phoneNumber_scan[i] = result;
         startActivity(new Intent(ScannerActivity.this, ScanActivity.class));
+        i++;
+        appData.i++;
     }
+
+}
 
     public void buildProgressDialog() {
         if (progressDialog == null) {
