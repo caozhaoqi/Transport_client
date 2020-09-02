@@ -12,12 +12,18 @@ import androidx.annotation.NonNull;
 import com.example.transportclient.R;
 
 
+/**
+ *
+ */
 public class ImageDialog extends Dialog {
 
     private Bitmap bmp;
 
     private String title;
 
+    /**
+     * @param context
+     */
     public ImageDialog(@NonNull Context context) {
         super(context);
     }
@@ -36,13 +42,16 @@ public class ImageDialog extends Dialog {
         return this;
     }
 
+    /**
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.image_dialog);
 
-        ImageView imageView = (ImageView) findViewById(R.id.image_dialog_imageView);
-        TextView textView = (TextView) findViewById(R.id.image_dialog_textView);
+        ImageView imageView = findViewById(R.id.image_dialog_imageView);
+        TextView textView = findViewById(R.id.image_dialog_textView);
 
         if (bmp != null) {
             imageView.setImageBitmap(bmp);
@@ -53,6 +62,9 @@ public class ImageDialog extends Dialog {
         }
     }
 
+    /**
+     *
+     */
     @Override
     public void dismiss() {
         bmp.recycle();

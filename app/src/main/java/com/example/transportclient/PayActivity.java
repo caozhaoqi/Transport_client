@@ -13,9 +13,15 @@ import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class PayActivity extends AppCompatActivity {
 
     ImageView wechat_pay;
+    @BindView(R.id.wechat_pay)
+    ImageView mWechatPay;
 
     public static void wechatPay(@NonNull Activity activity, @NonNull String appId,
                                  @NonNull String partnerId, @NonNull String prepayId,
@@ -43,10 +49,14 @@ public class PayActivity extends AppCompatActivity {
         wxapi.sendReq(request);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void onCreate(@NonNull Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay);
+        ButterKnife.bind(this);
 
         wechat_pay = findViewById(R.id.wechat_pay);
 
@@ -56,5 +66,15 @@ public class PayActivity extends AppCompatActivity {
                 wechatPay(PayActivity.this, "", "", "", "", "", "", "", "");
             }
         });
+    }
+
+    @OnClick(R.id.wechat_pay)
+    public void onClick(View v) {
+        switch (v.getId()) {
+            default:
+                break;
+            case R.id.wechat_pay:
+                break;
+        }
     }
 }

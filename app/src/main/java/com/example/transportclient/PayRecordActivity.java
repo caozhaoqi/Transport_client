@@ -12,8 +12,9 @@ import java.util.List;
 
 public class PayRecordActivity extends AppCompatActivity {
 
-    ListView mListView;
+
     List<String> list;
+    private ListView mListView;
 
     @Override
     protected void onCreate(@NonNull Bundle savedInstanceState) {
@@ -46,5 +47,8 @@ public class PayRecordActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void initView() {
     }
 }

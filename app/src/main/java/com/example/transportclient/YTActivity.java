@@ -35,6 +35,9 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+/**
+ *
+ */
 public class YTActivity extends AppCompatActivity implements SnappingStepperValueChangeListener {
 
 
@@ -48,6 +51,9 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
     SimpleAdapter simp_ada;
     TextView fsts_txt;
 
+    /**
+     * @param savedInstanceState
+     */
     @SuppressLint("SetTextI18n")
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -214,6 +220,9 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
     }
 
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void onValueChange(@NonNull View view, int value) {
 

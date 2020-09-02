@@ -14,6 +14,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class ScanActivity extends AppCompatActivity {
 
     private static final int REQUEST_CODE_SCAN = 123;
@@ -22,11 +26,18 @@ public class ScanActivity extends AppCompatActivity {
     ListView ls;
     Button finish;
     private static final String TAG = "ScanActivity";
+    @BindView(R.id.scan)
+    ImageView mScan;
+    @BindView(R.id.ls_sc)
+    ListView mLsSc;
+    @BindView(R.id.finish)
+    Button mFinish;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan);
+        ButterKnife.bind(this);
 
         APPData appData = (APPData) getApplicationContext();
 
@@ -74,7 +85,7 @@ public class ScanActivity extends AppCompatActivity {
 
             }
         });
-        finish.setOnClickListener(new View.OnClickListener() {
+        mFinish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(ScanActivity.this, YTActivity.class);
@@ -84,4 +95,17 @@ public class ScanActivity extends AppCompatActivity {
 
     }
 
+    @OnClick({R.id.scan, R.id.ls_sc, R.id.finish})
+    public void onClick(View v) {
+        switch (v.getId()) {
+            default:
+                break;
+            case R.id.scan:
+                break;
+            case R.id.ls_sc:
+                break;
+            case R.id.finish:
+                break;
+        }
+    }
 }

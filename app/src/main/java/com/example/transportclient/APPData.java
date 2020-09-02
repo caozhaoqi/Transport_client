@@ -6,6 +6,9 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+/**
+ *
+ */
 public class APPData extends Application {
     @Nullable
     public String code;//login_code
@@ -48,6 +51,9 @@ public class APPData extends Application {
 
     public int i;//record add phone count
 
+    /**
+     *
+     */
     @Override
     public void onCreate() {
         super.onCreate();

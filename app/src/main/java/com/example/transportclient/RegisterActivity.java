@@ -28,6 +28,9 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+import static com.example.transportclient.R.id;
+import static com.example.transportclient.R.layout;
+
 public class RegisterActivity extends AppCompatActivity {
 
     Button re;
@@ -35,27 +38,27 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@NonNull Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(layout.activity_register);
 
-        re = findViewById(R.id.register);
+        re = findViewById(id.register);
 
-        final TextView getCode = findViewById(R.id.code);
-        final TextView ph = findViewById(R.id.re_ph);
-        final TextView code = findViewById(R.id.tx_get_code_re);
+        final TextView getCode = findViewById(id.code);
+        final TextView ph = findViewById(id.re_ph);
+        final TextView code = findViewById(id.tx_get_code_re);
         code.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //获取手机号对应验证码
                 //Get请求
                 String param3 = ph.getText().toString();
-                ParamBean paramBean = new ParamBean();
+                //  ParamBean paramBean = new ParamBean();
                 //获取服务器data数据 为json形式
-                Gson gson = new Gson();
+                //    Gson gson = new Gson();
                 String url = "http://" + Constant.IP + ":" + Constant.PORT + "/server/send/sms?phone=" + param3;
-                String json = "";
+                //    String json = "";
                 OkHttpClient client = new OkHttpClient();
                 MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
-                RequestBody requestBody = FormBody.create(mediaType, json);
+                // RequestBody requestBody = FormBody.create(mediaType, json);
                 Request request = new Request.Builder()
                         .url(url)
                         //    .post(requestBody)
@@ -83,7 +86,7 @@ public class RegisterActivity extends AppCompatActivity {
                             Log.e("JSON Error: ", ex.toString());
 
                         } catch (Exception e) {
-
+                            e.printStackTrace();
                         }
 
 

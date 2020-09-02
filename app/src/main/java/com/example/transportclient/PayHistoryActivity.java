@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -21,6 +22,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class PayHistoryActivity extends AppCompatActivity {
 
 
@@ -30,12 +34,21 @@ public class PayHistoryActivity extends AppCompatActivity {
     TimePickerView pvTime;
     ListView listView;
     TextView send_fail;
+    @BindView(R.id.search)
+    Button mSearch;
+    @BindView(R.id.lisview_ph)
+    ListView mLisviewPh;
+    private TextView mDateItemPh;
+    private TextView mDatePhDe;
+    private TextView mSendSuccessful;
+    private TextView mSendFail;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay_history);
+        ButterKnife.bind(this);
 
         begin = findViewById(R.id.date_begin);
         end = findViewById(R.id.date_end);
@@ -136,4 +149,26 @@ public class PayHistoryActivity extends AppCompatActivity {
         return format.format(date);
     }
 
+    public void initView() {
+    }
+
+    @butterknife.OnClick({R.id.send_successful_ph, R.id.send_fail_ph, R.id.date_begin, R.id.date_end, R.id.search, R.id.lisview_ph})
+    public void onClick(View v) {
+        switch (v.getId()) {
+            default:
+                break;
+            case R.id.send_successful_ph:
+                break;
+            case R.id.send_fail_ph:
+                break;
+            case R.id.date_begin:
+                break;
+            case R.id.date_end:
+                break;
+            case R.id.search:
+                break;
+            case R.id.lisview_ph:
+                break;
+        }
+    }
 }

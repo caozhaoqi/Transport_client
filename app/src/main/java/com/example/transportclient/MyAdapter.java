@@ -10,7 +10,7 @@ import android.widget.Toast;
 import java.util.List;
 
 /**
- * Created by xiaoyehai on 2016/12/1.
+ * Created by czq on 2020/9/1.
  */
 public class MyAdapter extends BaseAdapter implements SwipeLayout.OnSwipeStateChangeListener {
 
