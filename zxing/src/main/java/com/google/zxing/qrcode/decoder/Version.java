@@ -449,18 +449,38 @@ public final class Version {
         };
     }
 
+    /**
+     * Getter for property 'versionNumber'.
+     *
+     * @return Value for property 'versionNumber'.
+     */
     public int getVersionNumber() {
         return versionNumber;
     }
 
+    /**
+     * Getter for property 'alignmentPatternCenters'.
+     *
+     * @return Value for property 'alignmentPatternCenters'.
+     */
     public int[] getAlignmentPatternCenters() {
         return alignmentPatternCenters;
     }
 
+    /**
+     * Getter for property 'totalCodewords'.
+     *
+     * @return Value for property 'totalCodewords'.
+     */
     public int getTotalCodewords() {
         return totalCodewords;
     }
 
+    /**
+     * Getter for property 'dimensionForVersion'.
+     *
+     * @return Value for property 'dimensionForVersion'.
+     */
     public int getDimensionForVersion() {
         return 17 + 4 * versionNumber;
     }
@@ -511,6 +531,9 @@ public final class Version {
         return bitMatrix;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String toString() {
         return String.valueOf(versionNumber);
@@ -531,10 +554,20 @@ public final class Version {
             this.ecBlocks = ecBlocks;
         }
 
+        /**
+         * Getter for property 'ECCodewordsPerBlock'.
+         *
+         * @return Value for property 'ECCodewordsPerBlock'.
+         */
         public int getECCodewordsPerBlock() {
             return ecCodewordsPerBlock;
         }
 
+        /**
+         * Getter for property 'numBlocks'.
+         *
+         * @return Value for property 'numBlocks'.
+         */
         public int getNumBlocks() {
             int total = 0;
             for (ECB ecBlock : ecBlocks) {
@@ -543,10 +576,20 @@ public final class Version {
             return total;
         }
 
+        /**
+         * Getter for property 'totalECCodewords'.
+         *
+         * @return Value for property 'totalECCodewords'.
+         */
         public int getTotalECCodewords() {
             return ecCodewordsPerBlock * getNumBlocks();
         }
 
+        /**
+         * Getter for property 'ECBlocks'.
+         *
+         * @return Value for property 'ECBlocks'.
+         */
         public ECB[] getECBlocks() {
             return ecBlocks;
         }
@@ -566,10 +609,20 @@ public final class Version {
             this.dataCodewords = dataCodewords;
         }
 
+        /**
+         * Getter for property 'count'.
+         *
+         * @return Value for property 'count'.
+         */
         public int getCount() {
             return count;
         }
 
+        /**
+         * Getter for property 'dataCodewords'.
+         *
+         * @return Value for property 'dataCodewords'.
+         */
         public int getDataCodewords() {
             return dataCodewords;
         }

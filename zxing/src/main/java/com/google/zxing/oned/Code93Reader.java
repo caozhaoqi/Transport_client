@@ -56,6 +56,9 @@ public final class Code93Reader extends OneDReader {
     private final StringBuilder decodeRowResult;
     private final int[] counters;
 
+    /**
+     * Constructs a new Code93Reader.
+     */
     public Code93Reader() {
         decodeRowResult = new StringBuilder(20);
         counters = new int[6];
@@ -183,6 +186,7 @@ public final class Code93Reader extends OneDReader {
         }
     }
 
+    /** {@inheritDoc} */
     @Override
     public Result decodeRow(int rowNumber, BitArray row, Map<DecodeHintType, ?> hints)
             throws NotFoundException, ChecksumException, FormatException {

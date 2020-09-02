@@ -30,6 +30,9 @@ public final class ChecksumException extends ReaderException {
         INSTANCE.setStackTrace(NO_TRACE); // since it's meaningless
     }
 
+    /**
+     * Do not instantiate ChecksumException.
+     */
     private ChecksumException() {
         // do nothing
     }
@@ -38,6 +41,11 @@ public final class ChecksumException extends ReaderException {
         super(cause);
     }
 
+    /**
+     * Getter for property 'checksumInstance'.
+     *
+     * @return Value for property 'checksumInstance'.
+     */
     public static ChecksumException getChecksumInstance() {
         return isStackTrace ? new ChecksumException() : INSTANCE;
     }

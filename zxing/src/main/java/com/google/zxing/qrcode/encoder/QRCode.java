@@ -34,6 +34,9 @@ public final class QRCode {
     private int maskPattern;
     private ByteMatrix matrix;
 
+    /**
+     * Constructs a new QRCode.
+     */
     public QRCode() {
         maskPattern = -1;
     }
@@ -43,46 +46,99 @@ public final class QRCode {
         return maskPattern >= 0 && maskPattern < NUM_MASK_PATTERNS;
     }
 
+    /**
+     * Getter for property 'mode'.
+     *
+     * @return Value for property 'mode'.
+     */
     public Mode getMode() {
         return mode;
     }
 
+    /**
+     * Setter for property 'mode'.
+     *
+     * @param value Value to set for property 'mode'.
+     */
     public void setMode(Mode value) {
         mode = value;
     }
 
+    /**
+     * Getter for property 'ECLevel'.
+     *
+     * @return Value for property 'ECLevel'.
+     */
     public ErrorCorrectionLevel getECLevel() {
         return ecLevel;
     }
 
+    /**
+     * Setter for property 'ECLevel'.
+     *
+     * @param value Value to set for property 'ECLevel'.
+     */
     public void setECLevel(ErrorCorrectionLevel value) {
         ecLevel = value;
     }
 
+    /**
+     * Getter for property 'version'.
+     *
+     * @return Value for property 'version'.
+     */
     public Version getVersion() {
         return version;
     }
 
+    /**
+     * Setter for property 'version'.
+     *
+     * @param version Value to set for property 'version'.
+     */
     public void setVersion(Version version) {
         this.version = version;
     }
 
+    /**
+     * Getter for property 'maskPattern'.
+     *
+     * @return Value for property 'maskPattern'.
+     */
     public int getMaskPattern() {
         return maskPattern;
     }
 
+    /**
+     * Setter for property 'maskPattern'.
+     *
+     * @param value Value to set for property 'maskPattern'.
+     */
     public void setMaskPattern(int value) {
         maskPattern = value;
     }
 
+    /**
+     * Getter for property 'matrix'.
+     *
+     * @return Value for property 'matrix'.
+     */
     public ByteMatrix getMatrix() {
         return matrix;
     }
 
+    /**
+     * Setter for property 'matrix'.
+     *
+     * @param value Value to set for property 'matrix'.
+     */
     public void setMatrix(ByteMatrix value) {
         matrix = value;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder(200);

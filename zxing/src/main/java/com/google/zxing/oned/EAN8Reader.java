@@ -29,10 +29,14 @@ public final class EAN8Reader extends UPCEANReader {
 
     private final int[] decodeMiddleCounters;
 
+    /**
+     * Constructs a new EAN8Reader.
+     */
     public EAN8Reader() {
         decodeMiddleCounters = new int[4];
     }
 
+    /** {@inheritDoc} */
     @Override
     protected int decodeMiddle(BitArray row,
                                int[] startRange,
@@ -67,6 +71,7 @@ public final class EAN8Reader extends UPCEANReader {
         return rowOffset;
     }
 
+    /** {@inheritDoc} */
     @Override
     BarcodeFormat getBarcodeFormat() {
         return BarcodeFormat.EAN_8;

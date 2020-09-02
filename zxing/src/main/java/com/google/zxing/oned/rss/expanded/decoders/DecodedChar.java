@@ -40,10 +40,20 @@ final class DecodedChar extends DecodedObject {
         this.value = value;
     }
 
+    /**
+     * Getter for property 'value'.
+     *
+     * @return Value for property 'value'.
+     */
     char getValue() {
         return this.value;
     }
 
+    /**
+     * Getter for property 'FNC1'.
+     *
+     * @return Value for property 'FNC1'.
+     */
     boolean isFNC1() {
         return this.value == FNC1;
     }

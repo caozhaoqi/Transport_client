@@ -30,10 +30,18 @@ public final class NotFoundException extends ReaderException {
         INSTANCE.setStackTrace(NO_TRACE); // since it's meaningless
     }
 
+    /**
+     * Do not instantiate NotFoundException.
+     */
     private NotFoundException() {
         // do nothing
     }
 
+    /**
+     * Getter for property 'notFoundInstance'.
+     *
+     * @return Value for property 'notFoundInstance'.
+     */
     public static NotFoundException getNotFoundInstance() {
         return INSTANCE;
     }

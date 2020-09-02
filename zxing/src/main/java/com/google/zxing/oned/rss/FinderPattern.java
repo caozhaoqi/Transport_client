@@ -36,18 +36,36 @@ public final class FinderPattern {
         };
     }
 
+    /**
+     * Getter for property 'value'.
+     *
+     * @return Value for property 'value'.
+     */
     public int getValue() {
         return value;
     }
 
+    /**
+     * Getter for property 'startEnd'.
+     *
+     * @return Value for property 'startEnd'.
+     */
     public int[] getStartEnd() {
         return startEnd;
     }
 
+    /**
+     * Getter for property 'resultPoints'.
+     *
+     * @return Value for property 'resultPoints'.
+     */
     public ResultPoint[] getResultPoints() {
         return resultPoints;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof FinderPattern)) {
@@ -57,6 +75,7 @@ public final class FinderPattern {
         return value == that.value;
     }
 
+    /** {@inheritDoc} */
     @Override
     public int hashCode() {
         return value;

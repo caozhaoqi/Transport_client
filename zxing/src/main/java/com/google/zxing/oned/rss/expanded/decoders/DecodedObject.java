@@ -37,6 +37,11 @@ abstract class DecodedObject {
         this.newPosition = newPosition;
     }
 
+    /**
+     * Getter for property 'newPosition'.
+     *
+     * @return Value for property 'newPosition'.
+     */
     final int getNewPosition() {
         return this.newPosition;
     }

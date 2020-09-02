@@ -67,6 +67,9 @@ public class Code93Writer extends OneDimensionalCodeWriter {
         return total % 47;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public BitMatrix encode(String contents,
                             BarcodeFormat format,
@@ -79,6 +82,7 @@ public class Code93Writer extends OneDimensionalCodeWriter {
         return super.encode(contents, format, width, height, hints);
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean[] encode(String contents) {
         int length = contents.length();

@@ -239,30 +239,34 @@ public final class RSSExpandedReader extends AbstractRSSReader {
     return !(pattern.getValue() == 0 && isOddPattern && leftChar);
   }
 
-  @Override
-  public Result decodeRow(int rowNumber,
-                          BitArray row,
-                          Map<DecodeHintType, ?> hints) throws NotFoundException, FormatException {
-    // Rows can start with even pattern in case in prev rows there where odd number of patters.
-    // So lets try twice
-    this.pairs.clear();
-    this.startFromEven = false;
-    try {
-      return constructResult(decodeRow2pairs(rowNumber, row));
-    } catch (NotFoundException e) {
-      // OK
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Result decodeRow(int rowNumber,
+                            BitArray row,
+                            Map<DecodeHintType, ?> hints) throws NotFoundException, FormatException {
+        // Rows can start with even pattern in case in prev rows there where odd number of patters.
+        // So lets try twice
+        this.pairs.clear();
+        this.startFromEven = false;
+        try {
+            return constructResult(decodeRow2pairs(rowNumber, row));
+        } catch (NotFoundException e) {
+            // OK
+        }
+
+        this.pairs.clear();
+        this.startFromEven = true;
+        return constructResult(decodeRow2pairs(rowNumber, row));
     }
 
-    this.pairs.clear();
-    this.startFromEven = true;
-    return constructResult(decodeRow2pairs(rowNumber, row));
-  }
-
-  @Override
-  public void reset() {
-    this.pairs.clear();
-    this.rows.clear();
-  }
+    /** {@inheritDoc} */
+    @Override
+    public void reset() {
+        this.pairs.clear();
+        this.rows.clear();
+    }
 
   // Not private for testing
   List<ExpandedPair> decodeRow2pairs(int rowNumber, BitArray row) throws NotFoundException {
@@ -384,27 +388,31 @@ public final class RSSExpandedReader extends AbstractRSSReader {
     // it will prevent us from detecting the barcode.
     // Try to merge partial rows
 
-    // Check whether the row is part of an allready detected row
-    if (isPartialRow(this.pairs, this.rows)) {
-      return;
+      // Check whether the row is part of an allready detected row
+      if (isPartialRow(this.pairs, this.rows)) {
+          return;
+      }
+
+      this.rows.add(insertPos, new ExpandedRow(this.pairs, rowNumber, wasReversed));
+
+      removePartialRows(this.pairs, this.rows);
+  }
+
+    /**
+     * Getter for property 'rows'.
+     *
+     * @return Value for property 'rows'.
+     */ // Only used for unit testing
+    List<ExpandedRow> getRows() {
+        return this.rows;
     }
 
-    this.rows.add(insertPos, new ExpandedRow(this.pairs, rowNumber, wasReversed));
+    private boolean checkChecksum() {
+        ExpandedPair firstPair = this.pairs.get(0);
+        DataCharacter checkCharacter = firstPair.getLeftChar();
+        DataCharacter firstCharacter = firstPair.getRightChar();
 
-    removePartialRows(this.pairs, this.rows);
-  }
-
-  // Only used for unit testing
-  List<ExpandedRow> getRows() {
-    return this.rows;
-  }
-
-  private boolean checkChecksum() {
-    ExpandedPair firstPair = this.pairs.get(0);
-    DataCharacter checkCharacter = firstPair.getLeftChar();
-    DataCharacter firstCharacter = firstPair.getRightChar();
-
-    if (firstCharacter == null) {
+        if (firstCharacter == null) {
       return false;
     }
 

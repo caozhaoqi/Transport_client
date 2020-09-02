@@ -50,6 +50,9 @@ public class HomeFragment extends Fragment {
     List<String> list = new ArrayList<>();
     APPData appData;
 
+    /**
+     * {@inheritDoc}
+     */
     @NonNull
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @NonNull ViewGroup container, @NonNull Bundle savedInstanceState) {

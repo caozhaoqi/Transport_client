@@ -17,10 +17,20 @@ public class PageViewModel extends ViewModel {
         }
     });
 
+    /**
+     * Setter for property 'index'.
+     *
+     * @param index Value to set for property 'index'.
+     */
     public void setIndex(int index) {
         mIndex.setValue(index);
     }
 
+    /**
+     * Getter for property 'text'.
+     *
+     * @return Value for property 'text'.
+     */
     @NonNull
     public LiveData<String> getText() {
         return mText;

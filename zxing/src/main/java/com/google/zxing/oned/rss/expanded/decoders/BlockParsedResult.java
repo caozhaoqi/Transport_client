@@ -44,10 +44,20 @@ final class BlockParsedResult {
         this.decodedInformation = information;
     }
 
+    /**
+     * Getter for property 'decodedInformation'.
+     *
+     * @return Value for property 'decodedInformation'.
+     */
     DecodedInformation getDecodedInformation() {
         return this.decodedInformation;
     }
 
+    /**
+     * Getter for property 'finished'.
+     *
+     * @return Value for property 'finished'.
+     */
     boolean isFinished() {
         return this.finished;
     }

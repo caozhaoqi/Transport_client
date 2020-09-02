@@ -92,10 +92,20 @@ public abstract class AbstractExpandedDecoder {
         throw new IllegalStateException("unknown decoder: " + information);
     }
 
+    /**
+     * Getter for property 'information'.
+     *
+     * @return Value for property 'information'.
+     */
     protected final BitArray getInformation() {
         return information;
     }
 
+    /**
+     * Getter for property 'generalDecoder'.
+     *
+     * @return Value for property 'generalDecoder'.
+     */
     protected final GeneralAppIdDecoder getGeneralDecoder() {
         return generalDecoder;
     }

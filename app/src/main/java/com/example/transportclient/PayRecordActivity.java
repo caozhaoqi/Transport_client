@@ -16,6 +16,9 @@ public class PayRecordActivity extends AppCompatActivity {
     List<String> list;
     private ListView mListView;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void onCreate(@NonNull Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

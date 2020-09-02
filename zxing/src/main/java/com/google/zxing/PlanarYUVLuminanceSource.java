@@ -62,6 +62,9 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public byte[] getRow(int y, byte[] row) {
         if (y < 0 || y >= getHeight()) {
@@ -76,6 +79,7 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
         return row;
     }
 
+    /** {@inheritDoc} */
     @Override
     public byte[] getMatrix() {
         int width = getWidth();
@@ -106,11 +110,13 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
         return matrix;
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean isCropSupported() {
         return true;
     }
 
+    /** {@inheritDoc} */
     @Override
     public LuminanceSource crop(int left, int top, int width, int height) {
         return new PlanarYUVLuminanceSource(yuvData,

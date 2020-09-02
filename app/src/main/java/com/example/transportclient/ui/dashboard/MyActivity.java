@@ -22,6 +22,9 @@ public class MyActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void onCreate(@NonNull Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +52,7 @@ public class MyActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean onCreateOptionsMenu(@NonNull Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -56,6 +60,7 @@ public class MyActivity extends AppCompatActivity {
         return true;
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);

@@ -73,6 +73,9 @@ public final class RGBLuminanceSource extends LuminanceSource {
         this.top = top;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public byte[] getRow(int y, byte[] row) {
         if (y < 0 || y >= getHeight()) {
@@ -87,6 +90,7 @@ public final class RGBLuminanceSource extends LuminanceSource {
         return row;
     }
 
+    /** {@inheritDoc} */
     @Override
     public byte[] getMatrix() {
         int width = getWidth();
@@ -117,11 +121,13 @@ public final class RGBLuminanceSource extends LuminanceSource {
         return matrix;
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean isCropSupported() {
         return true;
     }
 
+    /** {@inheritDoc} */
     @Override
     public LuminanceSource crop(int left, int top, int width, int height) {
         return new RGBLuminanceSource(luminances,

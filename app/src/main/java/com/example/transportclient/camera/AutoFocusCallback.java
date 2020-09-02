@@ -30,6 +30,9 @@ final class AutoFocusCallback implements Camera.AutoFocusCallback {
         this.mAutoFocusMessage = autoFocusMessage;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void onAutoFocus(boolean success, Camera camera) {
         if (mAutoFocusHandler != null) {

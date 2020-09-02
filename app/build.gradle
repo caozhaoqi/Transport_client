@@ -3,7 +3,10 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.1"
-
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
     defaultConfig {
         applicationId "com.example.transportclient"
         minSdkVersion 16
@@ -47,6 +50,6 @@ dependencies {
     debugImplementation 'com.idescout.sql:sqlscout-server:4.1'
     releaseImplementation 'com.idescout.sql:sqlscout-server-noop:4.1'
     //compile 'com.jakewharton:butterknife:8.8.1'
-    implementation 'com.jakewharton:butterknife:8.8.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation 'com.jakewharton:butterknife:10.2.3'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
 }

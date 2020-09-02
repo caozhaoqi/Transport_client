@@ -18,6 +18,9 @@ public class WXPayEntryActivity extends AppCompatActivity implements IWXAPIEvent
     private static final String APP_ID = "您应用的app_Id";
     private IWXAPI iwxapi;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void onCreate(@NonNull Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +32,7 @@ public class WXPayEntryActivity extends AppCompatActivity implements IWXAPIEvent
         iwxapi.handleIntent(getIntent(), this);
     }
 
+    /** {@inheritDoc} */
     @Override
     protected void onNewIntent(@NonNull Intent intent) {
         super.onNewIntent(intent);
@@ -36,6 +40,7 @@ public class WXPayEntryActivity extends AppCompatActivity implements IWXAPIEvent
         iwxapi.handleIntent(intent, this);
     }
 
+    /** {@inheritDoc} */
     @Override
     public void onReq(@NonNull BaseReq baseReq) {
 

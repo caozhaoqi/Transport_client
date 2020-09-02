@@ -87,6 +87,9 @@ public final class MultiFormatOneDReader extends OneDReader {
         this.readers = readers.toArray(new OneDReader[readers.size()]);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Result decodeRow(int rowNumber,
                             BitArray row,
@@ -102,6 +105,7 @@ public final class MultiFormatOneDReader extends OneDReader {
         throw NotFoundException.getNotFoundInstance();
     }
 
+    /** {@inheritDoc} */
     @Override
     public void reset() {
         for (Reader reader : readers) {

@@ -9,11 +9,19 @@ public class GalleryViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
+    /**
+     * Constructs a new GalleryViewModel.
+     */
     public GalleryViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is gallery fragment");
     }
 
+    /**
+     * Getter for property 'text'.
+     *
+     * @return Value for property 'text'.
+     */
     @NonNull
     public LiveData<String> getText() {
         return mText;

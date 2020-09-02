@@ -37,6 +37,9 @@ public final class Decoder {
 
     private final ReedSolomonDecoder rsDecoder;
 
+    /**
+     * Constructs a new Decoder.
+     */
     public Decoder() {
         rsDecoder = new ReedSolomonDecoder(GenericGF.QR_CODE_FIELD_256);
     }

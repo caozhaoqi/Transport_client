@@ -40,10 +40,20 @@ public final class FinderPattern extends ResultPoint {
         this.count = count;
     }
 
+    /**
+     * Getter for property 'estimatedModuleSize'.
+     *
+     * @return Value for property 'estimatedModuleSize'.
+     */
     public float getEstimatedModuleSize() {
         return estimatedModuleSize;
     }
 
+    /**
+     * Getter for property 'count'.
+     *
+     * @return Value for property 'count'.
+     */
     int getCount() {
         return count;
     }

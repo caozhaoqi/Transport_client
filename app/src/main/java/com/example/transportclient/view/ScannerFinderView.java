@@ -108,10 +108,18 @@ public final class ScannerFinderView extends RelativeLayout {
         }
     }
 
+    /**
+     * Getter for property 'rect'.
+     *
+     * @return Value for property 'rect'.
+     */
     public Rect getRect() {
         return mRect;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void onDraw(Canvas canvas) {
         if (isInEditMode()) {
@@ -212,6 +220,11 @@ public final class ScannerFinderView extends RelativeLayout {
         mHandler.sendEmptyMessageDelayed(1, ANIMATION_DELAY);
     }
 
+    /**
+     * Getter for property 'touchListener'.
+     *
+     * @return Value for property 'touchListener'.
+     */
     private OnTouchListener getTouchListener() {
 
         if (touchListener == null) {
@@ -341,6 +354,7 @@ public final class ScannerFinderView extends RelativeLayout {
         mFrameRect = new Rect(leftOffset, topOffset, leftOffset + newWidth, topOffset + newHeight);
     }
 
+    /** {@inheritDoc} */
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();

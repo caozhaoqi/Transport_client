@@ -115,6 +115,11 @@ public enum DecodeHintType {
         this.valueType = valueType;
     }
 
+    /**
+     * Getter for property 'valueType'.
+     *
+     * @return Value for property 'valueType'.
+     */
     public Class<?> getValueType() {
         return valueType;
     }

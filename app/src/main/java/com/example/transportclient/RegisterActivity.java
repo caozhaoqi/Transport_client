@@ -35,6 +35,9 @@ public class RegisterActivity extends AppCompatActivity {
 
     Button re;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void onCreate(@NonNull Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -112,6 +112,11 @@ public enum CharacterSetECI {
         return NAME_TO_ECI.get(name);
     }
 
+    /**
+     * Getter for property 'value'.
+     *
+     * @return Value for property 'value'.
+     */
     public int getValue() {
         return values[0];
     }

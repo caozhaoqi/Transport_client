@@ -232,6 +232,9 @@ public final class Code128Reader extends OneDReader {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Result decodeRow(int rowNumber, BitArray row, Map<DecodeHintType, ?> hints)
             throws NotFoundException, FormatException, ChecksumException {

@@ -26,6 +26,9 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         mContext = context;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @NonNull
     @Override
     public Fragment getItem(int position) {
@@ -34,12 +37,14 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         return PlaceholderFragment.newInstance(position + 1);
     }
 
+    /** {@inheritDoc} */
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
         return mContext.getResources().getString(TAB_TITLES[position]);
     }
 
+    /** {@inheritDoc} */
     @Override
     public int getCount() {
         // Show 2 total pages.

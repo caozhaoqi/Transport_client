@@ -58,6 +58,9 @@ final class DecodeHandler extends Handler {
     }
 
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void handleMessage(Message message) {
         switch (message.what) {

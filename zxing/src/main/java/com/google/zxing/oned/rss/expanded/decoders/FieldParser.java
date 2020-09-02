@@ -187,6 +187,9 @@ final class FieldParser {
             {"8200", VARIABLE_LENGTH, 70},
     };
 
+    /**
+     * Do not instantiate FieldParser.
+     */
     private FieldParser() {
     }
 

@@ -144,19 +144,37 @@ public final class Result {
         }
     }
 
+    /**
+     * Getter for property 'timestamp'.
+     *
+     * @return Value for property 'timestamp'.
+     */
     public long getTimestamp() {
         return timestamp;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String toString() {
         return text;
     }
 
+    /**
+     * Getter for property 'bitmap'.
+     *
+     * @return Value for property 'bitmap'.
+     */
     public Bitmap getBitmap() {
         return bitmap;
     }
 
+    /**
+     * Setter for property 'bitmap'.
+     *
+     * @param bitmap Value to set for property 'bitmap'.
+     */
     public void setBitmap(Bitmap bitmap) {
         this.bitmap = bitmap;
     }

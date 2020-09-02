@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -51,20 +52,54 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
     SimpleAdapter simp_ada;
     TextView fsts_txt;
 
+    TextView mMsgBegin;//begin
+
+    EditText mEdtKdFs;//快递公司
+
+    TextView mKdydl;//快递已到达
+
+    EditText mInputAddress;//输入快递地址
+
+    TextView mUseCode;//使用取件码
+
+    EditText mInputGetnum;//输入取件码
+
+    TextView mKdydgh;//输入快递员电话提示信息
+
+    EditText mInputPh;//得到快递员电话
+
+    TextView mYiyuan;//使用一元代取快递
+    String msg;//send msg
+
+    Button mSend;
+    EditText getnum_edt;
+
     /**
      * @param savedInstanceState
      */
-    @SuppressLint("SetTextI18n")
+    @SuppressLint({"SetTextI18n", "CutPasteId"})
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(@NonNull Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_y_t);
 
+        mMsgBegin = findViewById(R.id.msg_begin);
+        mEdtKdFs = findViewById(R.id.edt_kd_fs);
+        mKdydl = findViewById(R.id.kdydl);
+        mInputAddress = findViewById(R.id.input_address);
+        mUseCode = findViewById(R.id.useCode);
+        mInputGetnum = findViewById(R.id.input_getnum);
+        mKdydgh = findViewById(R.id.kdydgh);
+        mInputPh = findViewById(R.id.input_ph);
+        mYiyuan = findViewById(R.id.yiyuan);
+        mSend = findViewById(R.id.send);
+
         TextView cm = findViewById(R.id.companyName);
         kd_cm = findViewById(R.id.edt_kd_fs);
         get_num = findViewById(R.id.get_num);
         get_num.setChecked(true);
+        getnum_edt = findViewById(R.id.getNum_edt_num);
         txt_get_code = findViewById(R.id.tx_get_code_yt);
         fsts_txt = findViewById(R.id.fsts_txt);
         Intent i = getIntent();
@@ -112,6 +147,9 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
                 //往list添加数据
                 arr_data.add(map);
             }
+            String msg = String.valueOf(appData.i);
+            getnum_edt.setText(msg);
+            System.out.println(msg);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -149,7 +187,26 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
             }
         });
 
+        mSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                YTActivity.this.onClick();
+            }
+        });
 
+    }
+
+    /**
+     * @param
+     */
+
+    public void onClick() {
+
+        msg = mMsgBegin.getText().toString() + mEdtKdFs.getText().toString() + mKdydl.getText().toString()
+                + mInputAddress.getText().toString() + mUseCode.getText().toString() +
+                mInputGetnum.getText().toString() + mKdydgh.getText().toString() +
+                mInputPh.getText().toString() + mYiyuan.getText().toString();
+        System.out.println(msg);
     }
 
     /**
@@ -227,5 +284,51 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
     public void onValueChange(@NonNull View view, int value) {
 
 
+    }
+
+
+    public void onClick(View v) {
+        switch (v.getId()) {
+            default:
+                break;
+            case R.id.companyName:
+                break;
+            case R.id.get_num:
+                break;
+            case R.id.today_date:
+                break;
+            case R.id.getNum_edt:
+                break;
+            case R.id.getNum_edt_num:
+                break;
+            case R.id.fsts_txt:
+                break;
+            case R.id.tx_get_code_yt:
+                break;
+            case R.id.yt_listview:
+                break;
+            case R.id.msg_begin:
+                break;
+            case R.id.edt_kd_fs:
+                break;
+            case R.id.kdydl:
+                break;
+            case R.id.input_address:
+                break;
+            case R.id.useCode:
+                break;
+            case R.id.input_getnum:
+                break;
+            case R.id.kdydgh:
+                break;
+            case R.id.input_ph:
+                break;
+            case R.id.yiyuan:
+                break;
+            case R.id.send:
+                break;
+            case R.id.scan_btn_yt:
+                break;
+        }
     }
 }

@@ -15,6 +15,9 @@ public class TessEngine {
 
     static final String TAG = "DBG_" + TessEngine.class.getName();
 
+    /**
+     * Do not instantiate TessEngine.
+     */
     private TessEngine() {
     }
 

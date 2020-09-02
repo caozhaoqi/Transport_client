@@ -10,14 +10,27 @@ public class SwipeLayoutManager {
     private static SwipeLayoutManager mInstance = new SwipeLayoutManager();
     private SwipeLayout currentLayout; //用来记录当前打开的SwipeLayout
 
+    /**
+     * Do not instantiate SwipeLayoutManager.
+     */
     private SwipeLayoutManager() {
     }
 
+    /**
+     * Getter for property 'instance'.
+     *
+     * @return Value for property 'instance'.
+     */
     @NonNull
     public static SwipeLayoutManager getInstance() {
         return mInstance;
     }
 
+    /**
+     * Setter for property 'swipeLayout'.
+     *
+     * @param layout Value to set for property 'swipeLayout'.
+     */
     public void setSwipeLayout(@NonNull SwipeLayout layout) {
         this.currentLayout = layout;
     }

@@ -29,19 +29,33 @@ public class DataCharacter {
         this.checksumPortion = checksumPortion;
     }
 
+    /**
+     * Getter for property 'value'.
+     *
+     * @return Value for property 'value'.
+     */
     public final int getValue() {
         return value;
     }
 
+    /**
+     * Getter for property 'checksumPortion'.
+     *
+     * @return Value for property 'checksumPortion'.
+     */
     public final int getChecksumPortion() {
         return checksumPortion;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public final String toString() {
         return value + "(" + checksumPortion + ')';
     }
 
+    /** {@inheritDoc} */
     @Override
     public final boolean equals(Object o) {
         if (!(o instanceof DataCharacter)) {
@@ -51,6 +65,7 @@ public class DataCharacter {
         return value == that.value && checksumPortion == that.checksumPortion;
     }
 
+    /** {@inheritDoc} */
     @Override
     public final int hashCode() {
         return value ^ checksumPortion;

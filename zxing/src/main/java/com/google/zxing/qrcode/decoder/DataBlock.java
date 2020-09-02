@@ -111,10 +111,20 @@ final class DataBlock {
         return result;
     }
 
+    /**
+     * Getter for property 'numDataCodewords'.
+     *
+     * @return Value for property 'numDataCodewords'.
+     */
     int getNumDataCodewords() {
         return numDataCodewords;
     }
 
+    /**
+     * Getter for property 'codewords'.
+     *
+     * @return Value for property 'codewords'.
+     */
     byte[] getCodewords() {
         return codewords;
     }

@@ -15,11 +15,21 @@ public class LoggedInUser {
         this.displayName = displayName;
     }
 
+    /**
+     * Getter for property 'userId'.
+     *
+     * @return Value for property 'userId'.
+     */
     @NonNull
     public String getUserId() {
         return userId;
     }
 
+    /**
+     * Getter for property 'displayName'.
+     *
+     * @return Value for property 'displayName'.
+     */
     @NonNull
     public String getDisplayName() {
         return displayName;

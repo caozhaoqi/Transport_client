@@ -24,11 +24,40 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-/**
+/*
  *
+ *     Copyright (c) 2020 czq <16602629614@163.com>
+ *     Github：https://github.com/1120118968
+ *
+ *     Licensed under the Apache License, Version 2.0 (the "License");
+ *     you may not use this file except in compliance with the License.
+ *     You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *     Unless required by applicable law or agreed to in writing, software
+ *     distributed under the License is distributed on an "AS IS" BASIS,
+ *     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *     See the License for the specific language governing permissions and
+ *     limitations under the License.
+ *     @author czq
+ * 作者：czq
+ * 创建时间：2020/9/2 11:39 <p>
+ * 描述：
+ *  @name TranSportClient
+ * @class name：PACKAGE_NAME
+ * @class describe
+ * @author Administrator QQ:1150118968
+ * @time 2020/9/2 12:00
+ * @change
+ * @chang time
+ * @class describe
  */
 public class MainActivity extends AppCompatActivity {
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,10 +75,11 @@ public class MainActivity extends AppCompatActivity {
         ////调用快递公司data
         companySelect();
 
+
     }
 
     /**
-     * select all delver company
+     * select all transport company
      */
 
     public void companySelect() {

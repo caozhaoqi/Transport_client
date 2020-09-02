@@ -33,6 +33,9 @@ public final class ITFWriter extends OneDimensionalCodeWriter {
     private static final int[] START_PATTERN = {1, 1, 1, 1};
     private static final int[] END_PATTERN = {3, 1, 1};
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public BitMatrix encode(String contents,
                             BarcodeFormat format,
@@ -46,6 +49,7 @@ public final class ITFWriter extends OneDimensionalCodeWriter {
         return super.encode(contents, format, width, height, hints);
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean[] encode(String contents) {
         int length = contents.length();

@@ -145,12 +145,17 @@ public abstract class OneDReader implements Reader {
         return totalVariance / total;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Result decode(BinaryBitmap image) throws NotFoundException, FormatException {
         return decode(image, null);
     }
 
-    // Note that we don't try rotation without the try harder flag, even if rotation was supported.
+    /**
+     * {@inheritDoc}
+     */ // Note that we don't try rotation without the try harder flag, even if rotation was supported.
     @Override
     public Result decode(BinaryBitmap image,
                          Map<DecodeHintType, ?> hints) throws NotFoundException, FormatException {
@@ -185,6 +190,7 @@ public abstract class OneDReader implements Reader {
         }
     }
 
+    /** {@inheritDoc} */
     @Override
     public void reset() {
         // do nothing

@@ -26,10 +26,20 @@ final class Pair extends DataCharacter {
         this.finderPattern = finderPattern;
     }
 
+    /**
+     * Getter for property 'finderPattern'.
+     *
+     * @return Value for property 'finderPattern'.
+     */
     FinderPattern getFinderPattern() {
         return finderPattern;
     }
 
+    /**
+     * Getter for property 'count'.
+     *
+     * @return Value for property 'count'.
+     */
     int getCount() {
         return count;
     }

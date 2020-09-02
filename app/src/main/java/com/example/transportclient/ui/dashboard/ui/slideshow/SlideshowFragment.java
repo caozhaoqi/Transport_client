@@ -17,6 +17,9 @@ import com.example.transportclient.R;
 
 public class SlideshowFragment extends Fragment {
 
+    /**
+     * {@inheritDoc}
+     */
     @NonNull
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @NonNull ViewGroup container, @NonNull Bundle savedInstanceState) {

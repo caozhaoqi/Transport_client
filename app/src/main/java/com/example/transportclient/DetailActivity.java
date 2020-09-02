@@ -25,6 +25,9 @@ public class DetailActivity extends AppCompatActivity {
 
     private static final int SEND_SMS = 100;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void onCreate(@NonNull Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

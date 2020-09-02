@@ -69,7 +69,7 @@ public class PayActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.wechat_pay)
-    public void onClick(View v) {
+    public void onClick(@NonNull View v) {
         switch (v.getId()) {
             default:
                 break;

@@ -67,6 +67,9 @@ public final class CodaBarReader extends OneDReader {
     private int[] counters;
     private int counterLength;
 
+    /**
+     * Constructs a new CodaBarReader.
+     */
     public CodaBarReader() {
         decodeRowResult = new StringBuilder(20);
         counters = new int[80];
@@ -84,6 +87,7 @@ public final class CodaBarReader extends OneDReader {
         return false;
     }
 
+    /** {@inheritDoc} */
     @Override
     public Result decodeRow(int rowNumber, BitArray row, Map<DecodeHintType, ?> hints) throws NotFoundException {
 

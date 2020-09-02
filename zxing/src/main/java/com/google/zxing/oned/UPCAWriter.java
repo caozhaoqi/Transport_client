@@ -33,12 +33,16 @@ public final class UPCAWriter implements Writer {
 
     private final EAN13Writer subWriter = new EAN13Writer();
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public BitMatrix encode(String contents, BarcodeFormat format, int width, int height)
             throws WriterException {
         return encode(contents, format, width, height, null);
     }
 
+    /** {@inheritDoc} */
     @Override
     public BitMatrix encode(String contents,
                             BarcodeFormat format,

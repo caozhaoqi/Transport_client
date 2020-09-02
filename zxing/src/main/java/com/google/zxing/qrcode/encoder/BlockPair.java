@@ -26,10 +26,20 @@ final class BlockPair {
         errorCorrectionBytes = errorCorrection;
     }
 
+    /**
+     * Getter for property 'dataBytes'.
+     *
+     * @return Value for property 'dataBytes'.
+     */
     public byte[] getDataBytes() {
         return dataBytes;
     }
 
+    /**
+     * Getter for property 'errorCorrectionBytes'.
+     *
+     * @return Value for property 'errorCorrectionBytes'.
+     */
     public byte[] getErrorCorrectionBytes() {
         return errorCorrectionBytes;
     }

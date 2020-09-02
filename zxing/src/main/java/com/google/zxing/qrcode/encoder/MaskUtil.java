@@ -29,6 +29,9 @@ final class MaskUtil {
     private static final int N3 = 40;
     private static final int N4 = 10;
 
+    /**
+     * Do not instantiate MaskUtil.
+     */
     private MaskUtil() {
         // do nothing
     }

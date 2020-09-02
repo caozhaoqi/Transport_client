@@ -32,14 +32,27 @@ public final class Dimension {
         this.height = height;
     }
 
+    /**
+     * Getter for property 'width'.
+     *
+     * @return Value for property 'width'.
+     */
     public int getWidth() {
         return width;
     }
 
+    /**
+     * Getter for property 'height'.
+     *
+     * @return Value for property 'height'.
+     */
     public int getHeight() {
         return height;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean equals(Object other) {
         if (other instanceof Dimension) {
@@ -49,11 +62,13 @@ public final class Dimension {
         return false;
     }
 
+    /** {@inheritDoc} */
     @Override
     public int hashCode() {
         return width * 32713 + height;
     }
 
+    /** {@inheritDoc} */
     @Override
     public String toString() {
         return width + "x" + height;

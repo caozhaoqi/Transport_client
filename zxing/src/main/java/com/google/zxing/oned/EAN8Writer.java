@@ -37,6 +37,9 @@ public final class EAN8Writer extends UPCEANWriter {
             (7 * 4) + // right bars
             3; // end guard
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public BitMatrix encode(String contents,
                             BarcodeFormat format,

@@ -13,6 +13,9 @@ import com.example.transportclient.data.LoginRepository;
  */
 public class LoginViewModelFactory implements ViewModelProvider.Factory {
 
+    /**
+     * {@inheritDoc}
+     */
     @NonNull
     @Override
     @SuppressWarnings("unchecked")

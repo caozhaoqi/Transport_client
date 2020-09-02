@@ -46,6 +46,9 @@ final class DecodedBitStreamParser {
             "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ $%*+-./:".toCharArray();
     private static final int GB2312_SUBSET = 1;
 
+    /**
+     * Do not instantiate DecodedBitStreamParser.
+     */
     private DecodedBitStreamParser() {
     }
 

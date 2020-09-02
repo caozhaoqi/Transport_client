@@ -229,6 +229,9 @@ public final class HybridBinarizer extends GlobalHistogramBinarizer {
         return matrix;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Binarizer createBinarizer(LuminanceSource source) {
         return new HybridBinarizer(source);

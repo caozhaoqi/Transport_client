@@ -52,6 +52,9 @@ public final class CameraManager {
     private boolean mPreviewing;
     private boolean useAutoFocus;
 
+    /**
+     * Do not instantiate CameraManager.
+     */
     private CameraManager() {
         this.mConfigManager = new CameraConfigurationManager();
         mPreviewCallback = new PreviewCallback(mConfigManager);

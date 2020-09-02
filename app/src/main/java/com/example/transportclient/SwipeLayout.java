@@ -164,6 +164,9 @@ public class SwipeLayout extends FrameLayout {
         mViewDragHelper = ViewDragHelper.create(this, callback);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
@@ -188,6 +191,7 @@ public class SwipeLayout extends FrameLayout {
         deleteWidth = deleteView.getMeasuredWidth();
     }
 
+    /** {@inheritDoc} */
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         //摆放contentView
@@ -196,6 +200,7 @@ public class SwipeLayout extends FrameLayout {
         deleteView.layout(contentView.getRight(), 0, contentView.getRight() + deleteWidth, deleteHeight);
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         // 让ViewDragHelper帮我们判断是否应该拦截
@@ -210,6 +215,7 @@ public class SwipeLayout extends FrameLayout {
         return result;
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         //如果当前有打开的，就不能再打开新的，要先关闭已经打开的,才能打开新的，则下面的逻辑不能执行
@@ -266,6 +272,9 @@ public class SwipeLayout extends FrameLayout {
         ViewCompat.postInvalidateOnAnimation(SwipeLayout.this);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void computeScroll() {
         super.computeScroll();
@@ -275,6 +284,11 @@ public class SwipeLayout extends FrameLayout {
         }
     }
 
+    /**
+     * Setter for property 'onSwipeStateChangeListener'.
+     *
+     * @param listener Value to set for property 'onSwipeStateChangeListener'.
+     */
     public void setOnSwipeStateChangeListener(OnSwipeStateChangeListener listener) {
         this.listener = listener;
     }

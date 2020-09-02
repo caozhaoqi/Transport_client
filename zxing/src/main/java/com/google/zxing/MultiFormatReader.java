@@ -135,6 +135,9 @@ public final class MultiFormatReader implements Reader {
         this.readers = readers.toArray(new Reader[readers.size()]);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void reset() {
         if (readers != null) {

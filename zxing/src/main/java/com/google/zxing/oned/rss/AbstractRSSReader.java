@@ -39,6 +39,9 @@ public abstract class AbstractRSSReader extends OneDReader {
     private final int[] oddCounts;
     private final int[] evenCounts;
 
+    /**
+     * Constructs a new AbstractRSSReader.
+     */
     protected AbstractRSSReader() {
         decodeFinderCounters = new int[4];
         dataCharacterCounters = new int[8];
@@ -114,26 +117,56 @@ public abstract class AbstractRSSReader extends OneDReader {
         return false;
     }
 
+    /**
+     * Getter for property 'decodeFinderCounters'.
+     *
+     * @return Value for property 'decodeFinderCounters'.
+     */
     protected final int[] getDecodeFinderCounters() {
         return decodeFinderCounters;
     }
 
+    /**
+     * Getter for property 'dataCharacterCounters'.
+     *
+     * @return Value for property 'dataCharacterCounters'.
+     */
     protected final int[] getDataCharacterCounters() {
         return dataCharacterCounters;
     }
 
+    /**
+     * Getter for property 'oddRoundingErrors'.
+     *
+     * @return Value for property 'oddRoundingErrors'.
+     */
     protected final float[] getOddRoundingErrors() {
         return oddRoundingErrors;
     }
 
+    /**
+     * Getter for property 'evenRoundingErrors'.
+     *
+     * @return Value for property 'evenRoundingErrors'.
+     */
     protected final float[] getEvenRoundingErrors() {
         return evenRoundingErrors;
     }
 
+    /**
+     * Getter for property 'oddCounts'.
+     *
+     * @return Value for property 'oddCounts'.
+     */
     protected final int[] getOddCounts() {
         return oddCounts;
     }
 
+    /**
+     * Getter for property 'evenCounts'.
+     *
+     * @return Value for property 'evenCounts'.
+     */
     protected final int[] getEvenCounts() {
         return evenCounts;
     }

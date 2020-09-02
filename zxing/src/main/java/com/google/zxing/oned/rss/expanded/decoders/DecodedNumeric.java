@@ -49,26 +49,56 @@ final class DecodedNumeric extends DecodedObject {
         this.secondDigit = secondDigit;
     }
 
+    /**
+     * Getter for property 'firstDigit'.
+     *
+     * @return Value for property 'firstDigit'.
+     */
     int getFirstDigit() {
         return this.firstDigit;
     }
 
+    /**
+     * Getter for property 'secondDigit'.
+     *
+     * @return Value for property 'secondDigit'.
+     */
     int getSecondDigit() {
         return this.secondDigit;
     }
 
+    /**
+     * Getter for property 'value'.
+     *
+     * @return Value for property 'value'.
+     */
     int getValue() {
         return this.firstDigit * 10 + this.secondDigit;
     }
 
+    /**
+     * Getter for property 'firstDigitFNC1'.
+     *
+     * @return Value for property 'firstDigitFNC1'.
+     */
     boolean isFirstDigitFNC1() {
         return this.firstDigit == FNC1;
     }
 
+    /**
+     * Getter for property 'secondDigitFNC1'.
+     *
+     * @return Value for property 'secondDigitFNC1'.
+     */
     boolean isSecondDigitFNC1() {
         return this.secondDigit == FNC1;
     }
 
+    /**
+     * Getter for property 'anyFNC1'.
+     *
+     * @return Value for property 'anyFNC1'.
+     */
     boolean isAnyFNC1() {
         return this.firstDigit == FNC1 || this.secondDigit == FNC1;
     }

@@ -97,6 +97,11 @@ public enum Mode {
         return characterCountBitsForVersions[offset];
     }
 
+    /**
+     * Getter for property 'bits'.
+     *
+     * @return Value for property 'bits'.
+     */
     public int getBits() {
         return bits;
     }

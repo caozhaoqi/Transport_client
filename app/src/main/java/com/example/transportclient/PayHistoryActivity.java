@@ -44,6 +44,9 @@ public class PayHistoryActivity extends AppCompatActivity {
     private TextView mSendFail;
 
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

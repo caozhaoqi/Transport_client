@@ -101,10 +101,20 @@ public class CustomFAB extends ImageButton {
 
     }
 
+    /**
+     * Setter for property 'bgColor'.
+     *
+     * @param color Value to set for property 'bgColor'.
+     */
     public void setBgColor(int color) {
         this.bgColor = color;
     }
 
+    /**
+     * Setter for property 'bgColorPressed'.
+     *
+     * @param color Value to set for property 'bgColorPressed'.
+     */
     public void setBgColorPressed(int color) {
         this.bgColorPressed = color;
     }

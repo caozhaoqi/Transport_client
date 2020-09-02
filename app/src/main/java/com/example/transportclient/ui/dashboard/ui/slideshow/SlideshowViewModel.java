@@ -9,11 +9,19 @@ public class SlideshowViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
+    /**
+     * Constructs a new SlideshowViewModel.
+     */
     public SlideshowViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is slideshow fragment");
     }
 
+    /**
+     * Getter for property 'text'.
+     *
+     * @return Value for property 'text'.
+     */
     @NonNull
     public LiveData<String> getText() {
         return mText;

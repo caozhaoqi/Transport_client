@@ -138,6 +138,9 @@ public final class BinaryBitmap {
         return new BinaryBitmap(binarizer.createBinarizer(newSource));
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String toString() {
         try {

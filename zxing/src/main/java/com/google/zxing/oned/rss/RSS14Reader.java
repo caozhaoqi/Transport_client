@@ -57,6 +57,9 @@ public final class RSS14Reader extends AbstractRSSReader {
     private final List<Pair> possibleLeftPairs;
     private final List<Pair> possibleRightPairs;
 
+    /**
+     * Constructs a new RSS14Reader.
+     */
     public RSS14Reader() {
         possibleLeftPairs = new ArrayList<>();
         possibleRightPairs = new ArrayList<>();
@@ -127,6 +130,7 @@ public final class RSS14Reader extends AbstractRSSReader {
         return checkValue == targetCheckValue;
     }
 
+    /** {@inheritDoc} */
     @Override
     public Result decodeRow(int rowNumber,
                             BitArray row,
@@ -149,6 +153,7 @@ public final class RSS14Reader extends AbstractRSSReader {
         throw NotFoundException.getNotFoundInstance();
     }
 
+    /** {@inheritDoc} */
     @Override
     public void reset() {
         possibleLeftPairs.clear();

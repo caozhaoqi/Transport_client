@@ -25,6 +25,9 @@ package com.google.zxing.oned;
  */
 public abstract class UPCEANWriter extends OneDimensionalCodeWriter {
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int getDefaultMargin() {
         // Use a different default more appropriate for UPC/EAN

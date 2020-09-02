@@ -100,14 +100,27 @@ public class ResultPoint {
         return ((pointC.x - bX) * (pointA.y - bY)) - ((pointC.y - bY) * (pointA.x - bX));
     }
 
+    /**
+     * Getter for property 'x'.
+     *
+     * @return Value for property 'x'.
+     */
     public final float getX() {
         return x;
     }
 
+    /**
+     * Getter for property 'y'.
+     *
+     * @return Value for property 'y'.
+     */
     public final float getY() {
         return y;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public final boolean equals(Object other) {
         if (other instanceof ResultPoint) {
@@ -117,11 +130,13 @@ public class ResultPoint {
         return false;
     }
 
+    /** {@inheritDoc} */
     @Override
     public final int hashCode() {
         return 31 * Float.floatToIntBits(x) + Float.floatToIntBits(y);
     }
 
+    /** {@inheritDoc} */
     @Override
     public final String toString() {
         return "(" + x + ',' + y + ')';

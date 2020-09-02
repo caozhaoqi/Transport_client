@@ -14,6 +14,9 @@ import com.example.transportclient.APPData;
  */
 public class ScreenUtils {
 
+    /**
+     * Do not instantiate ScreenUtils.
+     */
     private ScreenUtils() {
         throw new AssertionError();
     }

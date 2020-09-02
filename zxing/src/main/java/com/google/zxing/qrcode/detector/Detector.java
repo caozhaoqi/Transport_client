@@ -120,10 +120,20 @@ public class Detector {
         return dimension;
     }
 
+    /**
+     * Getter for property 'image'.
+     *
+     * @return Value for property 'image'.
+     */
     protected final BitMatrix getImage() {
         return image;
     }
 
+    /**
+     * Getter for property 'resultPointCallback'.
+     *
+     * @return Value for property 'resultPointCallback'.
+     */
     protected final ResultPointCallback getResultPointCallback() {
         return resultPointCallback;
     }

@@ -21,6 +21,9 @@ import com.example.transportclient.ui.login.LoginActivity;
 
 public class DashboardFragment extends Fragment {
 
+    /**
+     * {@inheritDoc}
+     */
     @NonNull
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @NonNull ViewGroup container, @NonNull Bundle savedInstanceState) {

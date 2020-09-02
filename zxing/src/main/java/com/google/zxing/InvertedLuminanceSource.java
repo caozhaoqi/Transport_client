@@ -31,6 +31,9 @@ public final class InvertedLuminanceSource extends LuminanceSource {
         this.delegate = delegate;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public byte[] getRow(int y, byte[] row) {
         row = delegate.getRow(y, row);
@@ -41,6 +44,7 @@ public final class InvertedLuminanceSource extends LuminanceSource {
         return row;
     }
 
+    /** {@inheritDoc} */
     @Override
     public byte[] getMatrix() {
         byte[] matrix = delegate.getMatrix();
@@ -52,16 +56,19 @@ public final class InvertedLuminanceSource extends LuminanceSource {
         return invertedMatrix;
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean isCropSupported() {
         return delegate.isCropSupported();
     }
 
+    /** {@inheritDoc} */
     @Override
     public LuminanceSource crop(int left, int top, int width, int height) {
         return new InvertedLuminanceSource(delegate.crop(left, top, width, height));
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean isRotateSupported() {
         return delegate.isRotateSupported();
@@ -75,11 +82,13 @@ public final class InvertedLuminanceSource extends LuminanceSource {
         return delegate;
     }
 
+    /** {@inheritDoc} */
     @Override
     public LuminanceSource rotateCounterClockwise() {
         return new InvertedLuminanceSource(delegate.rotateCounterClockwise());
     }
 
+    /** {@inheritDoc} */
     @Override
     public LuminanceSource rotateCounterClockwise45() {
         return new InvertedLuminanceSource(delegate.rotateCounterClockwise45());

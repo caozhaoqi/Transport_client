@@ -103,7 +103,9 @@ public class GlobalHistogramBinarizer extends Binarizer {
         return bestValley << LUMINANCE_SHIFT;
     }
 
-    // Applies simple sharpening to the row data to improve performance of the 1D Readers.
+    /**
+     * {@inheritDoc}
+     */ // Applies simple sharpening to the row data to improve performance of the 1D Readers.
     @Override
     public BitArray getBlackRow(int y, BitArray row) throws NotFoundException {
         LuminanceSource source = getLuminanceSource();
@@ -145,7 +147,9 @@ public class GlobalHistogramBinarizer extends Binarizer {
         return row;
     }
 
-    // Does not sharpen the data, as this call is intended to only be used by 2D Readers.
+    /**
+     * {@inheritDoc}
+     */ // Does not sharpen the data, as this call is intended to only be used by 2D Readers.
     @Override
     public BitMatrix getBlackMatrix() throws NotFoundException {
         LuminanceSource source = getLuminanceSource();
@@ -185,6 +189,7 @@ public class GlobalHistogramBinarizer extends Binarizer {
         return matrix;
     }
 
+    /** {@inheritDoc} */
     @Override
     public Binarizer createBinarizer(LuminanceSource source) {
         return new GlobalHistogramBinarizer(source);

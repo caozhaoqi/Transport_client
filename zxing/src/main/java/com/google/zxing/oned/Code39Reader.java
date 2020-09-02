@@ -237,6 +237,9 @@ public final class Code39Reader extends OneDReader {
         return decoded.toString();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Result decodeRow(int rowNumber, BitArray row, Map<DecodeHintType, ?> hints)
             throws NotFoundException, ChecksumException, FormatException {

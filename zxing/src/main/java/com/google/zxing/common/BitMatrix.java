@@ -370,6 +370,11 @@ public final class BitMatrix implements Cloneable {
         return new int[]{x, y};
     }
 
+    /**
+     * Getter for property 'bottomRightOnBit'.
+     *
+     * @return Value for property 'bottomRightOnBit'.
+     */
     public int[] getBottomRightOnBit() {
         int bitsOffset = bits.length - 1;
         while (bitsOffset >= 0 && bits[bitsOffset] == 0) {
@@ -413,6 +418,9 @@ public final class BitMatrix implements Cloneable {
         return rowSize;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof BitMatrix)) {
@@ -423,6 +431,7 @@ public final class BitMatrix implements Cloneable {
                 Arrays.equals(bits, other.bits);
     }
 
+    /** {@inheritDoc} */
     @Override
     public int hashCode() {
         int hash = width;
@@ -473,6 +482,7 @@ public final class BitMatrix implements Cloneable {
         return result.toString();
     }
 
+    /** {@inheritDoc} */
     @Override
     public BitMatrix clone() {
         return new BitMatrix(width, height, rowSize, bits.clone());

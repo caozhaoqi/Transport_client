@@ -50,14 +50,29 @@ final class DecodedInformation extends DecodedObject {
         this.newString = newString;
     }
 
+    /**
+     * Getter for property 'newString'.
+     *
+     * @return Value for property 'newString'.
+     */
     String getNewString() {
         return this.newString;
     }
 
+    /**
+     * Getter for property 'remaining'.
+     *
+     * @return Value for property 'remaining'.
+     */
     boolean isRemaining() {
         return this.remaining;
     }
 
+    /**
+     * Getter for property 'remainingValue'.
+     *
+     * @return Value for property 'remainingValue'.
+     */
     int getRemainingValue() {
         return this.remainingValue;
     }

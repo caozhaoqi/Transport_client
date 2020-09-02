@@ -42,6 +42,9 @@ public final class CaptureActivityHandler extends Handler {
         restartPreviewAndDecode();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void handleMessage(Message message) {
         switch (message.what) {

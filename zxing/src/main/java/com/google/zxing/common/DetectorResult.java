@@ -35,10 +35,20 @@ public class DetectorResult {
         this.points = points;
     }
 
+    /**
+     * Getter for property 'bits'.
+     *
+     * @return Value for property 'bits'.
+     */
     public final BitMatrix getBits() {
         return bits;
     }
 
+    /**
+     * Getter for property 'points'.
+     *
+     * @return Value for property 'points'.
+     */
     public final ResultPoint[] getPoints() {
         return points;
     }

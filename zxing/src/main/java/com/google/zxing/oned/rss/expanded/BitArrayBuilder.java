@@ -36,6 +36,9 @@ import java.util.List;
  */
 final class BitArrayBuilder {
 
+    /**
+     * Do not instantiate BitArrayBuilder.
+     */
     private BitArrayBuilder() {
     }
 

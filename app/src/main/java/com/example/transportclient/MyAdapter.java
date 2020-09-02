@@ -22,21 +22,27 @@ public class MyAdapter extends BaseAdapter implements SwipeLayout.OnSwipeStateCh
         this.list = list;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int getCount() {
         return list.size();
     }
 
+    /** {@inheritDoc} */
     @Override
     public Object getItem(int position) {
         return list.get(position);
     }
 
+    /** {@inheritDoc} */
     @Override
     public long getItemId(int position) {
         return position;
     }
 
+    /** {@inheritDoc} */
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
@@ -66,11 +72,13 @@ public class MyAdapter extends BaseAdapter implements SwipeLayout.OnSwipeStateCh
         return convertView;
     }
 
+    /** {@inheritDoc} */
     @Override
     public void onOpen(Object tag) {
         Toast.makeText(context, "第" + tag + "个打开", Toast.LENGTH_SHORT).show();
     }
 
+    /** {@inheritDoc} */
     @Override
     public void onClose(Object tag) {
         Toast.makeText(context, "第" + tag + "个关闭", Toast.LENGTH_SHORT).show();

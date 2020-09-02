@@ -29,10 +29,20 @@ public class TessDataManager {
     private static String tesseractFolder;
     private static boolean initiated;
 
+    /**
+     * Getter for property 'tesseractFolder'.
+     *
+     * @return Value for property 'tesseractFolder'.
+     */
     public static String getTesseractFolder() {
         return tesseractFolder;
     }
 
+    /**
+     * Getter for property 'trainedDataPath'.
+     *
+     * @return Value for property 'trainedDataPath'.
+     */
     public static String getTrainedDataPath() {
         return initiated ? trainedDataPath : null;
     }

@@ -37,11 +37,15 @@ final class AI013103decoder extends AI013x0xDecoder {
         super(information);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void addWeightCode(StringBuilder buf, int weight) {
         buf.append("(3103)");
     }
 
+    /** {@inheritDoc} */
     @Override
     protected int checkWeight(int weight) {
         return weight;

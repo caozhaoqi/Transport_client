@@ -22,10 +22,20 @@ public class LoginViewModel extends ViewModel {
         this.loginRepository = loginRepository;
     }
 
+    /**
+     * Getter for property 'loginFormState'.
+     *
+     * @return Value for property 'loginFormState'.
+     */
     LiveData<LoginFormState> getLoginFormState() {
         return loginFormState;
     }
 
+    /**
+     * Getter for property 'loginResult'.
+     *
+     * @return Value for property 'loginResult'.
+     */
     LiveData<LoginResult> getLoginResult() {
         return loginResult;
     }

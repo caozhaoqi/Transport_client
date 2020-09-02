@@ -30,6 +30,9 @@ public abstract class ReaderException extends Exception {
             System.getProperty("surefire.test.class.path") != null;
     protected static final StackTraceElement[] NO_TRACE = new StackTraceElement[0];
 
+    /**
+     * Constructs a new ReaderException.
+     */
     ReaderException() {
         // do nothing
     }
@@ -38,7 +41,9 @@ public abstract class ReaderException extends Exception {
         super(cause);
     }
 
-    // Prevent stack traces from being taken
+    /**
+     * {@inheritDoc}
+     */ // Prevent stack traces from being taken
     @Override
     public final synchronized Throwable fillInStackTrace() {
         return null;

@@ -31,6 +31,9 @@ public final class FormatException extends ReaderException {
         INSTANCE.setStackTrace(NO_TRACE); // since it's meaningless
     }
 
+    /**
+     * Do not instantiate FormatException.
+     */
     private FormatException() {
     }
 
@@ -38,6 +41,11 @@ public final class FormatException extends ReaderException {
         super(cause);
     }
 
+    /**
+     * Getter for property 'formatInstance'.
+     *
+     * @return Value for property 'formatInstance'.
+     */
     public static FormatException getFormatInstance() {
         return isStackTrace ? new FormatException() : INSTANCE;
     }

@@ -21,6 +21,9 @@ package com.google.zxing.common.detector;
  */
 public final class MathUtils {
 
+    /**
+     * Do not instantiate MathUtils.
+     */
     private MathUtils() {
     }
 

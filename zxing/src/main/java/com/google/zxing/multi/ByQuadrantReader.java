@@ -53,12 +53,16 @@ public final class ByQuadrantReader implements Reader {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Result decode(BinaryBitmap image)
             throws NotFoundException, ChecksumException, FormatException {
         return decode(image, null);
     }
 
+    /** {@inheritDoc} */
     @Override
     public Result decode(BinaryBitmap image, Map<DecodeHintType, ?> hints)
             throws NotFoundException, ChecksumException, FormatException {
@@ -107,6 +111,7 @@ public final class ByQuadrantReader implements Reader {
         return result;
     }
 
+    /** {@inheritDoc} */
     @Override
     public void reset() {
         delegate.reset();

@@ -207,6 +207,9 @@ public final class ITFReader extends OneDReader {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Result decodeRow(int rowNumber, BitArray row, Map<DecodeHintType, ?> hints)
             throws FormatException, NotFoundException {

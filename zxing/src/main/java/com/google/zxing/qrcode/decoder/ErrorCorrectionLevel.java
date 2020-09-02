@@ -60,6 +60,11 @@ public enum ErrorCorrectionLevel {
         return FOR_BITS[bits];
     }
 
+    /**
+     * Getter for property 'bits'.
+     *
+     * @return Value for property 'bits'.
+     */
     public int getBits() {
         return bits;
     }

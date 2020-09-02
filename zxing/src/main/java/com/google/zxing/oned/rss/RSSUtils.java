@@ -21,6 +21,9 @@ package com.google.zxing.oned.rss;
  */
 public final class RSSUtils {
 
+    /**
+     * Do not instantiate RSSUtils.
+     */
     private RSSUtils() {
     }
 

@@ -19,11 +19,21 @@ class LoginResult {
         this.success = success;
     }
 
+    /**
+     * Getter for property 'success'.
+     *
+     * @return Value for property 'success'.
+     */
     @Nullable
     LoggedInUserView getSuccess() {
         return success;
     }
 
+    /**
+     * Getter for property 'error'.
+     *
+     * @return Value for property 'error'.
+     */
     @Nullable
     Integer getError() {
         return error;

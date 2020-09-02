@@ -28,14 +28,19 @@ public final class FinishListener
         this.mActivityToFinish = activityToFinish;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public void onCancel(DialogInterface dialogInterface) {
         run();
     }
 
+    /** {@inheritDoc} */
     public void onClick(DialogInterface dialogInterface, int i) {
         run();
     }
 
+    /** {@inheritDoc} */
     public void run() {
         mActivityToFinish.finish();
     }

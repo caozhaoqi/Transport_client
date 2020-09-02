@@ -85,6 +85,9 @@ public class ScannerActivity extends AppCompatActivity implements Callback, Came
         }
     };
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -125,12 +128,12 @@ public class ScannerActivity extends AppCompatActivity implements Callback, Came
     }
 
     private void initView() {
-        mQrCodeFinderView = (ScannerFinderView) findViewById(R.id.qr_code_view_finder);
-        mSurfaceViewStub = (ViewStub) findViewById(R.id.qr_code_view_stub);
-        switch1 = (Switch) findViewById(R.id.switch1);
+        mQrCodeFinderView = findViewById(R.id.qr_code_view_finder);
+        mSurfaceViewStub = findViewById(R.id.qr_code_view_stub);
+        switch1 = findViewById(R.id.switch1);
         mHasSurface = false;
 
-        bt = (Button) findViewById(R.id.bt);
+        bt = findViewById(R.id.bt);
 
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,7 +145,7 @@ public class ScannerActivity extends AppCompatActivity implements Callback, Came
         });
 
         @SuppressLint("UseSwitchCompatOrMaterialCode")
-        Switch switch2 = (Switch) findViewById(R.id.switch2);
+        Switch switch2 = findViewById(R.id.switch2);
         switch2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -151,10 +154,20 @@ public class ScannerActivity extends AppCompatActivity implements Callback, Came
         });
     }
 
+    /**
+     * Getter for property 'cropRect'.
+     *
+     * @return Value for property 'cropRect'.
+     */
     public Rect getCropRect() {
         return mQrCodeFinderView.getRect();
     }
 
+    /**
+     * Getter for property 'QRCode'.
+     *
+     * @return Value for property 'QRCode'.
+     */
     public boolean isQRCode() {
         return switch1.isChecked();
     }
@@ -163,6 +176,9 @@ public class ScannerActivity extends AppCompatActivity implements Callback, Came
         mInactivityTimer = new InactivityTimer(this);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void onResume() {
         super.onResume();
@@ -187,6 +203,7 @@ public class ScannerActivity extends AppCompatActivity implements Callback, Came
         }
     }
 
+    /** {@inheritDoc} */
     @Override
     protected void onPause() {
         if (mCaptureActivityHandler != null) {
@@ -205,6 +222,7 @@ public class ScannerActivity extends AppCompatActivity implements Callback, Came
         super.onPause();
     }
 
+    /** {@inheritDoc} */
     @Override
     protected void onDestroy() {
         if (null != mInactivityTimer) {
@@ -295,6 +313,11 @@ public class ScannerActivity extends AppCompatActivity implements Callback, Came
         mHasSurface = false;
     }
 
+    /**
+     * Getter for property 'captureActivityHandler'.
+     *
+     * @return Value for property 'captureActivityHandler'.
+     */
     public Handler getCaptureActivityHandler() {
         return mCaptureActivityHandler;
     }
@@ -360,6 +383,7 @@ public class ScannerActivity extends AppCompatActivity implements Callback, Came
         thread.start();
     }
 
+    /** {@inheritDoc} */
     @Override
     public void onShutter() {
     }

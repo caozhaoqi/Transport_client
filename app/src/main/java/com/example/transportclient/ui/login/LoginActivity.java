@@ -50,6 +50,9 @@ public class LoginActivity extends AppCompatActivity {
     EditText passwordEditText;
     EditText usernameEditText;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
                 //获取手机号对应验证码
                 //Get请求
                 String param3 = usernameEditText.getText().toString();
-           //     ParamBean paramBean = new ParamBean();
+                //     ParamBean paramBean = new ParamBean();
                 //获取服务器data数据 为json形式
                 //   Gson gson = new Gson();
                 String url = "http://" + Constant.IP + ":" + Constant.PORT + "/server/send/sms?phone=" + param3;

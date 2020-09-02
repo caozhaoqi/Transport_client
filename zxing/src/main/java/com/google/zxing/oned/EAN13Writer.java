@@ -37,6 +37,9 @@ public final class EAN13Writer extends UPCEANWriter {
             (7 * 6) + // right bars
             3; // end guard
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public BitMatrix encode(String contents,
                             BarcodeFormat format,
@@ -50,6 +53,7 @@ public final class EAN13Writer extends UPCEANWriter {
         return super.encode(contents, format, width, height, hints);
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean[] encode(String contents) {
         int length = contents.length();

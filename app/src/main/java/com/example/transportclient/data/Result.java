@@ -7,7 +7,9 @@ import androidx.annotation.NonNull;
  * A generic class that holds a result success w/ data or an error exception.
  */
 public class Result<T> {
-    // hide the private constructor to limit subclass types (Success, Error)
+    /**
+     * Constructs a new Result.
+     */ // hide the private constructor to limit subclass types (Success, Error)
     public Result() {
     }
 
@@ -15,6 +17,7 @@ public class Result<T> {
     }
 
 
+    /** {@inheritDoc} */
     @Override
     public String toString() {
         if (this instanceof Result.Success) {
@@ -35,6 +38,11 @@ public class Result<T> {
             this.data = data;
         }
 
+        /**
+         * Getter for property 'data'.
+         *
+         * @return Value for property 'data'.
+         */
         public T getData() {
             return this.data;
         }
@@ -48,6 +56,11 @@ public class Result<T> {
             this.error = error;
         }
 
+        /**
+         * Getter for property 'error'.
+         *
+         * @return Value for property 'error'.
+         */
         @NonNull
         public Exception getError() {
             return this.error;

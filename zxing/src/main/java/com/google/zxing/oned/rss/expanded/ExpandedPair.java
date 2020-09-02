@@ -61,14 +61,29 @@ final class ExpandedPair {
         return this.mayBeLast;
     }
 
+    /**
+     * Getter for property 'leftChar'.
+     *
+     * @return Value for property 'leftChar'.
+     */
     DataCharacter getLeftChar() {
         return this.leftChar;
     }
 
+    /**
+     * Getter for property 'rightChar'.
+     *
+     * @return Value for property 'rightChar'.
+     */
     DataCharacter getRightChar() {
         return this.rightChar;
     }
 
+    /**
+     * Getter for property 'finderPattern'.
+     *
+     * @return Value for property 'finderPattern'.
+     */
     FinderPattern getFinderPattern() {
         return this.finderPattern;
     }
@@ -77,6 +92,9 @@ final class ExpandedPair {
         return this.rightChar == null;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String toString() {
         return
@@ -84,6 +102,7 @@ final class ExpandedPair {
                         (finderPattern == null ? "null" : finderPattern.getValue()) + " ]";
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof ExpandedPair)) {
@@ -96,6 +115,7 @@ final class ExpandedPair {
                         equalsOrNull(finderPattern, that.finderPattern);
     }
 
+    /** {@inheritDoc} */
     @Override
     public int hashCode() {
         return hashNotNull(leftChar) ^ hashNotNull(rightChar) ^ hashNotNull(finderPattern);

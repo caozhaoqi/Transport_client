@@ -131,19 +131,33 @@ final class FormatInformation {
         return null;
     }
 
+    /**
+     * Getter for property 'errorCorrectionLevel'.
+     *
+     * @return Value for property 'errorCorrectionLevel'.
+     */
     ErrorCorrectionLevel getErrorCorrectionLevel() {
         return errorCorrectionLevel;
     }
 
+    /**
+     * Getter for property 'dataMask'.
+     *
+     * @return Value for property 'dataMask'.
+     */
     byte getDataMask() {
         return dataMask;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int hashCode() {
         return (errorCorrectionLevel.ordinal() << 3) | dataMask;
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof FormatInformation)) {

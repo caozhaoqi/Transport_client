@@ -11,6 +11,11 @@ class LoggedInUserView {
         this.displayName = displayName;
     }
 
+    /**
+     * Getter for property 'displayName'.
+     *
+     * @return Value for property 'displayName'.
+     */
     String getDisplayName() {
         return displayName;
     }

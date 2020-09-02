@@ -46,6 +46,9 @@ public final class UPCAReader extends UPCEANReader {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Result decodeRow(int rowNumber,
                             BitArray row,
@@ -55,28 +58,33 @@ public final class UPCAReader extends UPCEANReader {
         return maybeReturnResult(ean13Reader.decodeRow(rowNumber, row, startGuardRange, hints));
     }
 
+    /** {@inheritDoc} */
     @Override
     public Result decodeRow(int rowNumber, BitArray row, Map<DecodeHintType, ?> hints)
             throws NotFoundException, FormatException, ChecksumException {
         return maybeReturnResult(ean13Reader.decodeRow(rowNumber, row, hints));
     }
 
+    /** {@inheritDoc} */
     @Override
     public Result decode(BinaryBitmap image) throws NotFoundException, FormatException {
         return maybeReturnResult(ean13Reader.decode(image));
     }
 
+    /** {@inheritDoc} */
     @Override
     public Result decode(BinaryBitmap image, Map<DecodeHintType, ?> hints)
             throws NotFoundException, FormatException {
         return maybeReturnResult(ean13Reader.decode(image, hints));
     }
 
+    /** {@inheritDoc} */
     @Override
     BarcodeFormat getBarcodeFormat() {
         return BarcodeFormat.UPC_A;
     }
 
+    /** {@inheritDoc} */
     @Override
     protected int decodeMiddle(BitArray row, int[] startRange, StringBuilder resultString)
             throws NotFoundException {

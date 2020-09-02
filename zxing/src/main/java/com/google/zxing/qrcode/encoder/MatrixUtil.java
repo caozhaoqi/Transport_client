@@ -115,6 +115,9 @@ final class MatrixUtil {
     private static final int TYPE_INFO_POLY = 0x537;
     private static final int TYPE_INFO_MASK_PATTERN = 0x5412;
 
+    /**
+     * Do not instantiate MatrixUtil.
+     */
     private MatrixUtil() {
         // do nothing
     }

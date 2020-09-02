@@ -37,6 +37,9 @@ public final class Code39Writer extends OneDimensionalCodeWriter {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public BitMatrix encode(String contents,
                             BarcodeFormat format,
@@ -49,6 +52,7 @@ public final class Code39Writer extends OneDimensionalCodeWriter {
         return super.encode(contents, format, width, height, hints);
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean[] encode(String contents) {
         int length = contents.length();

@@ -90,10 +90,20 @@ public final class GenericGF {
         return a ^ b;
     }
 
+    /**
+     * Getter for property 'zero'.
+     *
+     * @return Value for property 'zero'.
+     */
     GenericGFPoly getZero() {
         return zero;
     }
 
+    /**
+     * Getter for property 'one'.
+     *
+     * @return Value for property 'one'.
+     */
     GenericGFPoly getOne() {
         return one;
     }
@@ -150,14 +160,27 @@ public final class GenericGF {
         return expTable[(logTable[a] + logTable[b]) % (size - 1)];
     }
 
+    /**
+     * Getter for property 'size'.
+     *
+     * @return Value for property 'size'.
+     */
     public int getSize() {
         return size;
     }
 
+    /**
+     * Getter for property 'generatorBase'.
+     *
+     * @return Value for property 'generatorBase'.
+     */
     public int getGeneratorBase() {
         return generatorBase;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String toString() {
         return "GF(0x" + Integer.toHexString(primitive) + ',' + size + ')';

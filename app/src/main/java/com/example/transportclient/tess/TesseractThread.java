@@ -15,6 +15,9 @@ public class TesseractThread implements Runnable {
         this.mCallback = callback;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void run() {
         if (mBitmap == null && null != mCallback) {

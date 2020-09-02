@@ -70,6 +70,9 @@ public final class UPCEReader extends UPCEANReader {
     private static final int[] MIDDLE_END_PATTERN = {1, 1, 1, 1, 1, 1};
     private final int[] decodeMiddleCounters;
 
+    /**
+     * Constructs a new UPCEReader.
+     */
     public UPCEReader() {
         decodeMiddleCounters = new int[4];
     }
@@ -133,6 +136,7 @@ public final class UPCEReader extends UPCEANReader {
         return result.toString();
     }
 
+    /** {@inheritDoc} */
     @Override
     protected int decodeMiddle(BitArray row, int[] startRange, StringBuilder result)
             throws NotFoundException {
@@ -162,16 +166,19 @@ public final class UPCEReader extends UPCEANReader {
         return rowOffset;
     }
 
+    /** {@inheritDoc} */
     @Override
     protected int[] decodeEnd(BitArray row, int endStart) throws NotFoundException {
         return findGuardPattern(row, endStart, true, MIDDLE_END_PATTERN);
     }
 
+    /** {@inheritDoc} */
     @Override
     protected boolean checkChecksum(String s) throws FormatException {
         return super.checkChecksum(convertUPCEtoUPCA(s));
     }
 
+    /** {@inheritDoc} */
     @Override
     BarcodeFormat getBarcodeFormat() {
         return BarcodeFormat.UPC_E;

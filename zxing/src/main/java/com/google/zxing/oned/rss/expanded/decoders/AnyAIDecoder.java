@@ -42,6 +42,9 @@ final class AnyAIDecoder extends AbstractExpandedDecoder {
         super(information);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String parseInformation() throws NotFoundException, FormatException {
         StringBuilder buf = new StringBuilder();

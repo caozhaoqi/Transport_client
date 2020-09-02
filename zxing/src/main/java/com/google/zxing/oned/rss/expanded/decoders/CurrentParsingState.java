@@ -34,15 +34,28 @@ final class CurrentParsingState {
     private int position;
     private State encoding;
 
+    /**
+     * Constructs a new CurrentParsingState.
+     */
     CurrentParsingState() {
         this.position = 0;
         this.encoding = State.NUMERIC;
     }
 
+    /**
+     * Getter for property 'position'.
+     *
+     * @return Value for property 'position'.
+     */
     int getPosition() {
         return position;
     }
 
+    /**
+     * Setter for property 'position'.
+     *
+     * @param position Value to set for property 'position'.
+     */
     void setPosition(int position) {
         this.position = position;
     }
@@ -51,14 +64,29 @@ final class CurrentParsingState {
         position += delta;
     }
 
+    /**
+     * Getter for property 'alpha'.
+     *
+     * @return Value for property 'alpha'.
+     */
     boolean isAlpha() {
         return this.encoding == State.ALPHA;
     }
 
+    /**
+     * Getter for property 'numeric'.
+     *
+     * @return Value for property 'numeric'.
+     */
     boolean isNumeric() {
         return this.encoding == State.NUMERIC;
     }
 
+    /**
+     * Getter for property 'isoIec646'.
+     *
+     * @return Value for property 'isoIec646'.
+     */
     boolean isIsoIec646() {
         return this.encoding == State.ISO_IEC_646;
     }

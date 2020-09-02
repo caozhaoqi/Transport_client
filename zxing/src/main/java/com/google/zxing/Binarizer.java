@@ -35,6 +35,11 @@ public abstract class Binarizer {
         this.source = source;
     }
 
+    /**
+     * Getter for property 'luminanceSource'.
+     *
+     * @return Value for property 'luminanceSource'.
+     */
     public final LuminanceSource getLuminanceSource() {
         return source;
     }
@@ -76,10 +81,20 @@ public abstract class Binarizer {
      */
     public abstract Binarizer createBinarizer(LuminanceSource source);
 
+    /**
+     * Getter for property 'width'.
+     *
+     * @return Value for property 'width'.
+     */
     public final int getWidth() {
         return source.getWidth();
     }
 
+    /**
+     * Getter for property 'height'.
+     *
+     * @return Value for property 'height'.
+     */
     public final int getHeight() {
         return source.getHeight();
     }

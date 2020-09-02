@@ -37,6 +37,9 @@ final class AI01320xDecoder extends AI013x0xDecoder {
         super(information);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void addWeightCode(StringBuilder buf, int weight) {
         if (weight < 10000) {
@@ -46,6 +49,7 @@ final class AI01320xDecoder extends AI013x0xDecoder {
         }
     }
 
+    /** {@inheritDoc} */
     @Override
     protected int checkWeight(int weight) {
         if (weight < 10000) {

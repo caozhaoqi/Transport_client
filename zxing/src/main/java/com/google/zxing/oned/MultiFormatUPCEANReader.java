@@ -66,6 +66,9 @@ public final class MultiFormatUPCEANReader extends OneDReader {
         this.readers = readers.toArray(new UPCEANReader[readers.size()]);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Result decodeRow(int rowNumber,
                             BitArray row,
@@ -113,6 +116,7 @@ public final class MultiFormatUPCEANReader extends OneDReader {
         throw NotFoundException.getNotFoundInstance();
     }
 
+    /** {@inheritDoc} */
     @Override
     public void reset() {
         for (Reader reader : readers) {

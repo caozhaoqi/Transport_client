@@ -66,6 +66,11 @@ final class GenericGFPoly {
         }
     }
 
+    /**
+     * Getter for property 'coefficients'.
+     *
+     * @return Value for property 'coefficients'.
+     */
     int[] getCoefficients() {
         return coefficients;
     }
@@ -223,6 +228,9 @@ final class GenericGFPoly {
         return new GenericGFPoly[]{quotient, remainder};
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder(8 * getDegree());

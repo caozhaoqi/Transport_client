@@ -24,16 +24,31 @@ class LoginFormState {
         this.isDataValid = isDataValid;
     }
 
+    /**
+     * Getter for property 'usernameError'.
+     *
+     * @return Value for property 'usernameError'.
+     */
     @Nullable
     Integer getUsernameError() {
         return usernameError;
     }
 
+    /**
+     * Getter for property 'passwordError'.
+     *
+     * @return Value for property 'passwordError'.
+     */
     @Nullable
     Integer getPasswordError() {
         return passwordError;
     }
 
+    /**
+     * Getter for property 'dataValid'.
+     *
+     * @return Value for property 'dataValid'.
+     */
     boolean isDataValid() {
         return isDataValid;
     }

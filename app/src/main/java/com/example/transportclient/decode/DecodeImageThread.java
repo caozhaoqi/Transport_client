@@ -23,6 +23,9 @@ public class DecodeImageThread implements Runnable {
         this.mCallback = callback;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void run() {
         if (null == mData) {

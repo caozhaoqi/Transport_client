@@ -36,10 +36,20 @@ public final class ByteMatrix {
         this.height = height;
     }
 
+    /**
+     * Getter for property 'height'.
+     *
+     * @return Value for property 'height'.
+     */
     public int getHeight() {
         return height;
     }
 
+    /**
+     * Getter for property 'width'.
+     *
+     * @return Value for property 'width'.
+     */
     public int getWidth() {
         return width;
     }
@@ -73,6 +83,9 @@ public final class ByteMatrix {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder(2 * width * height + 2);

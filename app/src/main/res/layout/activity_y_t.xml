@@ -134,6 +134,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
+                android:id="@+id/msg_begin"
                 android:layout_height="wrap_content"
                 android:text="@string/sms1">
 
@@ -143,13 +144,16 @@
                 android:id="@+id/edt_kd_fs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="@string/app_name">
+                android:gravity="center_horizontal"
+                android:hint="@string/app_name"
+                android:textAlignment="center">
 
             </EditText>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/kdydl"
                 android:text="@string/sms11">
 
             </TextView>
@@ -158,6 +162,8 @@
                 android:id="@+id/input_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textAlignment="center"
                 android:hint="@string/inad">
 
             </EditText>
@@ -171,6 +177,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/useCode"
                 android:text="@string/inqhm">
 
             </TextView>
@@ -179,12 +186,15 @@
                 android:id="@+id/input_getnum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textAlignment="center"
                 android:hint="@string/qhm_l">
 
             </EditText>
 
             <TextView
                 android:layout_width="wrap_content"
+                android:id="@+id/kdydgh"
                 android:layout_height="wrap_content"
                 android:text="@string/qhm_dh">
 
@@ -199,6 +209,8 @@
             <EditText
                 android:id="@+id/input_ph"
                 android:layout_width="wrap_content"
+                android:gravity="center_horizontal"
+                android:textAlignment="center"
                 android:layout_height="wrap_content"
                 android:hint="@string/in_ph">
 
@@ -212,6 +224,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
+                android:id="@+id/yiyuan"
                 android:layout_height="wrap_content"
                 android:text="@string/app">
 
@@ -235,14 +248,14 @@
         <com.example.transportclient.CustomFAB
             android:layout_width="56dp"
             android:layout_height="56dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
             android:layout_gravity="end"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
             android:id="@+id/scan_btn_yt"
             android:background="@color/light_blue"
             android:src="@android:drawable/ic_input_add"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:tint="@android:color/white" />
     </LinearLayout>
 

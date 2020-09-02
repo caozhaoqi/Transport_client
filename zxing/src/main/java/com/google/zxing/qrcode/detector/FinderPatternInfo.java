@@ -34,14 +34,29 @@ public final class FinderPatternInfo {
         this.topRight = patternCenters[2];
     }
 
+    /**
+     * Getter for property 'bottomLeft'.
+     *
+     * @return Value for property 'bottomLeft'.
+     */
     public FinderPattern getBottomLeft() {
         return bottomLeft;
     }
 
+    /**
+     * Getter for property 'topLeft'.
+     *
+     * @return Value for property 'topLeft'.
+     */
     public FinderPattern getTopLeft() {
         return topLeft;
     }
 
+    /**
+     * Getter for property 'topRight'.
+     *
+     * @return Value for property 'topRight'.
+     */
     public FinderPattern getTopRight() {
         return topRight;
     }

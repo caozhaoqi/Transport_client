@@ -28,6 +28,9 @@ public final class CodaBarWriter extends OneDimensionalCodeWriter {
     private static final char[] CHARS_WHICH_ARE_TEN_LENGTH_EACH_AFTER_DECODED = {'/', ':', '+', '.'};
     private static final char DEFAULT_GUARD = START_END_CHARS[0];
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean[] encode(String contents) {
 

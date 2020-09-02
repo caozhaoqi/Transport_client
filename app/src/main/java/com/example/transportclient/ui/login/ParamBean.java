@@ -32,14 +32,27 @@ public class ParamBean {
         this.id = id;
     }
 
-    public int getSmsCount() {
-        return smsCount;
-    }
-
+    /**
+     * Constructs a new ParamBean.
+     */
     public ParamBean() {
 
     }
 
+    /**
+     * Getter for property 'smsCount'.
+     *
+     * @return Value for property 'smsCount'.
+     */
+    public int getSmsCount() {
+        return smsCount;
+    }
+
+    /**
+     * Setter for property 'smsCount'.
+     *
+     * @param smsCount Value to set for property 'smsCount'.
+     */
     public void setSmsCount(int smsCount) {
         this.smsCount = smsCount;
     }
@@ -69,45 +82,95 @@ public class ParamBean {
         this.code = code;
     }
 
+    /**
+     * Getter for property 'createTime'.
+     *
+     * @return Value for property 'createTime'.
+     */
     @NonNull
     public String getCreateTime() {
         return createTime;
     }
 
+    /**
+     * Setter for property 'createTime'.
+     *
+     * @param createTime Value to set for property 'createTime'.
+     */
     public void setCreateTime(@NonNull String createTime) {
         this.createTime = createTime;
     }
 
+    /**
+     * Getter for property 'smsNumber'.
+     *
+     * @return Value for property 'smsNumber'.
+     */
     public int getSmsNumber() {
         return smsNumber;
     }
 
+    /**
+     * Setter for property 'smsNumber'.
+     *
+     * @param smsNumber Value to set for property 'smsNumber'.
+     */
     public void setSmsNumber(int smsNumber) {
         this.smsNumber = smsNumber;
     }
 
+    /**
+     * Getter for property 'id'.
+     *
+     * @return Value for property 'id'.
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Setter for property 'id'.
+     *
+     * @param id Value to set for property 'id'.
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * Getter for property 'phone'.
+     *
+     * @return Value for property 'phone'.
+     */
     @NonNull
     public String getPhone() {
         return phone;
     }
 
+    /**
+     * Setter for property 'phone'.
+     *
+     * @param phone Value to set for property 'phone'.
+     */
     public void setPhone(@NonNull String phone) {
         this.phone = phone;
     }
 
+    /**
+     * Getter for property 'code'.
+     *
+     * @return Value for property 'code'.
+     */
     @NonNull
     public String getCode() {
         return code;
     }
 
+    /**
+     * Setter for property 'code'.
+     *
+     * @param code Value to set for property 'code'.
+     */
     public void setCode(@NonNull String code) {
         this.code = code;
     }

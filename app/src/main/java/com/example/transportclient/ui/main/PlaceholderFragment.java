@@ -35,6 +35,9 @@ public class PlaceholderFragment extends Fragment {
         return fragment;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void onCreate(@NonNull Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +49,7 @@ public class PlaceholderFragment extends Fragment {
         pageViewModel.setIndex(index);
     }
 
+    /** {@inheritDoc} */
     @SuppressLint("UnknownNullness")
     @Override
     public View onCreateView(

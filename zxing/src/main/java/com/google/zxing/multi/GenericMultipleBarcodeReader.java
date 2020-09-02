@@ -75,11 +75,15 @@ public final class GenericMultipleBarcodeReader implements MultipleBarcodeReader
         return newResult;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Result[] decodeMultiple(BinaryBitmap image) throws NotFoundException {
         return decodeMultiple(image, null);
     }
 
+    /** {@inheritDoc} */
     @Override
     public Result[] decodeMultiple(BinaryBitmap image, Map<DecodeHintType, ?> hints)
             throws NotFoundException {

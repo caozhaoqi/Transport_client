@@ -159,6 +159,11 @@ public class QRCodeReader implements Reader {
         return (x - leftTopBlack[0]) / 7.0f;
     }
 
+    /**
+     * Getter for property 'decoder'.
+     *
+     * @return Value for property 'decoder'.
+     */
     protected final Decoder getDecoder() {
         return decoder;
     }
@@ -176,6 +181,9 @@ public class QRCodeReader implements Reader {
         return decode(image, null);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public final Result decode(BinaryBitmap image, Map<DecodeHintType, ?> hints)
             throws NotFoundException, ChecksumException, FormatException {
@@ -214,6 +222,7 @@ public class QRCodeReader implements Reader {
         return result;
     }
 
+    /** {@inheritDoc} */
     @Override
     public void reset() {
         // do nothing

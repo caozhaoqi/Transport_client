@@ -100,10 +100,20 @@ public class FinderPatternFinder {
                         Math.abs(moduleSize - stateCount[4]) < maxVariance;
     }
 
+    /**
+     * Getter for property 'image'.
+     *
+     * @return Value for property 'image'.
+     */
     protected final BitMatrix getImage() {
         return image;
     }
 
+    /**
+     * Getter for property 'possibleCenters'.
+     *
+     * @return Value for property 'possibleCenters'.
+     */
     protected final List<FinderPattern> getPossibleCenters() {
         return possibleCenters;
     }
@@ -218,6 +228,11 @@ public class FinderPatternFinder {
         return new FinderPatternInfo(patternInfo);
     }
 
+    /**
+     * Getter for property 'crossCheckStateCount'.
+     *
+     * @return Value for property 'crossCheckStateCount'.
+     */
     private int[] getCrossCheckStateCount() {
         crossCheckStateCount[0] = 0;
         crossCheckStateCount[1] = 0;
@@ -650,6 +665,9 @@ public class FinderPatternFinder {
             average = f;
         }
 
+        /**
+         * {@inheritDoc}
+         */
         @Override
         public int compare(FinderPattern center1, FinderPattern center2) {
             float dA = Math.abs(center2.getEstimatedModuleSize() - average);
@@ -668,6 +686,7 @@ public class FinderPatternFinder {
             average = f;
         }
 
+        /** {@inheritDoc} */
         @Override
         public int compare(FinderPattern center1, FinderPattern center2) {
             if (center2.getCount() == center1.getCount()) {

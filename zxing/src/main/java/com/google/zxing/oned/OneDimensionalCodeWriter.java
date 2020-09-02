@@ -73,6 +73,9 @@ public abstract class OneDimensionalCodeWriter implements Writer {
         return numAdded;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public final BitMatrix encode(String contents, BarcodeFormat format, int width, int height)
             throws WriterException {
@@ -110,6 +113,11 @@ public abstract class OneDimensionalCodeWriter implements Writer {
         return renderResult(code, width, height, sidesMargin);
     }
 
+    /**
+     * Getter for property 'defaultMargin'.
+     *
+     * @return Value for property 'defaultMargin'.
+     */
     public int getDefaultMargin() {
         // CodaBar spec requires a side margin to be more than ten times wider than narrow space.
         // This seems like a decent idea for a default for all formats.

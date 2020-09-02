@@ -35,6 +35,11 @@ final class DecodeThread extends Thread {
     }
 
 
+    /**
+     * Getter for property 'handler'.
+     *
+     * @return Value for property 'handler'.
+     */
     Handler getHandler() {
         try {
             mHandlerInitLatch.await();
@@ -44,6 +49,9 @@ final class DecodeThread extends Thread {
         return mHandler;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void run() {
         Looper.prepare();

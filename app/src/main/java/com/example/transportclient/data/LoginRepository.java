@@ -31,6 +31,11 @@ public class LoginRepository {
         return instance;
     }
 
+    /**
+     * Getter for property 'loggedIn'.
+     *
+     * @return Value for property 'loggedIn'.
+     */
     public boolean isLoggedIn() {
         return user != null;
     }
@@ -40,6 +45,11 @@ public class LoginRepository {
         dataSource.logout();
     }
 
+    /**
+     * Setter for property 'loggedInUser'.
+     *
+     * @param user Value to set for property 'loggedInUser'.
+     */
     private void setLoggedInUser(LoggedInUser user) {
         this.user = user;
         // If user credentials will be cached in local storage, it is recommended it be encrypted

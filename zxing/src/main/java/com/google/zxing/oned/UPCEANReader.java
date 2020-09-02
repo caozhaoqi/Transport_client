@@ -95,6 +95,9 @@ public abstract class UPCEANReader extends OneDReader {
     private final UPCEANExtensionSupport extensionReader;
     private final EANManufacturerOrgSupport eanManSupport;
 
+    /**
+     * Constructs a new UPCEANReader.
+     */
     protected UPCEANReader() {
         decodeRowStringBuffer = new StringBuilder(20);
         extensionReader = new UPCEANExtensionSupport();
@@ -245,6 +248,9 @@ public abstract class UPCEANReader extends OneDReader {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Result decodeRow(int rowNumber, BitArray row, Map<DecodeHintType, ?> hints)
             throws NotFoundException, ChecksumException, FormatException {

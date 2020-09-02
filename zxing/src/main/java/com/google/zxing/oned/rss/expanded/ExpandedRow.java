@@ -37,14 +37,29 @@ final class ExpandedRow {
         this.wasReversed = wasReversed;
     }
 
+    /**
+     * Getter for property 'pairs'.
+     *
+     * @return Value for property 'pairs'.
+     */
     List<ExpandedPair> getPairs() {
         return this.pairs;
     }
 
+    /**
+     * Getter for property 'rowNumber'.
+     *
+     * @return Value for property 'rowNumber'.
+     */
     int getRowNumber() {
         return this.rowNumber;
     }
 
+    /**
+     * Getter for property 'reversed'.
+     *
+     * @return Value for property 'reversed'.
+     */
     boolean isReversed() {
         return this.wasReversed;
     }
@@ -53,6 +68,9 @@ final class ExpandedRow {
         return this.pairs.equals(otherPairs);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String toString() {
         return "{ " + pairs + " }";
@@ -70,6 +88,7 @@ final class ExpandedRow {
         return this.pairs.equals(that.getPairs()) && wasReversed == that.wasReversed;
     }
 
+    /** {@inheritDoc} */
     @Override
     public int hashCode() {
         return pairs.hashCode() ^ Boolean.valueOf(wasReversed).hashCode();

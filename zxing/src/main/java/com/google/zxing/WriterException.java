@@ -24,6 +24,9 @@ package com.google.zxing;
  */
 public final class WriterException extends Exception {
 
+    /**
+     * Constructs a new WriterException.
+     */
     public WriterException() {
     }
 

@@ -34,6 +34,9 @@ final class PreviewCallback implements Camera.PreviewCallback {
         this.mPreviewMessage = previewMessage;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void onPreviewFrame(byte[] data, Camera camera) {
         Point point = mConfigManager.getCameraResolution();

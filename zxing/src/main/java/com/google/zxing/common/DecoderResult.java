@@ -111,6 +111,11 @@ public final class DecoderResult {
         return errorsCorrected;
     }
 
+    /**
+     * Setter for property 'errorsCorrected'.
+     *
+     * @param errorsCorrected Value to set for property 'errorsCorrected'.
+     */
     public void setErrorsCorrected(Integer errorsCorrected) {
         this.errorsCorrected = errorsCorrected;
     }
@@ -122,6 +127,11 @@ public final class DecoderResult {
         return erasures;
     }
 
+    /**
+     * Setter for property 'erasures'.
+     *
+     * @param erasures Value to set for property 'erasures'.
+     */
     public void setErasures(Integer erasures) {
         this.erasures = erasures;
     }
@@ -133,6 +143,11 @@ public final class DecoderResult {
         return other;
     }
 
+    /**
+     * Setter for property 'other'.
+     *
+     * @param other Value to set for property 'other'.
+     */
     public void setOther(Object other) {
         this.other = other;
     }
@@ -141,10 +156,20 @@ public final class DecoderResult {
         return structuredAppendParity >= 0 && structuredAppendSequenceNumber >= 0;
     }
 
+    /**
+     * Getter for property 'structuredAppendParity'.
+     *
+     * @return Value for property 'structuredAppendParity'.
+     */
     public int getStructuredAppendParity() {
         return structuredAppendParity;
     }
 
+    /**
+     * Getter for property 'structuredAppendSequenceNumber'.
+     *
+     * @return Value for property 'structuredAppendSequenceNumber'.
+     */
     public int getStructuredAppendSequenceNumber() {
         return structuredAppendSequenceNumber;
     }

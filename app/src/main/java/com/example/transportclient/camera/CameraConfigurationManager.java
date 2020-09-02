@@ -90,6 +90,11 @@ public final class CameraConfigurationManager {
         return point;
     }
 
+    /**
+     * Setter for property 'desiredCameraParameters'.
+     *
+     * @param camera Value to set for property 'desiredCameraParameters'.
+     */
     public void setDesiredCameraParameters(Camera camera) {
         Camera.Parameters parameters = camera.getParameters();
 
@@ -119,10 +124,20 @@ public final class CameraConfigurationManager {
         camera.setDisplayOrientation(90);
     }
 
+    /**
+     * Getter for property 'cameraResolution'.
+     *
+     * @return Value for property 'cameraResolution'.
+     */
     public Point getCameraResolution() {
         return cameraResolution;
     }
 
+    /**
+     * Getter for property 'screenResolution'.
+     *
+     * @return Value for property 'screenResolution'.
+     */
     public Point getScreenResolution() {
         return screenResolution;
     }
