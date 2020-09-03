@@ -414,17 +414,17 @@ public class ScannerActivity extends AppCompatActivity implements Callback, Came
  * @param bitmap 拍照所得图片对象
  * */
 void phoneSucceed(String result, Bitmap bitmap) {
-        ImageDialog dialog = new ImageDialog(this);
-        dialog.addBitmap(bitmap);
-        dialog.addTitle(TextUtils.isEmpty(result) ? "未识别到手机号码" : result);
+    ImageDialog dialog = new ImageDialog(this);
+    dialog.addBitmap(bitmap);
+    dialog.addTitle(TextUtils.isEmpty(result) ? "未识别到手机号码" : result);
     dialog.addTitle(result.equals("") ? "未识别到手机号码" : result);
     dialog.show();
     dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                restartPreview();
-            }
-        });
+        @Override
+        public void onDismiss(DialogInterface dialog) {
+            restartPreview();
+        }
+    });
     while (!result.equals("")) {
         int i = 0;
         APPData appData = (APPData) getApplicationContext();

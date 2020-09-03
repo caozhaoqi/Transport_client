@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
  *
  */
 public class APPData extends Application {
+
     @Nullable
     public String code;//login_code
     @Nullable

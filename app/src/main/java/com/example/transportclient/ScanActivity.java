@@ -14,8 +14,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import butterknife.OnClick;
-
 public class ScanActivity extends AppCompatActivity {
 
     private static final int REQUEST_CODE_SCAN = 123;
@@ -87,17 +85,4 @@ public class ScanActivity extends AppCompatActivity {
 
     }
 
-    @OnClick({R.id.scan, R.id.ls_sc, R.id.finish})
-    public void onClick(View v) {
-        switch (v.getId()) {
-            default:
-                break;
-            case R.id.scan:
-                break;
-            case R.id.ls_sc:
-                break;
-            case R.id.finish:
-                break;
-        }
-    }
 }

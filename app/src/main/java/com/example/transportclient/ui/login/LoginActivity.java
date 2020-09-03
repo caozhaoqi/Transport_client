@@ -348,6 +348,7 @@ public class LoginActivity extends AppCompatActivity {
                             String ids = String.valueOf(appData.id);
                             i.putExtra("id", ids);
                             startActivity(i);
+                            Looper.prepare();
                             Toast.makeText(LoginActivity.this, "验证码错误，请重新输入", Toast.LENGTH_SHORT).show();
                         }
                     }

@@ -35,6 +35,8 @@ public class DashboardFragment extends Fragment {
         TextView czxq = root.findViewById(R.id.txt_history);
         Button logout = root.findViewById(R.id.logut_btn);
         ImageView my = root.findViewById(R.id.my_im);
+        TextView smss = root.findViewById(R.id.syts_txt);//剩余短信total条数
+        smss.setText("");
         TextView txt_login_number = root.findViewById(R.id.txt_login_account);
         //show login account number
         APPData appData = (APPData) getActivity().getApplicationContext();

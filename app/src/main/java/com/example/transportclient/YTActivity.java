@@ -43,7 +43,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
 
 
     private static final int REQUEST_CODE_SCAN = 123;
-    TextView tvValue;
+
     CustomFAB scan;
     EditText kd_cm;
     CheckBox get_num;
@@ -138,6 +138,13 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
         final ArrayList<Map<String, Object>> arr_data = new ArrayList<>();
         APPData appData = (APPData) getApplicationContext();
         // 新增数据
+        //test
+        //appData.i= 1 ;
+        //appData.phoneNumber_scan[0] = String.valueOf(1);
+        for (int index = 0; index < appData.i; index++) {
+            //get取货码
+            appData.qhm[index] = appData.i;
+        }
         try {
             for (int i5 = 0; i5 < appData.i; i5++) {
                 Map map = new HashMap<String, Object>();
@@ -164,6 +171,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
         final SnappingStepper stepper = convertView.findViewById(R.id.stepper);
 
         stepper.setOnValueChangeListener(this);
+
         get_num.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -197,6 +205,8 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
     }
 
     /**
+     * 发送短信页面
+     *
      * @param
      */
 
@@ -284,51 +294,10 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
     public void onValueChange(@NonNull View view, int value) {
 
 
+        APPData appData = (APPData) getApplicationContext();
+        appData.i = 2;
+        value = appData.i;
+
     }
 
-
-    public void onClick(View v) {
-        switch (v.getId()) {
-            default:
-                break;
-            case R.id.companyName:
-                break;
-            case R.id.get_num:
-                break;
-            case R.id.today_date:
-                break;
-            case R.id.getNum_edt:
-                break;
-            case R.id.getNum_edt_num:
-                break;
-            case R.id.fsts_txt:
-                break;
-            case R.id.tx_get_code_yt:
-                break;
-            case R.id.yt_listview:
-                break;
-            case R.id.msg_begin:
-                break;
-            case R.id.edt_kd_fs:
-                break;
-            case R.id.kdydl:
-                break;
-            case R.id.input_address:
-                break;
-            case R.id.useCode:
-                break;
-            case R.id.input_getnum:
-                break;
-            case R.id.kdydgh:
-                break;
-            case R.id.input_ph:
-                break;
-            case R.id.yiyuan:
-                break;
-            case R.id.send:
-                break;
-            case R.id.scan_btn_yt:
-                break;
-        }
-    }
 }

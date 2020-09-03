@@ -44,7 +44,7 @@ import okhttp3.Response;
  * 作者：czq
  * 创建时间：2020/9/2 11:39 <p>
  * 描述：
- *  @name TranSportClient
+ * @name TranSportClient
  * @class name：PACKAGE_NAME
  * @class describe
  * @author Administrator QQ:1150118968

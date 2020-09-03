@@ -38,6 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="30dp"
+                android:id="@+id/twenty_yuan"
                 android:layout_marginRight="30dp"
                 android:layout_marginBottom="30dp"
                 android:orientation="vertical">
@@ -66,6 +67,7 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="30dp"
+                android:id="@+id/fifty_yuan"
                 android:layout_marginBottom="30dp"
                 android:orientation="vertical">
 
@@ -93,6 +95,8 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="30dp"
+                android:id="@+id/one_hundred_yuan"
+
                 android:layout_marginBottom="30dp"
                 android:orientation="vertical">
 
@@ -127,6 +131,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="30dp"
+                android:id="@+id/two_hundred_yuan"
                 android:layout_marginRight="30dp"
                 android:layout_marginBottom="30dp"
                 android:orientation="vertical">
@@ -156,6 +161,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginBottom="30dp"
+                android:id="@+id/forth_hundred"
                 android:orientation="vertical">
 
                 <TextView
@@ -182,6 +188,7 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="30dp"
+                android:id="@+id/one_thousand_yuan"
                 android:layout_marginBottom="30dp"
                 android:orientation="vertical">
 
