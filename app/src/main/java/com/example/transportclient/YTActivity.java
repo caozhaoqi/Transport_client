@@ -296,7 +296,6 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
 
         APPData appData = (APPData) getApplicationContext();
         appData.i = 2;
-        value = appData.i;
 
     }
 

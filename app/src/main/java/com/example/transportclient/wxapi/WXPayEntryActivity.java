@@ -47,7 +47,7 @@ public class WXPayEntryActivity extends AppCompatActivity implements IWXAPIEvent
     }
 
     /**
-     * TODO 微信支付回调
+     * TODO WeChat pay recall
      */
     @Override
     public void onResp(@NonNull BaseResp baseResp) {

@@ -50,7 +50,7 @@ public class APPData extends Application {
     @NonNull
     public int[] qhm;//ahm
 
-    public int i;//record add phone count
+    public int i;//record add phone number count
 
     /**
      *

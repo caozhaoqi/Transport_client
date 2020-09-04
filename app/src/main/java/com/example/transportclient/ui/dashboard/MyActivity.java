@@ -1,6 +1,5 @@
 package com.example.transportclient.ui.dashboard;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -27,8 +26,6 @@ public class MyActivity extends AppCompatActivity {
 
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
-    @BindView(R.id.nav_host_fragment)
-    Fragment mNavHostFragment;
     @BindView(R.id.fab)
     FloatingActionButton mFab;
     @BindView(R.id.nav_view)
@@ -38,7 +35,7 @@ public class MyActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
 
     /**
-     * {@inheritDoc}
+     * {@inheritDocqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq@Params saveInstanceState state }
      */
     @Override
     protected void onCreate(@NonNull Bundle savedInstanceState) {

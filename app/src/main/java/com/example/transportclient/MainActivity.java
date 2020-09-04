@@ -19,7 +19,6 @@ import java.io.IOException;
 
 import okhttp3.Call;
 import okhttp3.Callback;
-import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -85,13 +84,10 @@ public class MainActivity extends AppCompatActivity {
     public void companySelect() {
 
         String url = "http://" + Constant.IP + ":" + Constant.PORT + "/server/logistics/findAll";
-        String json = "";
         OkHttpClient client = new OkHttpClient();
-        MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
-        //  RequestBody requestBody = FormBody.create(mediaType, json);
+
         Request request = new Request.Builder()
                 .url(url)
-                //    .post(requestBody)
                 .build();
         Call call2 = client.newCall(request);
         call2.enqueue(new Callback() {

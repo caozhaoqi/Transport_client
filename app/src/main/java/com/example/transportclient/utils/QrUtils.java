@@ -3,6 +3,8 @@ package com.example.transportclient.utils;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import androidx.annotation.NonNull;
+
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;
@@ -27,9 +29,9 @@ public class QrUtils {
      * @param inputWidth
      * @param inputHeight
      * @param scaled
-     * @return
+     * @return byte[]
      */
-    public static byte[] getYUV420sp(int inputWidth, int inputHeight, Bitmap scaled) {
+    public static byte[] getYUV420sp(int inputWidth, int inputHeight, @NonNull Bitmap scaled) {
         int[] argb = new int[inputWidth * inputHeight];
 
         scaled.getPixels(argb, 0, inputWidth, 0, 0, inputWidth, inputHeight);

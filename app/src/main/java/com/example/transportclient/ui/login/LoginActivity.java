@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText usernameEditText;
 
     /**
-     * {@inheritDoc}
+     * @param savedInstanceState state
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -75,7 +75,8 @@ public class LoginActivity extends AppCompatActivity {
                 //     ParamBean paramBean = new ParamBean();
                 //获取服务器data数据 为json形式
                 //   Gson gson = new Gson();
-                String url = "http://" + Constant.IP + ":" + Constant.PORT + "/server/send/sms?phone=" + param3;
+                String url = "http://" + Constant.IP + ":" + Constant.PORT +
+                        "/server/send/sms?phone=" + param3;
                 //      String json = "";
                 OkHttpClient client = new OkHttpClient();
                 MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
@@ -88,7 +89,8 @@ public class LoginActivity extends AppCompatActivity {
                 call2.enqueue(new Callback() {
                     @Override
                     public void onFailure(Call call, IOException e) {
-                        Toast.makeText(LoginActivity.this, "internet error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "internet error",
+                                Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -222,7 +224,8 @@ public class LoginActivity extends AppCompatActivity {
                 ParamBean paramBean = new ParamBean();
                 //获取服务器data数据 为json形式
                 Gson gson = new Gson();
-                String url = "http://" + Constant.IP + ":" + Constant.PORT + "/server/serviceUserCourierPoint/findByPhone?phone=" + param3;
+                String url = "http://" + Constant.IP + ":" + Constant.PORT +
+                        "/server/serviceUserCourierPoint/findByPhone?phone=" + param3;
                 String json = "";
                 OkHttpClient client = new OkHttpClient();
                 MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
@@ -236,7 +239,8 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(Call call, IOException e) {
                         Looper.prepare();
-                        Toast.makeText(LoginActivity.this, "internet error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "internet error",
+                                Toast.LENGTH_SHORT).show();
                         System.out.println("error login");
                     }
 
@@ -300,7 +304,8 @@ public class LoginActivity extends AppCompatActivity {
         call.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                Toast.makeText(LoginActivity.this, "internet error", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "internet error",
+                        Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -349,7 +354,8 @@ public class LoginActivity extends AppCompatActivity {
                             i.putExtra("id", ids);
                             startActivity(i);
                             Looper.prepare();
-                            Toast.makeText(LoginActivity.this, "验证码错误，请重新输入", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "验证码错误，请重新输入",
+                                    Toast.LENGTH_SHORT).show();
                         }
                     }
                 } catch (JSONException ex) {

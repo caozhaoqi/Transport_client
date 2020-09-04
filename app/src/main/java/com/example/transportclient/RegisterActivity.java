@@ -54,17 +54,13 @@ public class RegisterActivity extends AppCompatActivity {
                 //获取手机号对应验证码
                 //Get请求
                 String param3 = ph.getText().toString();
-                //  ParamBean paramBean = new ParamBean();
-                //获取服务器data数据 为json形式
-                //    Gson gson = new Gson();
+
                 String url = "http://" + Constant.IP + ":" + Constant.PORT + "/server/send/sms?phone=" + param3;
-                //    String json = "";
+
                 OkHttpClient client = new OkHttpClient();
-                MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
-                // RequestBody requestBody = FormBody.create(mediaType, json);
+
                 Request request = new Request.Builder()
                         .url(url)
-                        //    .post(requestBody)
                         .build();
                 Call call2 = client.newCall(request);
                 call2.enqueue(new Callback() {
@@ -106,9 +102,6 @@ public class RegisterActivity extends AppCompatActivity {
                 APPData appData = (APPData) getApplicationContext();
                 String code = getCode.getText().toString();
                 if (code.equals(appData.code2)) {
-                    // Intent i = new Intent(LoginActivity.this, MainActivity.class);
-                    //调用登陆接口传递所需数据
-
                     String createTime = "";
                     String phone = ph.getText().toString();
                     int smsNumber = 0;
