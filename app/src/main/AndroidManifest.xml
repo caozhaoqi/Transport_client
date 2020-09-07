@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.transportclient">
+    package="com.example.SupportDecline">
 
     <uses-feature
         android:name="android.hardware.telephony"
@@ -33,7 +33,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".APPData"
+        android:name="com.example.SupportDecline.APPData"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -42,15 +42,15 @@
         android:theme="@style/AppTheme"
         android:fullBackupContent="@xml/backup_descriptor"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".RegisterActivity">
+        <activity android:name="com.example.SupportDecline.RegisterActivity">
 
         </activity>
         <activity
-            android:name=".ui.dashboard.MyActivity"
+            android:name="com.example.SupportDecline.ui.dashboard.MyActivity"
             android:label="@string/title_activity_my"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.login.LoginActivity"
+            android:name="com.example.SupportDecline.ui.login.LoginActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -59,25 +59,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".wxapi.WXPayEntryActivity"
+            android:name="com.example.SupportDecline.wxapi.WXPayEntryActivity"
             android:exported="true"
             android:launchMode="singleTop" />
         <activity
-            android:name=".DetailActivity"
+            android:name="com.example.SupportDecline.DetailActivity"
             android:label="@string/title_activity_detail"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".PayHistoryActivity" />
-        <activity android:name=".PayRecordActivity" />
-        <activity android:name=".PayActivity" />
-        <activity android:name=".ScanActivity" />
-        <activity android:name=".YTActivity" />
+        <activity android:name="com.example.SupportDecline.PayHistoryActivity" />
+        <activity android:name="com.example.SupportDecline.PayRecordActivity" />
+        <activity android:name="com.example.SupportDecline.PayActivity" />
+        <activity android:name="com.example.SupportDecline.ScanActivity" />
+        <activity android:name="com.example.SupportDecline.YTActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.SupportDecline.MainActivity"
             android:label="@string/app_name">
 
         </activity>
         <activity
-            android:name=".ScannerActivity"
+            android:name="com.example.SupportDecline.ScannerActivity"
             android:screenOrientation="fullSensor"></activity>
     </application>
 
