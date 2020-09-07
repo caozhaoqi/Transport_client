@@ -45,13 +45,14 @@ public class ScanActivity extends AppCompatActivity {
             Map map = new HashMap<String, Object>();
             //map放入两个键值对，键名与from对应，
             map.put("pn", appData.phoneNumber_scan[i5]);
+            map.put("qhm", appData.qhm[i5]);
             //往list添加数据
             arr_data.add(map);
         }
 
         // 新建适配器 ，绑定数据
-        String[] from = {"pn"};
-        int[] to = {R.id.phone_number};
+        String[] from = {"pn", "qhm"};
+        int[] to = {R.id.phone_number, R.id.stepper};
         SimpleAdapter simp_ada = new SimpleAdapter(this, arr_data, R.layout.yt_list_item, from, to);
 
 

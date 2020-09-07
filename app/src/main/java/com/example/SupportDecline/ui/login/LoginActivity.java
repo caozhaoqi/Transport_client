@@ -28,6 +28,7 @@ import com.example.SupportDecline.APPData;
 import com.example.SupportDecline.Constant;
 import com.example.SupportDecline.MainActivity;
 import com.example.SupportDecline.R;
+import com.example.SupportDecline.SystemMemory;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -66,6 +67,14 @@ public class LoginActivity extends AppCompatActivity {
         final Button loginButton = findViewById(R.id.login);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
         TextView getCode = findViewById(R.id.tx_get_code);
+
+        String availMemory = SystemMemory.getAvailMemory(this);
+        //当前总运行内存
+        String totalMemory = SystemMemory.getTotalMemory(this);
+
+        Toast.makeText(LoginActivity.this, "当前可用内存" + availMemory + "总内存" + totalMemory, Toast.LENGTH_LONG).show();
+
+
         getCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,8 +92,8 @@ public class LoginActivity extends AppCompatActivity {
                 call2.enqueue(new Callback() {
                     @Override
                     public void onFailure(Call call, IOException e) {
-                        Toast.makeText(LoginActivity.this, "internet error",
-                                Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(LoginActivity.this, "internet error",
+//                                Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -228,6 +237,7 @@ public class LoginActivity extends AppCompatActivity {
                         Looper.prepare();
                         Toast.makeText(LoginActivity.this, "internet error",
                                 Toast.LENGTH_SHORT).show();
+                        e.printStackTrace();
                         System.out.println("error login");
                     }
 
@@ -319,31 +329,31 @@ public class LoginActivity extends AppCompatActivity {
 
 
                         }
-
-
                         APPData appData = (APPData) getApplicationContext();
                         appData.ids = id;
                         appData.logisticsId = logisticsId;
                         appData.smsCount = smsCount;
                         appData.logisticsName = logisticsName;
                         appData.s_length = jsonArray.length();
-                        String code = passwordEditText.getText().toString();
 
-                        if (code.equals(appData.code)) {
-                            Intent i = new Intent(LoginActivity.this, MainActivity.class);
-                            String ids = String.valueOf(appData.id);
-                            i.putExtra("id", ids);
-                            startActivity(i);
-                        } else {
-                            Intent i = new Intent(LoginActivity.this, MainActivity.class);
-                            String ids = String.valueOf(appData.id);
-                            i.putExtra("id", ids);
-                            startActivity(i);
-                            Looper.prepare();
-                            Toast.makeText(LoginActivity.this, "验证码错误，请重新输入",
-                                    Toast.LENGTH_SHORT).show();
-                        }
+
                     }
+                    String code = passwordEditText.getText().toString();
+                    if (code.equals(appData.code)) {
+                        Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                        String ids = String.valueOf(appData.id);
+                        i.putExtra("id", ids);
+                        startActivity(i);
+                    } else {
+                        Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                        String ids = String.valueOf(appData.id);
+                        i.putExtra("id", ids);
+                        startActivity(i);
+                        Looper.prepare();
+//                            Toast.makeText(LoginActivity.this, "验证码错误，请重新输入",
+//                                    Toast.LENGTH_SHORT).show();
+                    }
+
                 } catch (JSONException ex) {
 
                     Log.e("JSON Error: ", ex.toString());

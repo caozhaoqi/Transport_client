@@ -361,26 +361,31 @@ public class ScannerActivity extends AppCompatActivity implements Callback, Came
         } catch (Exception e) {
             e.printStackTrace();
         }
-        TesseractThread mTesseractThread = new TesseractThread(bmp, new TesseractCallback() {
 
-            @Override
-            public void succeed(String result) {
-                Message message = Message.obtain();
-                message.what = 0;
-                message.obj = result;
-                mHandler.sendMessage(message);
-            }
+        try {
+            TesseractThread mTesseractThread = new TesseractThread(bmp, new TesseractCallback() {
 
-            @Override
-            public void fail() {
-                Message message = Message.obtain();
-                message.what = 1;
-                mHandler.sendMessage(message);
-            }
-        });
+                @Override
+                public void succeed(String result) {
+                    Message message = Message.obtain();
+                    message.what = 0;
+                    message.obj = result;
+                    mHandler.sendMessage(message);
+                }
 
-        Thread thread = new Thread(mTesseractThread);
-        thread.start();
+                @Override
+                public void fail() {
+                    Message message = Message.obtain();
+                    message.what = 1;
+                    mHandler.sendMessage(message);
+                }
+            });
+
+            Thread thread = new Thread(mTesseractThread);
+            thread.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /** {@inheritDoc} */
@@ -415,24 +420,25 @@ public class ScannerActivity extends AppCompatActivity implements Callback, Came
  * */
 void phoneSucceed(String result, Bitmap bitmap) {
     ImageDialog dialog = new ImageDialog(this);
-    dialog.addBitmap(bitmap);
+    // dialog.addBitmap(bitmap);
     dialog.addTitle(TextUtils.isEmpty(result) ? "未识别到手机号码" : result);
     dialog.addTitle(result.equals("") ? "未识别到手机号码" : result);
+    dialog.setTitle(result);
     dialog.show();
+    Toast.makeText(ScannerActivity.this, result, Toast.LENGTH_LONG).show();
     dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
         @Override
         public void onDismiss(DialogInterface dialog) {
             restartPreview();
         }
     });
-    while (!result.equals("")) {
-        int i = 0;
-        APPData appData = (APPData) getApplicationContext();
-        appData.phoneNumber_scan[i] = result;
-        startActivity(new Intent(ScannerActivity.this, ScanActivity.class));
-        i++;
-        appData.i++;
-    }
+    int i = 0;
+    APPData appData = (APPData) getApplicationContext();
+    appData.phoneNumber_scan[i] = result;
+    appData.qhm[i] = i;
+    startActivity(new Intent(ScannerActivity.this, ScanActivity.class));
+    i++;
+    appData.i += 1;
 
 }
 

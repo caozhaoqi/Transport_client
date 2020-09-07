@@ -16,7 +16,7 @@
         <LinearLayout
             android:id="@+id/addli"
             android:layout_width="match_parent"
-            android:layout_height="650dp"
+            android:layout_height="600dp"
             android:orientation="vertical">
 
             <TextView

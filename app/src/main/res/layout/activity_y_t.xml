@@ -123,7 +123,7 @@
         <ListView
             android:id="@+id/yt_listview"
             android:layout_width="match_parent"
-            android:layout_height="450dp">
+            android:layout_height="350dp">
 
         </ListView>
 
@@ -258,5 +258,6 @@
             android:layout_alignParentRight="true"
             android:tint="@android:color/white" />
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

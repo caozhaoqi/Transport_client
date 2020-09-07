@@ -18,7 +18,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.bigkoo.snappingstepper.SnappingStepper;
 import com.bigkoo.snappingstepper.listener.SnappingStepperValueChangeListener;
 
 import org.json.JSONArray;
@@ -105,27 +104,29 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
         Intent i = getIntent();
         assert companyName != null;
         companyName = i.getStringExtra("companyName");
-
-        assert companyName != null;
-        switch (companyName) {
-            case "圆通":
-                cm.setText("圆通");
-                kd_cm.setText("圆通");
-                break;
-            case "韵达":
-                cm.setText("韵达");
-                kd_cm.setText("韵达");
-                break;
-            case "中通":
-                cm.setText("中通");
-                kd_cm.setText("中通");
-                break;
-            default:
-                cm.setText(companyName);
-                kd_cm.setText(companyName);
-                break;
+        try {
+            assert companyName != null;
+            switch (companyName) {
+                case "圆通":
+                    cm.setText("圆通");
+                    kd_cm.setText("圆通");
+                    break;
+                case "韵达":
+                    cm.setText("韵达");
+                    kd_cm.setText("韵达");
+                    break;
+                case "中通":
+                    cm.setText("中通");
+                    kd_cm.setText("中通");
+                    break;
+                default:
+                    cm.setText(companyName);
+                    kd_cm.setText(companyName);
+                    break;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
 
         initData();
         //show
@@ -150,7 +151,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
                 Map map = new HashMap<String, Object>();
                 //map放入两个键值对，键名与from对应，
                 map.put("pn", appData.phoneNumber_scan[i5]);
-
+                map.put("qhm", appData.qhm[i5]);
                 //往list添加数据
                 arr_data.add(map);
             }
@@ -162,15 +163,15 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
         }
 
         // 新建适配器 ，绑定数据
-        final String[] from = {"pn"};
-        final int[] to = {R.id.phone_number};
+        final String[] from = {"pn", "qhm"};
+        final int[] to = {R.id.phone_number, R.id.stepper};
 
         simp_ada = new SimpleAdapter(this, arr_data, R.layout.yt_list_item, from, to);
         ListView listView = findViewById(R.id.yt_listview);
         listView.setAdapter(simp_ada);
-        final SnappingStepper stepper = convertView.findViewById(R.id.stepper);
-
-        stepper.setOnValueChangeListener(this);
+//        final SnappingStepper stepper = convertView.findViewById(R.id.stepper);
+//
+//        stepper.setOnValueChangeListener(this);
 
         get_num.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -278,7 +279,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
                     Log.e("JSON Error: ", ex.toString());
 
                 } catch (Exception e) {
-
+                    e.printStackTrace();
                 }
 
             }

@@ -5,6 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".ScanActivity">
 
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -14,6 +18,7 @@
             android:id="@+id/scan"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:layout_marginBottom="20dp"
             android:contentDescription="@string/todo">
 
         </ImageView>
@@ -34,4 +39,5 @@
         </Button>
     </LinearLayout>
 
+</ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

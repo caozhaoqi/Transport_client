@@ -11,7 +11,7 @@ public class Constant {
     public static final String sign = "";
     public static final String signType = "";
 
-    public static final String IP = "192.168.0.15";
+    public static final String IP = "39.99.137.77";//http://39.99.137.77:8084/server/doc.html
     public static final String PORT = "8084";
     public static final String CODED_CONTENT = "123";
 

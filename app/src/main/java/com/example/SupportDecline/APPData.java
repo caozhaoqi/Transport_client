@@ -48,7 +48,7 @@ public class APPData extends Application {
     @NonNull
     public String[] phoneNumber_scan = new String[100];//add Phone
     @NonNull
-    public int[] qhm;//ahm
+    public int[] qhm = new int[100];//ahm
 
     public int i;//record add phone number count
 
