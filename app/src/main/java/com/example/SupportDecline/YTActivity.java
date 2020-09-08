@@ -25,10 +25,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -72,6 +77,8 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
 
     Button mSend;
     EditText getnum_edt;
+    @BindView(R.id.today_date)
+    TextView mTodayDate;
 
     /**
      * @param savedInstanceState
@@ -82,6 +89,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
     protected void onCreate(@NonNull Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_y_t);
+        ButterKnife.bind(this);
 
         mMsgBegin = findViewById(R.id.msg_begin);
         mEdtKdFs = findViewById(R.id.edt_kd_fs);
@@ -102,6 +110,13 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
         txt_get_code = findViewById(R.id.tx_get_code_yt);
         fsts_txt = findViewById(R.id.fsts_txt);
         Intent i = getIntent();
+
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd");// HH:mm:ss
+//获取当前时间
+        Date date = new Date(System.currentTimeMillis());
+        String message = simpleDateFormat.format(date);
+        mTodayDate.setText(message);
         assert companyName != null;
         companyName = i.getStringExtra("companyName");
         try {
@@ -169,9 +184,6 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
         simp_ada = new SimpleAdapter(this, arr_data, R.layout.yt_list_item, from, to);
         ListView listView = findViewById(R.id.yt_listview);
         listView.setAdapter(simp_ada);
-//        final SnappingStepper stepper = convertView.findViewById(R.id.stepper);
-//
-//        stepper.setOnValueChangeListener(this);
 
         get_num.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -300,4 +312,14 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
 
     }
 
+    @OnClick(R.id.today_date)
+    public void onClick(View v) {
+        switch (v.getId()) {
+            default:
+                break;
+            case R.id.today_date:
+
+                break;
+        }
+    }
 }

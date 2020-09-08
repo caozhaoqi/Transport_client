@@ -123,7 +123,7 @@
         <ListView
             android:id="@+id/yt_listview"
             android:layout_width="match_parent"
-            android:layout_height="350dp">
+            android:layout_height="320dp">
 
         </ListView>
 
@@ -158,6 +158,14 @@
 
             </TextView>
 
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
             <EditText
                 android:id="@+id/input_address"
                 android:layout_width="wrap_content"
@@ -167,12 +175,6 @@
                 android:hint="@string/inad">
 
             </EditText>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -192,6 +194,14 @@
 
             </EditText>
 
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:id="@+id/kdydgh"
@@ -199,12 +209,6 @@
                 android:text="@string/qhm_dh">
 
             </TextView>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/input_ph"

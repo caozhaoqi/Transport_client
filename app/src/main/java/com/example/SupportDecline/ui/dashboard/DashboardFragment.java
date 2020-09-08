@@ -42,13 +42,6 @@ public class DashboardFragment extends Fragment {
         APPData appData = (APPData) getActivity().getApplicationContext();
         txt_login_number.setText(appData.phoneNumber);
 
-        my.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getContext(), MyActivity.class);
-                startActivity(i);
-            }
-        });
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override

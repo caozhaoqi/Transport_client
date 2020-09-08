@@ -67,6 +67,7 @@ public class ImageDialog extends Dialog {
      */
     @Override
     public void dismiss() {
+        assert bmp != null;
         bmp.recycle();
         bmp = null;
         System.gc();

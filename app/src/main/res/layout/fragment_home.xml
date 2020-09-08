@@ -7,11 +7,6 @@
     android:orientation="vertical"
     tools:context=".ui.home.HomeFragment">
 
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="650dp"
-        android:fadingEdge="vertical"
-        android:scrollbars="vertical">
 
         <LinearLayout
             android:id="@+id/addli"
@@ -44,16 +39,15 @@
 
 
         </LinearLayout>
-    </ScrollView>
+        <ImageView
+            android:id="@+id/img_add"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@mipmap/add"
+            tools:ignore="MissingConstraints">
 
-    <ImageView
-        android:id="@+id/img_add"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@mipmap/add"
-        tools:ignore="MissingConstraints">
+        </ImageView>
 
-    </ImageView>
 
 </LinearLayout>

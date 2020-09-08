@@ -65,15 +65,6 @@ public class ScanActivity extends AppCompatActivity {
                 Intent intent = new Intent(ScanActivity.this, ScannerActivity.class);
 
                 startActivity(intent);
-//                ZxingConfig config = new ZxingConfig();
-//                config.setShowbottomLayout(true);//底部布局（包括闪光灯和相册）
-//                config.setPlayBeep(true);//是否播放提示音
-//                config.setShake(true);//是否震动
-//                config.setShowAlbum(true);//是否显示相册
-//                config.setShowFlashLight(true);//是否显示闪光灯
-//                intent.putExtra(com.yzq.zxinglibrary.common.Constant.INTENT_ZXING_CONFIG, config);
-//                startActivityForResult(intent, REQUEST_CODE_SCAN);
-
             }
         });
         finish.setOnClickListener(new View.OnClickListener() {
