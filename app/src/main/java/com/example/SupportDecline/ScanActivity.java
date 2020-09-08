@@ -49,7 +49,7 @@ public class ScanActivity extends AppCompatActivity {
             //往list添加数据
             arr_data.add(map);
         }
-
+//16602629614
         // 新建适配器 ，绑定数据
         String[] from = {"pn", "qhm"};
         int[] to = {R.id.phone_number, R.id.stepper};

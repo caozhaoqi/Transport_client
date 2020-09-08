@@ -166,13 +166,14 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
                 Map map = new HashMap<String, Object>();
                 //map放入两个键值对，键名与from对应，
                 map.put("pn", appData.phoneNumber_scan[i5]);
+                appData.qhm[i5] -= i5;
                 map.put("qhm", appData.qhm[i5]);
                 //往list添加数据
                 arr_data.add(map);
             }
-            String msg = String.valueOf(appData.i);
+            // String msg = String.valueOf(appData.i);
             getnum_edt.setText(msg);
-            System.out.println(msg);
+            //  System.out.println(msg);
         } catch (Exception e) {
             e.printStackTrace();
         }
