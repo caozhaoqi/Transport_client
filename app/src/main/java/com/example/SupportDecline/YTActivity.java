@@ -211,6 +211,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
             public void onClick(View view) {
                 Intent i = new Intent(YTActivity.this, ScanActivity.class);
                 //数据清空
+                appData.count += 1;
                 startActivity(i);
             }
         });

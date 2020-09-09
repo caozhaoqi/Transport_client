@@ -40,6 +40,10 @@ public class ScanActivity extends AppCompatActivity {
     ListView ls;
     Button finish;
     private static final String TAG = "ScanActivity";
+    int id;
+    int cl_id;
+    String[] pn;
+    int[] ahm;
 
 
     /**
@@ -56,14 +60,22 @@ public class ScanActivity extends AppCompatActivity {
         scan = findViewById(R.id.scan);
         ls = findViewById(R.id.ls_sc);
         finish = findViewById(R.id.finish);
+        //data
 
+        pn = appData.phoneNumber_scan;
+        ahm = appData.qhm;
+
+        if (appData.count > 1) {
+            pn = null;
+            ahm = null;
+        }
         ArrayList<Map<String, Object>> arr_data = new ArrayList<>();
         // 新增数据
         for (int i5 = 0; i5 < appData.i; i5++) {
             Map<String, Object> map = new HashMap<String, Object>();
             //map放入两个键值对，键名与from对应，
-            map.put("pn", appData.phoneNumber_scan[i5]);
-            map.put("qhm", appData.qhm[i5]);
+            map.put("pn", pn[i5]);
+            map.put("qhm", ahm[i5]);
             //往list添加数据
             arr_data.add(map);
         }
@@ -97,12 +109,15 @@ public class ScanActivity extends AppCompatActivity {
 
     }
 
+    /**
+     *
+     */
+
     private void sendScanData() {
 
-        APPData appData = (APPData) getApplicationContext();
-        //data
-        StringBuffer sb = new StringBuffer();
+        ////define temp variable
 
+        APPData appData = (APPData) getApplicationContext();
         java.util.List list = new ArrayList<>();
         for (int i = 0; i < appData.i; i++) {
 

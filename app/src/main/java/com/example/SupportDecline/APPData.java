@@ -52,7 +52,8 @@ public class APPData extends Application {
 
     public int i;//record add phone number count
     public String pro;
-    public int clickId;
+    public int clickId;//选择id
+    public int count;//记录扫描次数
 
     /**
      *
