@@ -1,6 +1,8 @@
 package com.example.SupportDecline;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -13,9 +15,11 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bigkoo.snappingstepper.listener.SnappingStepperValueChangeListener;
@@ -48,6 +52,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
 
     private static final int REQUEST_CODE_SCAN = 123;
 
+    int msg_count;//message count
     CustomFAB scan;
     EditText kd_cm;
     CheckBox get_num;
@@ -114,6 +119,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
         Intent i = getIntent();
 
 
+        @SuppressLint("SimpleDateFormat")
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd");// HH:mm:ss
 //获取当前时间
         Date date = new Date(System.currentTimeMillis());
@@ -233,6 +239,30 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
 
     public void onClick() {
 
+        APPData appData = (APPData) getApplicationContext();
+        if (msg_count <= appData.i) {
+            final Context context = this;
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+            builder.setTitle("提示")
+                    .setIcon(android.R.drawable.sym_def_app_icon)
+                    .setMessage("您的短信条数不足！")
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(context, "确认", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(context, "取消", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+            AlertDialog dialog = builder.create();
+            dialog.show();
+        }
         msg = mMsgBegin.getText().toString() + mEdtKdFs.getText().toString() + mKdydl.getText().toString()
                 + mInputAddress.getText().toString() + mUseCode.getText().toString() +
                 mInputGetnum.getText().toString() + mKdydgh.getText().toString() +
@@ -292,6 +322,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
                     for (int k = 0; k < appData.logisticName_yt.length; k++) {
                         if (appData.logisticName_yt[k].equals(companyName)) {
                             fsts_txt.setText(appData.smsCount_yt[k] + "条");
+                            msg_count = appData.smsCount_yt[k];
                         }
                     }
                 } catch (JSONException ex) {

@@ -40,15 +40,14 @@ public class ScanActivity extends AppCompatActivity {
     ListView ls;
     Button finish;
     private static final String TAG = "ScanActivity";
-    int id;
-    int cl_id;
     String[] pn;
     int[] ahm;
 
 
     /**
-     * {@inheritDoc}
+     * {@inheritDocqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq@Params Bundle}
      */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
