@@ -146,26 +146,26 @@ public class HomeFragment extends Fragment {
         alertBuilder.setTitle("请选择快递公司");
         alertBuilder.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
+            public void onClick(DialogInterface dialogInterface, int position) {
 
                 assert items != null;
-                Toast.makeText(getContext(), items[i], Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), items[position], Toast.LENGTH_SHORT).show();
 
                 final LinearLayout linearLayout = root.findViewById(R.id.addli);
                 final Button button = new Button(getContext());
                 assert appData.logisticsNames != null;
-                String cm = appData.logisticsNames[i];
+                String cm = appData.logisticsNames[position];
 
                 int logisticsId = appData.id;
                 assert appData.idss != null;
-                int servicesUserCpId = appData.idss[i];
+                int servicesUserCpId = appData.idss[position];
                 APPData appData1 = (APPData) getActivity().getApplicationContext();
-                appData1.index[i] += 1;
+                appData1.index[position] += 1;
                 int id = 0;
                 int smsCount = 0;
                 addCompany(id, logisticsId, servicesUserCpId, smsCount);
 
-                if (appData1.index[i] > 1) {
+                if (appData1.index[position] > 1) {
 
                     Toast.makeText(getContext(), "已经添加", Toast.LENGTH_SHORT).show();
                     //  button.setVisibility(View.INVISIBL
@@ -186,6 +186,7 @@ public class HomeFragment extends Fragment {
                             // TODO other
                             Intent i = new Intent(getContext(), YTActivity.class);
                             i.putExtra("companyName", button.getText().toString());
+                            appData.clickId = position;
                             startActivity(i);
 
                         }

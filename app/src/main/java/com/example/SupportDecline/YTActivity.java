@@ -79,6 +79,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
     EditText getnum_edt;
     @BindView(R.id.today_date)
     TextView mTodayDate;
+    EditText det_get_num_a;
 
     /**
      * @param savedInstanceState
@@ -109,6 +110,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
         getnum_edt = findViewById(R.id.getNum_edt_num);
         txt_get_code = findViewById(R.id.tx_get_code_yt);
         fsts_txt = findViewById(R.id.fsts_txt);
+        det_get_num_a = findViewById(R.id.getNum_edt);
         Intent i = getIntent();
 
 
@@ -116,6 +118,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
 //获取当前时间
         Date date = new Date(System.currentTimeMillis());
         String message = simpleDateFormat.format(date);
+
         mTodayDate.setText(message);
         assert companyName != null;
         companyName = i.getStringExtra("companyName");
@@ -157,6 +160,8 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
         //test
         //appData.i= 1 ;
         //appData.phoneNumber_scan[0] = String.valueOf(1);
+        //select qz
+        appData.pro = message + det_get_num_a.getText().toString();
         for (int index = 0; index < appData.i; index++) {
             //get取货码
             appData.qhm[index] = appData.i;
@@ -205,6 +210,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(YTActivity.this, ScanActivity.class);
+                //数据清空
                 startActivity(i);
             }
         });

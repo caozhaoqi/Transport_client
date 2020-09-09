@@ -104,7 +104,9 @@ public class MainActivity extends AppCompatActivity {
                     //用JSON字符串来初始化一个JSON对象
                     JSONArray jsonArray = new JSONArray(result2);
                     if (jsonArray.length() == 0) {
-                        System.out.println("error");
+
+                        System.out.println("data error or account not exists");
+
                     } else {
                         //然后读取result后面的数组([]号里的内容)，用这个内容来初始化一个JSONArray对象
 
@@ -114,9 +116,9 @@ public class MainActivity extends AppCompatActivity {
                             JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                             id[i] = jsonObject1.getInt("id");
                             logisticsName[i] = jsonObject1.getString("logisticsName");
-                            //  JSONArray aNews = new JSONArray(jsonObject.getString("data"));
+
                         }
-                        // Log.i("the title: ", aNews.getJSONObject(0).getString("image"));
+
                         APPData appData = (APPData) getApplicationContext();
                         appData.idss = id;
                         appData.logisticsNames = logisticsName;

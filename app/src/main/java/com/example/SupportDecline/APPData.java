@@ -51,6 +51,8 @@ public class APPData extends Application {
     public int[] qhm = new int[100];//ahm
 
     public int i;//record add phone number count
+    public String pro;
+    public int clickId;
 
     /**
      *

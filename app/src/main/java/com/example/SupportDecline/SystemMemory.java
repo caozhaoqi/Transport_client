@@ -31,6 +31,7 @@ package com.example.SupportDecline;
  * @class describe
  */
 
+import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.text.format.Formatter;
@@ -60,6 +61,7 @@ public class SystemMemory {
      * * @param context
      * *
      */
+    @SuppressLint("LogConditional")
     public static String getTotalMemory(Context context) {
         String str1 = "/proc/meminfo";// 系统内存信息文件
         String str2;
@@ -79,6 +81,8 @@ public class SystemMemory {
             initial_memory = new Long((long) i * 1024);
             localBufferedReader.close();
         } catch (IOException e) {
+            e.printStackTrace();
+
         }
         return Formatter.formatFileSize(context, initial_memory);// Byte转换为KB或者MB，内存大小规格化
     }
