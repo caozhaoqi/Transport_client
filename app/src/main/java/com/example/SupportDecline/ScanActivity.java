@@ -4,11 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.SupportDecline.data.JsonRootBean;
@@ -35,14 +37,13 @@ import okhttp3.Response;
 public class ScanActivity extends AppCompatActivity {
 
     private static final int REQUEST_CODE_SCAN = 123;
-
+    private static final String TAG = "ScanActivity";
     ImageView scan;
     ListView ls;
     Button finish;
-    private static final String TAG = "ScanActivity";
     String[] pn;
     int[] ahm;
-
+    int position;
 
     /**
      * {@inheritDocqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq@Params Bundle}
@@ -53,39 +54,48 @@ public class ScanActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan);
         //ButterKnife.bind(this);
+        try {
+            APPData appData = (APPData) getApplicationContext();
 
-        APPData appData = (APPData) getApplicationContext();
+            scan = findViewById(R.id.scan);
+            ls = findViewById(R.id.ls_sc);
+            finish = findViewById(R.id.finish);
+            //data
 
-        scan = findViewById(R.id.scan);
-        ls = findViewById(R.id.ls_sc);
-        finish = findViewById(R.id.finish);
-        //data
+            pn = appData.phoneNumber_scan;
+            ahm = appData.qhm;
 
-        pn = appData.phoneNumber_scan;
-        ahm = appData.qhm;
-
-        if (appData.count > 1) {
-            pn = null;
-            ahm = null;
-        }
-        ArrayList<Map<String, Object>> arr_data = new ArrayList<>();
-        // 新增数据
-        for (int i5 = 0; i5 < appData.i; i5++) {
-            Map<String, Object> map = new HashMap<String, Object>();
-            //map放入两个键值对，键名与from对应，
-            map.put("pn", pn[i5]);
-            map.put("qhm", ahm[i5]);
-            //往list添加数据
-            arr_data.add(map);
-        }
+            if (appData.count > 1) {
+                pn = null;
+                ahm = null;
+            }
+            ArrayList<Map<String, Object>> arr_data = new ArrayList<>();
+            // 新增数据
+            for (int i5 = 0; i5 < appData.i; i5++) {
+                Map<String, Object> map = new HashMap<String, Object>();
+                //map放入两个键值对，键名与from对应，
+                map.put("pn", pn[i5]);
+                map.put("qhm", ahm[i5]);
+                //往list添加数据
+                arr_data.add(map);
+            }
 //16602629614
-        // 新建适配器 ，绑定数据
-        String[] from = {"pn", "qhm"};
-        int[] to = {R.id.phone_number, R.id.stepper};
-        SimpleAdapter simp_ada = new SimpleAdapter(this, arr_data, R.layout.yt_list_item, from, to);
+            // 新建适配器 ，绑定数据
+            String[] from = {"pn", "qhm"};
+            int[] to = {R.id.phone_number, R.id.stepper};
+            SimpleAdapter simp_ada = new SimpleAdapter(this, arr_data, R.layout.yt_list_item, from, to);
 
 
-        ls.setAdapter(simp_ada);
+            ls.setAdapter(simp_ada);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        ls.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                position = i;
+            }
+        });
 
 
         scan.setOnClickListener(new View.OnClickListener() {
@@ -106,6 +116,32 @@ public class ScanActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void remove(@NonNull View v) {
+        // int position = (Integer) v.getTag();
+        APPData appData = (APPData) getApplicationContext();
+        ArrayList<Map<String, Object>> arr_data = new ArrayList<>();
+        // 新增数据
+        for (int i5 = 0; i5 < appData.i; i5++) {
+            Map<String, Object> map = new HashMap<String, Object>();
+            //map放入两个键值对，键名与from对应，
+            map.put("pn", pn[i5]);
+            map.put("qhm", ahm[i5]);
+            //往list添加数据
+            arr_data.add(map);
+        }
+        arr_data.remove(position);
+//16602629614
+        // 新建适配器 ，绑定数据
+        String[] from = {"pn", "qhm"};
+        int[] to = {R.id.phone_number, R.id.stepper};
+        SimpleAdapter simp_ada = new SimpleAdapter(this, arr_data, R.layout.yt_list_item, from, to);
+
+
+        ls.setAdapter(simp_ada);
+
+        //ls.removeView(v);
     }
 
     /**
@@ -163,6 +199,8 @@ public class ScanActivity extends AppCompatActivity {
                     Log.e("JSON Error: ", ex.toString());
 
                 } catch (Exception e) {
+
+                    e.printStackTrace();
 
                 }
 

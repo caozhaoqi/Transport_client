@@ -41,7 +41,7 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
     implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
     implementation 'androidx.navigation:navigation-fragment:2.3.0'
@@ -64,7 +64,9 @@ dependencies {
     releaseImplementation 'com.idescout.sql:sqlscout-server-noop:4.1'
     implementation 'com.jakewharton:butterknife:10.2.3'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
-    compile 'org.codehaus.jackson:jackson-mapper-asl:1+'
-    compile 'org.codehaus.jackson:jackson-core-asl:1+'
+    //noinspection GradleDynamicVersion
+    implementation 'org.codehaus.jackson:jackson-mapper-asl:1+'
+    //noinspection GradleDynamicVersion
+    implementation 'org.codehaus.jackson:jackson-core-asl:1+'
 
 }

@@ -2,7 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:descendantFocusability="blocksDescendants"
     android:layout_height="match_parent"
+    android:launchMode="singleTask"
     tools:context=".ScanActivity">
 
 <ScrollView
@@ -26,6 +28,7 @@
         <ListView
             android:id="@+id/ls_sc"
             android:layout_width="match_parent"
+            android:clickable="true"
             android:layout_height="500dp">
 
         </ListView>

@@ -1,6 +1,7 @@
 package com.example.SupportDecline;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -88,6 +89,7 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     //发送短信
+    @SuppressLint("UnlocalizedSms")
     private void sendSMSS() {
 //        String content = edContent.getText().toString().trim();
 //        String phone = edPhone.getText().toString().trim();
@@ -99,9 +101,9 @@ public class DetailActivity extends AppCompatActivity {
         }
         Toast.makeText(DetailActivity.this, "发送成功", Toast.LENGTH_SHORT).show();
         //   } else {
-        // Toast.makeText(this, "手机号或内容不能为空", Toast.LENGTH_SHORT).show();
-        //return;
-        // }
+        //        // Toast.makeText(this, "手机号或内容不能为空", Toast.LENGTH_SHORT).show();
+        //        //return;
+        //        // }
 
     }
 

@@ -246,11 +246,13 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
 
             builder.setTitle("提示")
                     .setIcon(android.R.drawable.sym_def_app_icon)
-                    .setMessage("您的短信条数不足！")
+                    .setMessage("您的短信条数不足，请充值后继续发送短信！")
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            Toast.makeText(context, "确认", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "去充值", Toast.LENGTH_SHORT).show();
+                            Intent i = new Intent(YTActivity.this, PayActivity.class);
+                            startActivity(i);
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
