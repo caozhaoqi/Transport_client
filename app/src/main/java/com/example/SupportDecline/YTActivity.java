@@ -51,7 +51,7 @@ import okhttp3.Response;
 public class YTActivity extends AppCompatActivity implements SnappingStepperValueChangeListener {
 
 
-    Boolean INFlag = false;
+
     private static final int REQUEST_CODE_SCAN = 123;
     boolean delFlag = false;
 
@@ -117,7 +117,10 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
         TextView cm = findViewById(R.id.companyName);
         kd_cm = findViewById(R.id.edt_kd_fs);
         get_num = findViewById(R.id.get_num);
-        get_num.setChecked(true);
+        APPData appData = (APPData) getApplicationContext();
+        if (!appData.INFlag) {
+            get_num.setChecked(true);
+        }
         getnum_edt = findViewById(R.id.getNum_edt_num);
         txt_get_code = findViewById(R.id.tx_get_code_yt);
         fsts_txt = findViewById(R.id.fsts_txt);
@@ -167,42 +170,70 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
 
 
         final ArrayList<Map<String, Object>> arr_data = new ArrayList<>();
-        APPData appData = (APPData) getApplicationContext();
+        listView = findViewById(R.id.yt_listview);
         // 新增数据
         //test
         //appData.i= 1 ;
         //appData.phoneNumber_scan[0] = String.valueOf(1);
         //select qz
-        appData.pro = message + det_get_num_a.getText().toString();
-        for (int index = 0; index < appData.i; index++) {
-            //get取货码
-            appData.qhm[index] = appData.i;
-        }
-        try {
-            for (int i5 = 0; i5 < appData.i; i5++) {
-                Map map = new HashMap<String, Object>();
-                //map放入两个键值对，键名与from对应，
-                map.put("pn", appData.phoneNumber_scan[i5]);
-                appData.qhm[i5] -= i5;
-                map.put("qhm", appData.qhm[i5]);
-                //往list添加数据
-                arr_data.add(map);
+        if (!appData.INFlag) {
+            appData.pro = message + det_get_num_a.getText().toString();
+            for (int index = 0; index < appData.i; index++) {
+                //get取货码
+                appData.qhm[index] = appData.i;
             }
-            // String msg = String.valueOf(appData.i);
-            getnum_edt.setText(msg);
-            //  System.out.println(msg);
-        } catch (Exception e) {
-            e.printStackTrace();
+            try {
+                for (int i5 = 0; i5 < appData.i; i5++) {
+                    Map map = new HashMap<String, Object>();
+                    //map放入两个键值对，键名与from对应，
+                    map.put("pn", appData.phoneNumber_scan[i5]);
+                    appData.qhm[i5] -= i5;
+                    map.put("qhm", appData.qhm[i5]);
+                    //往list添加数据
+                    arr_data.add(map);
+                }
+                // String msg = String.valueOf(appData.i);
+                getnum_edt.setText(msg);
+                //  System.out.println(msg);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            // 新建适配器 ，绑定数据
+            final String[] from = {"pn", "qhm"};
+            final int[] to = {R.id.phone_number, R.id.stepper};
+
+            simp_ada = new SimpleAdapter(this, arr_data, R.layout.yt_list_item, from, to);
+
+            listView.setAdapter(simp_ada);
+        } else {
+
+            try {
+                for (int i5 = 0; i5 < appData.i; i5++) {
+                    Map map = new HashMap<String, Object>();
+                    //map放入两个键值对，键名与from对应，
+                    map.put("pn", appData.phoneNumber_scan[i5]);
+
+                    //往list添加数据
+                    arr_data.add(map);
+                }
+                // String msg = String.valueOf(appData.i);
+                //  System.out.println(msg);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            // 新建适配器 ，绑定数据
+            final String[] from = {"pn"};
+            final int[] to = {R.id.phone_number};
+
+
+            simp_ada = new SimpleAdapter(YTActivity.this, arr_data, R.layout.nyt_list_item, from, to);
+            //   stepper.setVisibility(View.GONE);
+            txt_get_code.setVisibility(View.GONE);
+
+            listView.setAdapter(simp_ada);
         }
-
-        // 新建适配器 ，绑定数据
-        final String[] from = {"pn", "qhm"};
-        final int[] to = {R.id.phone_number, R.id.stepper};
-
-        simp_ada = new SimpleAdapter(this, arr_data, R.layout.yt_list_item, from, to);
-        listView = findViewById(R.id.yt_listview);
-        listView.setAdapter(simp_ada);
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -213,13 +244,31 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
         get_num.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                try {
+                    for (int i5 = 0; i5 < appData.i; i5++) {
+                        Map map = new HashMap<String, Object>();
+                        //map放入两个键值对，键名与from对应，
+                        map.put("pn", appData.phoneNumber_scan[i5]);
+
+                        //往list添加数据
+                        arr_data.add(map);
+                    }
+                    // String msg = String.valueOf(appData.i);
+                    //  System.out.println(msg);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                // 新建适配器 ，绑定数据
+                final String[] from = {"pn"};
+                final int[] to = {R.id.phone_number};
 
                 simp_ada = new SimpleAdapter(YTActivity.this, arr_data, R.layout.nyt_list_item, from, to);
                 //   stepper.setVisibility(View.GONE);
                 txt_get_code.setVisibility(View.GONE);
-                ListView listView = findViewById(R.id.yt_listview);
+
                 listView.setAdapter(simp_ada);
-                INFlag = true;
+                appData.INFlag = true;
             }
         });
 
@@ -451,7 +500,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
 
         APPData appData = (APPData) getApplicationContext();
         ArrayList<Map<String, Object>> arr_data = new ArrayList<>();
-        if (INFlag) {
+        if (!appData.INFlag) {
             //no get
             // 新增数据
             for (int i5 = 0; i5 < appData.i; i5++) {
@@ -492,5 +541,6 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
             listView.setAdapter(simp_ada);
 
         }
+        Toast.makeText(YTActivity.this, "delete successful!", Toast.LENGTH_LONG).show();
     }
 }

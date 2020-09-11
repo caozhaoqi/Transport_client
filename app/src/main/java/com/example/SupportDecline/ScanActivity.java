@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -64,29 +65,52 @@ public class ScanActivity extends AppCompatActivity {
 
             pn = appData.phoneNumber_scan;
             ahm = appData.qhm;
+            if (!appData.INFlag) {
+//                if (appData.count > 1) {
+//                    pn = null;
+//                    ahm = null;
+//                }
+                ArrayList<Map<String, Object>> arr_data = new ArrayList<>();
+                // 新增数据
+                for (int i5 = 0; i5 < appData.i; i5++) {
+                    Map<String, Object> map = new HashMap<String, Object>();
+                    //map放入两个键值对，键名与from对应，
+                    map.put("pn", pn[i5]);
+                    map.put("qhm", ahm[i5]);
+                    //往list添加数据
+                    arr_data.add(map);
+                }
 
-            if (appData.count > 1) {
-                pn = null;
-                ahm = null;
+                // 新建适配器 ，绑定数据
+                String[] from = {"pn", "qhm"};
+                int[] to = {R.id.phone_number, R.id.stepper};
+                SimpleAdapter simp_ada = new SimpleAdapter(this, arr_data, R.layout.yt_list_item, from, to);
+                ls.setAdapter(simp_ada);
+
+            } else {
+//                if (appData.count > 1) {
+//                    pn = null;
+//                    ahm = null;
+//                }
+                ArrayList<Map<String, Object>> arr_data = new ArrayList<>();
+                // 新增数据
+                for (int i5 = 0; i5 < appData.i; i5++) {
+                    Map<String, Object> map = new HashMap<String, Object>();
+                    //map放入两个键值对，键名与from对应，
+                    map.put("pn", pn[i5]);
+
+                    //往list添加数据
+                    arr_data.add(map);
+                    // ls.setAdapter(simp_ada);
+                }
+
+                // 新建适配器 ，绑定数据
+                String[] from = {"pn"};
+                int[] to = {R.id.phone_number};
+                SimpleAdapter simp_ada = new SimpleAdapter(this, arr_data, R.layout.nyt_list_item, from, to);
+
+                ls.setAdapter(simp_ada);
             }
-            ArrayList<Map<String, Object>> arr_data = new ArrayList<>();
-            // 新增数据
-            for (int i5 = 0; i5 < appData.i; i5++) {
-                Map<String, Object> map = new HashMap<String, Object>();
-                //map放入两个键值对，键名与from对应，
-                map.put("pn", pn[i5]);
-                map.put("qhm", ahm[i5]);
-                //往list添加数据
-                arr_data.add(map);
-            }
-
-            // 新建适配器 ，绑定数据
-            String[] from = {"pn", "qhm"};
-            int[] to = {R.id.phone_number, R.id.stepper};
-            SimpleAdapter simp_ada = new SimpleAdapter(this, arr_data, R.layout.yt_list_item, from, to);
-
-
-            ls.setAdapter(simp_ada);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -120,28 +144,52 @@ public class ScanActivity extends AppCompatActivity {
 
     public void remove(@NonNull View v) {
         // int position = (Integer) v.getTag();
+
         APPData appData = (APPData) getApplicationContext();
         ArrayList<Map<String, Object>> arr_data = new ArrayList<>();
-        // 新增数据
-        for (int i5 = 0; i5 < appData.i; i5++) {
-            Map<String, Object> map = new HashMap<String, Object>();
-            //map放入两个键值对，键名与from对应，
-            map.put("pn", pn[i5]);
-            map.put("qhm", ahm[i5]);
-            //往list添加数据
-            arr_data.add(map);
+        if (!appData.INFlag) {
+            // 新增数据
+            for (int i5 = 0; i5 < appData.i; i5++) {
+                Map<String, Object> map = new HashMap<String, Object>();
+                //map放入两个键值对，键名与from对应，
+                map.put("pn", pn[i5]);
+                map.put("qhm", ahm[i5]);
+                //往list添加数据
+                arr_data.add(map);
+            }
+            arr_data.remove(position);
+
+            // 新建适配器 ，绑定数据
+            String[] from = {"pn", "qhm"};
+            int[] to = {R.id.phone_number, R.id.stepper};
+            SimpleAdapter simp_ada = new SimpleAdapter(this, arr_data, R.layout.yt_list_item, from, to);
+
+
+            ls.setAdapter(simp_ada);
+
+        } else {
+
+            // 新增数据
+            for (int i5 = 0; i5 < appData.i; i5++) {
+                Map<String, Object> map = new HashMap<String, Object>();
+                //map放入两个键值对，键名与from对应，
+                map.put("pn", appData.phoneNumber_scan[i5]);
+                //往list添加数据
+                arr_data.add(map);
+            }
+            arr_data.remove(position);
+
+            // 新建适配器 ，绑定数据
+            String[] from = {"pn"};
+            int[] to = {R.id.phone_number};
+            SimpleAdapter simp_ada = new SimpleAdapter(this, arr_data, R.layout.nyt_list_item, from, to);
+
+
+            ls.setAdapter(simp_ada);
+
+            //ls.removeView(v);
         }
-        arr_data.remove(position);
-
-        // 新建适配器 ，绑定数据
-        String[] from = {"pn", "qhm"};
-        int[] to = {R.id.phone_number, R.id.stepper};
-        SimpleAdapter simp_ada = new SimpleAdapter(this, arr_data, R.layout.yt_list_item, from, to);
-
-
-        ls.setAdapter(simp_ada);
-
-        //ls.removeView(v);
+        Toast.makeText(ScanActivity.this, "delete successful!", Toast.LENGTH_LONG).show();
     }
 
     /**
@@ -152,15 +200,22 @@ public class ScanActivity extends AppCompatActivity {
 
         ////define temp variable
 
+
         APPData appData = (APPData) getApplicationContext();
+
         java.util.List list = new ArrayList<>();
         for (int i = 0; i < appData.i; i++) {
+            if (appData.INFlag) {
+                List list1 = new List(appData.clickId, appData.phoneNumber_scan[i],
+                        "", appData.id);
 
-            List list1 = new List(appData.clickId, appData.phoneNumber_scan[i],
-                    appData.pro + appData.qhm[i], appData.id);
+                list.add(list1);
+            } else {
+                List list1 = new List(appData.clickId, appData.phoneNumber_scan[i],
+                        appData.pro + appData.qhm[i], appData.id);
 
-            list.add(list1);
-
+                list.add(list1);
+            }
         }
         JsonRootBean jsonRootBean = new JsonRootBean();
         jsonRootBean.setList(list);
