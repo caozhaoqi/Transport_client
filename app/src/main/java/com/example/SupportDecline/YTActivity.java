@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -50,7 +51,9 @@ import okhttp3.Response;
 public class YTActivity extends AppCompatActivity implements SnappingStepperValueChangeListener {
 
 
+    Boolean INFlag = false;
     private static final int REQUEST_CODE_SCAN = 123;
+    boolean delFlag = false;
 
     int msg_count;//message count
     CustomFAB scan;
@@ -81,10 +84,13 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
     String msg;//send msg
 
     Button mSend;
+    ListView listView;
+
     EditText getnum_edt;
     @BindView(R.id.today_date)
     TextView mTodayDate;
     EditText det_get_num_a;
+    int position;
 
     /**
      * @param savedInstanceState
@@ -194,8 +200,15 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
         final int[] to = {R.id.phone_number, R.id.stepper};
 
         simp_ada = new SimpleAdapter(this, arr_data, R.layout.yt_list_item, from, to);
-        ListView listView = findViewById(R.id.yt_listview);
+        listView = findViewById(R.id.yt_listview);
         listView.setAdapter(simp_ada);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                position = i;
+            }
+        });
 
         get_num.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -206,6 +219,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
                 txt_get_code.setVisibility(View.GONE);
                 ListView listView = findViewById(R.id.yt_listview);
                 listView.setAdapter(simp_ada);
+                INFlag = true;
             }
         });
 
@@ -361,6 +375,122 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
             case R.id.today_date:
 
                 break;
+        }
+    }
+
+    public void remove(@NonNull View v) {
+        //delete api
+        APPData appData = (APPData) getApplicationContext();
+        String code = appData.pro + appData.qhm[appData.i - position];
+        int logisticsId = appData.clickId;
+        String phone = appData.phoneNumber_scan[appData.i - position];
+        int userId = appData.id;
+        String url2 = "http://" + Constant.IP + ":" + Constant.PORT + "" +
+                "/server/smsedit/deleteByDate?code=" + code + "&logisticsId="
+                + logisticsId + "&phone=" + phone + "&userId=" + userId;
+
+        OkHttpClient client2 = new OkHttpClient();
+        //
+        Request request2 = new Request.Builder()
+                .url(url2)
+                //    .post(requestBody)
+                .build();
+        Call call = client2.newCall(request2);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Toast.makeText(YTActivity.this, "internet error",
+                        Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String result2 = response.body().string();
+                try {
+
+                    //用JSON字符串来初始化一个JSON对象
+                    JSONObject jsonObject = new JSONObject(result2);
+                    //然后读取result后面的数组([]号里的内容)，用这个内容来初始化一个JSONArray对象
+                    String code = jsonObject.getString("code");
+                    if (jsonObject.length() == 0) {
+                        System.out.println("error");
+                    } else if (code.equals("200")) {
+                        System.out.println("successful");
+                        delFlag = true;
+                        dataRemove(position);
+                    } else if (code.equals("400")) {
+
+                        System.out.println("fail 400");
+
+                    } else if (code.equals("401")) {
+
+                        System.out.println("Unauthorized 401 delete fail");
+                    }
+
+
+                } catch (JSONException ex) {
+
+                    Log.e("JSON Error: ", ex.toString());
+
+                } catch (Exception e) {
+
+                    e.printStackTrace();
+                }
+
+
+            }
+
+        });
+
+    }
+
+    /**
+     * @param position location
+     */
+    void dataRemove(int position) {
+
+        APPData appData = (APPData) getApplicationContext();
+        ArrayList<Map<String, Object>> arr_data = new ArrayList<>();
+        if (INFlag) {
+            //no get
+            // 新增数据
+            for (int i5 = 0; i5 < appData.i; i5++) {
+                Map<String, Object> map = new HashMap<String, Object>();
+                //map放入两个键值对，键名与from对应，
+                map.put("pn", appData.phoneNumber_scan[i5]);
+                map.put("qhm", appData.qhm[i5]);
+                //往list添加数据
+                arr_data.add(map);
+            }
+            arr_data.remove(position);
+
+            // 新建适配器 ，绑定数据
+            String[] from = {"pn", "qhm"};
+            int[] to = {R.id.phone_number, R.id.stepper};
+            SimpleAdapter simp_ada = new SimpleAdapter(this, arr_data, R.layout.yt_list_item, from, to);
+
+
+            listView.setAdapter(simp_ada);
+
+        } else {
+            // 新增数据
+            for (int i5 = 0; i5 < appData.i; i5++) {
+                Map<String, Object> map = new HashMap<String, Object>();
+                //map放入两个键值对，键名与from对应，
+                map.put("pn", appData.phoneNumber_scan[i5]);
+                //往list添加数据
+                arr_data.add(map);
+            }
+            arr_data.remove(position);
+
+            // 新建适配器 ，绑定数据
+            String[] from = {"pn"};
+            int[] to = {R.id.phone_number};
+            SimpleAdapter simp_ada = new SimpleAdapter(this, arr_data, R.layout.nyt_list_item, from, to);
+
+
+            listView.setAdapter(simp_ada);
+
         }
     }
 }

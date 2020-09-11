@@ -79,7 +79,7 @@ public class ScanActivity extends AppCompatActivity {
                 //往list添加数据
                 arr_data.add(map);
             }
-//16602629614
+
             // 新建适配器 ，绑定数据
             String[] from = {"pn", "qhm"};
             int[] to = {R.id.phone_number, R.id.stepper};
@@ -132,7 +132,7 @@ public class ScanActivity extends AppCompatActivity {
             arr_data.add(map);
         }
         arr_data.remove(position);
-//16602629614
+
         // 新建适配器 ，绑定数据
         String[] from = {"pn", "qhm"};
         int[] to = {R.id.phone_number, R.id.stepper};
@@ -156,8 +156,8 @@ public class ScanActivity extends AppCompatActivity {
         java.util.List list = new ArrayList<>();
         for (int i = 0; i < appData.i; i++) {
 
-            List list1 = new List(appData.id, appData.phoneNumber_scan[i],
-                    appData.pro + appData.qhm[i], appData.clickId);
+            List list1 = new List(appData.clickId, appData.phoneNumber_scan[i],
+                    appData.pro + appData.qhm[i], appData.id);
 
             list.add(list1);
 
