@@ -167,7 +167,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
 
         @SuppressLint("InflateParams") final View convertView = LayoutInflater.from(this).inflate(R.layout.yt_list_item,
                 null);
-
+        getnum_edt.setText(appData.count + 1 + " ");
 
         final ArrayList<Map<String, Object>> arr_data = new ArrayList<>();
         listView = findViewById(R.id.yt_listview);
@@ -193,7 +193,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
                     arr_data.add(map);
                 }
                 // String msg = String.valueOf(appData.i);
-                getnum_edt.setText(msg);
+
                 //  System.out.println(msg);
             } catch (Exception e) {
                 e.printStackTrace();
