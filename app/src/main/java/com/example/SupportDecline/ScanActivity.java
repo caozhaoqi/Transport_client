@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bigkoo.snappingstepper.SnappingStepper;
 import com.example.SupportDecline.data.JsonRootBean;
 import com.example.SupportDecline.data.List;
 import com.google.gson.Gson;
@@ -45,6 +46,7 @@ public class ScanActivity extends AppCompatActivity {
     String[] pn;
     int[] ahm;
     int position;
+    SnappingStepper snappingStepper;
 
     /**
      * {@inheritDocqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq@Params Bundle}
@@ -66,15 +68,15 @@ public class ScanActivity extends AppCompatActivity {
             pn = appData.phoneNumber_scan;
             ahm = appData.qhm;
             if (!appData.INFlag) {
-//                if (appData.count > 1) {
-//                    pn = null;
-//                    ahm = null;
-//                }
+                if (appData.count > 1) {
+                    pn = null;
+                    ahm = null;
+                }
                 ArrayList<Map<String, Object>> arr_data = new ArrayList<>();
                 // 新增数据
                 for (int i5 = 0; i5 < appData.i; i5++) {
-                    Map<String, Object> map = new HashMap<String, Object>();
-                    //map放入两个键值对，键名与from对应，
+                    Map<String, Object> map = new HashMap<>();
+                    //map放入两个键值对，键名与from对应
                     map.put("pn", pn[i5]);
                     map.put("qhm", ahm[i5]);
                     //往list添加数据
@@ -88,14 +90,17 @@ public class ScanActivity extends AppCompatActivity {
                 ls.setAdapter(simp_ada);
 
             } else {
-//                if (appData.count > 1) {
-//                    pn = null;
-//                    ahm = null;
-//                }
+
+                if (appData.count > 1) {
+
+                    pn = null;
+                    ahm = null;
+
+                }
                 ArrayList<Map<String, Object>> arr_data = new ArrayList<>();
                 // 新增数据
                 for (int i5 = 0; i5 < appData.i; i5++) {
-                    Map<String, Object> map = new HashMap<String, Object>();
+                    Map<String, Object> map = new HashMap<>();
                     //map放入两个键值对，键名与from对应，
                     map.put("pn", pn[i5]);
 
@@ -143,7 +148,7 @@ public class ScanActivity extends AppCompatActivity {
     }
 
     public void remove(@NonNull View v) {
-        // int position = (Integer) v.getTag();
+
 
         APPData appData = (APPData) getApplicationContext();
         ArrayList<Map<String, Object>> arr_data = new ArrayList<>();
@@ -189,16 +194,18 @@ public class ScanActivity extends AppCompatActivity {
 
             //ls.removeView(v);
         }
+
         Toast.makeText(ScanActivity.this, "delete successful!", Toast.LENGTH_LONG).show();
+
     }
 
     /**
      *
      */
 
-    private void sendScanData() {
+    void sendScanData() {
 
-        ////define temp variable
+        //define temp variable
 
 
         APPData appData = (APPData) getApplicationContext();
