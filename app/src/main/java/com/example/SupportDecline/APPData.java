@@ -53,10 +53,14 @@ public class APPData extends Application {
     public int i;//record add phone number count
     @NonNull
     public String pro;//取货码前缀
+
     public int clickId = 2;//选择id
+
     public int count;//记录扫描次数
 
     Boolean INFlag = false;//records no get
+
+    public int amount;// c初始化取货码
 
     /**
      *

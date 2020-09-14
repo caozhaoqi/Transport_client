@@ -1,11 +1,13 @@
 package com.example.SupportDecline.ui;
 
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
+import androidx.annotation.NonNull;
+
+import com.example.SupportDecline.APPData;
 import com.example.SupportDecline.R;
 
 /*
@@ -48,9 +53,9 @@ public class AmountView extends LinearLayout implements View.OnClickListener, Te
 
     private static final String TAG = "AmountView";
 
-    private int amount = 1; //数量
-
-    private int goods_storage = 1; //库存数
+    public int amount; //数量
+    APPData appData = (APPData) getContext().getApplicationContext();
+    private int goods_storage = 1000000; //数
 
     private OnAmountChangeListener mListener; //数量变化的回调接口
 
@@ -60,9 +65,13 @@ public class AmountView extends LinearLayout implements View.OnClickListener, Te
 
     private Button btnIncrease;//+按钮
 
+    ///APPData appData;
+
+
     public AmountView(Context context) {
 
         this(context, null);
+        //  appData = (APPData) getContext().getApplicationContext();
 
     }
 //构造方法
@@ -84,6 +93,10 @@ public class AmountView extends LinearLayout implements View.OnClickListener, Te
         btnIncrease.setOnClickListener(this);
 
         etAmount.addTextChangedListener(this);
+
+        amount = appData.amount;
+
+        // etAmount.setText(appData.aount);
 
         //, AmountView_btnWidth, AmountView_tvWidth, AmountView_tvTextSize, AmountView_btnTextSize  ，是res/Values下的定义的  attrs.xml 内容，分别代表左右2边+-按钮的宽度 ，中间TextView的宽度，字体大小，btnTextSize
 
@@ -123,17 +136,19 @@ public class AmountView extends LinearLayout implements View.OnClickListener, Te
 
         }
 
+        // amount = appData.aount;
+
     }
 
     //数量变化的回调接口
 
-    public void setOnAmountChangeListener(OnAmountChangeListener onAmountChangeListener) {
+    public void setOnAmountChangeListener(@NonNull OnAmountChangeListener onAmountChangeListener) {
 
         this.mListener = onAmountChangeListener;
 
     }
 
-    //设置库存数量
+    //设置数量
 
     public void setGoods_storage(int goods_storage) {
 
@@ -143,11 +158,13 @@ public class AmountView extends LinearLayout implements View.OnClickListener, Te
 
 //加减按钮的点击事件，当数值改变时，调用OnAmountChangeListener回调接口
 
+    @SuppressLint("SetTextI18n")
     @Override
 
-    public void onClick(View v) {
+    public void onClick(@NonNull View v) {
 
         int i = v.getId();
+        //  amount = appData.aount;
 
         if (i == R.id.btnDecrease) {
 
@@ -156,6 +173,7 @@ public class AmountView extends LinearLayout implements View.OnClickListener, Te
                 amount--;
 
                 etAmount.setText(amount + "");
+
 
             }
 
@@ -184,8 +202,10 @@ public class AmountView extends LinearLayout implements View.OnClickListener, Te
 
     @Override
 
-    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+    public void beforeTextChanged(@NonNull CharSequence s, int start, int count, int after) {
+        start = appData.amount;
     }
+
 
     @Override
 
@@ -193,6 +213,7 @@ public class AmountView extends LinearLayout implements View.OnClickListener, Te
     }
 
 
+    @SuppressLint("SetTextI18n")
     @Override
 
     public void afterTextChanged(Editable s) {
@@ -201,8 +222,10 @@ public class AmountView extends LinearLayout implements View.OnClickListener, Te
 
             return;
 
-        amount = Integer.valueOf(s.toString());
-
+        amount = appData.amount;
+//        int a = Integer.parseInt(s.toString());
+//        a = appData.amount;// Integer.parseInt(s.toString());
+        Log.e("ss", s.toString());
         if (amount > goods_storage) {
 
             etAmount.setText(goods_storage + "");

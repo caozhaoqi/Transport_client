@@ -52,7 +52,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
 
 
 
-    private static final int REQUEST_CODE_SCAN = 123;
+    public String amout;
     boolean delFlag = false;
 
     int msg_count;//message count
@@ -103,6 +103,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
         setContentView(R.layout.activity_y_t);
         ButterKnife.bind(this);
 
+
         mMsgBegin = findViewById(R.id.msg_begin);
         mEdtKdFs = findViewById(R.id.edt_kd_fs);
         mKdydl = findViewById(R.id.kdydl);
@@ -126,7 +127,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
         fsts_txt = findViewById(R.id.fsts_txt);
         det_get_num_a = findViewById(R.id.getNum_edt);
         Intent i = getIntent();
-
+        appData.amount = Integer.parseInt(getnum_edt.getText().toString());
 
         @SuppressLint("SimpleDateFormat")
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd");// HH:mm:ss
@@ -167,7 +168,8 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
 
         @SuppressLint("InflateParams") final View convertView = LayoutInflater.from(this).inflate(R.layout.yt_list_item,
                 null);
-        getnum_edt.setText(appData.count + 1 + " ");
+
+        // getnum_edt.setText(appData.count + 1 + " ");
 
         final ArrayList<Map<String, Object>> arr_data = new ArrayList<>();
         listView = findViewById(R.id.yt_listview);

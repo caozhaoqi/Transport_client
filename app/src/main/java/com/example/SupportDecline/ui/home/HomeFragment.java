@@ -153,22 +153,23 @@ public class HomeFragment extends Fragment {
 
                 final LinearLayout linearLayout = root.findViewById(R.id.addli);
                 final Button button = new Button(getContext());
-                assert appData.logisticsNames != null;
-                String cm = appData.logisticsNames[position];
 
-                int logisticsId = appData.id;
-                assert appData.idss != null;
-                int servicesUserCpId = appData.idss[position];
                 APPData appData1 = (APPData) getActivity().getApplicationContext();
                 appData1.index[position] += 1;
-                int id = 0;
-                int smsCount = 0;
-                addCompany(id, logisticsId, servicesUserCpId, smsCount);
 
+                assert appData.logisticsNames != null;
+                String cm = appData.logisticsNames[position];
+                for (int i = 0; i < appData1.logisticsName.length; i++) {
+
+                    assert appData1.logisticsId != null;
+                    if (appData1.logisticsId[i] != 0) {// 2  3
+                        appData1.index[appData1.logisticsId[i] - 1] += 1;
+                    }
+                }
                 if (appData1.index[position] > 1) {
 
                     Toast.makeText(getContext(), "已经添加", Toast.LENGTH_SHORT).show();
-                    //  button.setVisibility(View.INVISIBL
+
                     if (getActivity().isFinishing()) {
                         System.exit(0);
                     }
@@ -183,6 +184,7 @@ public class HomeFragment extends Fragment {
                         @Override
                         public void onClick(View view) {
 
+
                             // TODO other
                             Intent i = new Intent(getContext(), YTActivity.class);
                             i.putExtra("companyName", button.getText().toString());
@@ -195,7 +197,29 @@ public class HomeFragment extends Fragment {
 
             }
         });
+        alertBuilder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                /* User clicked Cancel so do some stuff */
+                Toast.makeText(getActivity(), "取消", Toast.LENGTH_LONG).show();
+            }
+        })
+                .create();
+        alertBuilder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                assert appData.logisticsNames != null;
 
+
+                assert appData.idss != null;
+                int logisticsId = appData.idss[appData.clickId];
+                int servicesUserCpId = appData.id;
+                int id = 0;
+                int smsCount = 0;
+                addCompany(id, logisticsId, servicesUserCpId, smsCount);
+                Toast.makeText(getActivity(), "确认", Toast.LENGTH_LONG).show();
+
+            }
+        }).create();
         alertBuilder.show();
 
     }
