@@ -374,6 +374,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
     /**
      * 初始化页面数据
      * 1.短信条数 调用借口
+     * The application may be doing too much work on its main thread
      * get
      */
     private void initData() {
@@ -453,7 +454,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
     }
 
     @OnClick(R.id.today_date)
-    public void onClick(View v) {
+    public void onClick(@NonNull View v) {
         switch (v.getId()) {
             default:
                 break;
@@ -466,6 +467,17 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
     public void remove(@NonNull View v) {
         //delete api
         APPData appData = (APPData) getApplicationContext();
+        if (appData.jumpFlag) {
+            //判断是否来自发送短信页面
+            try {
+                delFlag = true;
+                dataRemove(position);
+            } catch (Exception e) {
+                e.printStackTrace();
+                Toast.makeText(YTActivity.this, "Could not execute method for android:onClick",
+                        Toast.LENGTH_LONG).show();
+            }
+        }
         String code = appData.pro + appData.qhm[appData.i - position];
         int logisticsId = appData.clickId;
         String phone = appData.phoneNumber_scan[appData.i - position];

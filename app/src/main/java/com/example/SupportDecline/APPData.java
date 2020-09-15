@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 /**
  *
  */
+
 public class APPData extends Application {
 
     @Nullable
@@ -38,7 +39,7 @@ public class APPData extends Application {
 
     public int s_lengths;
     @NonNull
-    public int[] index = new int[100];//array index logistic id
+    public int[] index = new int[1000];//array index logistic id
     @NonNull
     public static Context sAppContext;
     @NonNull
@@ -46,9 +47,9 @@ public class APPData extends Application {
     @NonNull
     public String[] logisticName_yt;//get code page
     @NonNull
-    public String[] phoneNumber_scan = new String[100];//add Phone
+    public String[] phoneNumber_scan = new String[1000];//add Phone
     @NonNull
-    public int[] qhm = new int[100];//ahm
+    public int[] qhm = new int[1000];//ahm
 
     public int i;//record add phone number count
     @NonNull
