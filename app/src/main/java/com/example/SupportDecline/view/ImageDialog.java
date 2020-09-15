@@ -13,7 +13,7 @@ import com.example.SupportDecline.R;
 
 
 /**
- *
+ * @see android.app.Dialog
  */
 public class ImageDialog extends Dialog {
 
@@ -68,7 +68,7 @@ public class ImageDialog extends Dialog {
     @Override
     public void dismiss() {
         assert bmp != null;
-        bmp.recycle();
+//v  v  v  v        bmp.recycle();cv
         bmp = null;
         System.gc();
         super.dismiss();

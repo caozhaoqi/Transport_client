@@ -62,8 +62,10 @@ public class APPData extends Application {
 
     public int amount;// c初始化取货码
 
+     public boolean jumpFlag = false;//page jump flag
+
     /**
-     *
+     * init app data
      */
     @Override
     public void onCreate() {

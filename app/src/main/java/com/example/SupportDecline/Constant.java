@@ -2,7 +2,7 @@ package com.example.SupportDecline;
 
 public class Constant {
 
-    public static final String appId = "";
+    public static final String appId = "";//WeChat api data
     public static final String parentId = "";
     public static final String prepayId = "";
     public static final String packageValue = "";
@@ -14,6 +14,7 @@ public class Constant {
     public static final String IP = "39.99.137.77";//http://39.99.137.77:8084/server/doc.html
     public static final String PORT = "8084";
     public static final String CODED_CONTENT = "123";
+    public static final String fog = "http://";
 
     //ocr
     //训练数据路径，必须包含tesseract文件夹

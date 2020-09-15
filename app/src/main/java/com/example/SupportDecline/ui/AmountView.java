@@ -42,11 +42,11 @@ import com.example.SupportDecline.R;
  * 描述：
  * @name TranSportClient
  * @class name：com.example.SupportDecline.ui
- * @class describe
+ * @class describe self define fragment
  * @author Administrator QQ:1150118968
  * @time 2020/9/11 17:25
- * @change
- * @chang time
+ * @change bug update
+ * @chang time 2020 09 15
  * @class describe
  */
 public class AmountView extends LinearLayout implements View.OnClickListener, TextWatcher {
@@ -55,16 +55,12 @@ public class AmountView extends LinearLayout implements View.OnClickListener, Te
 
     public int amount; //数量
     APPData appData = (APPData) getContext().getApplicationContext();
-    private int goods_storage = 1000000; //数
-
+    int count;
+    private int goods_storage = 999999999; //数 count top
     private OnAmountChangeListener mListener; //数量变化的回调接口
-
     private EditText etAmount;//数量
-
     private Button btnDecrease;//-按钮
-
     private Button btnIncrease;//+按钮
-
     ///APPData appData;
 
 
@@ -73,6 +69,7 @@ public class AmountView extends LinearLayout implements View.OnClickListener, Te
         this(context, null);
         //  appData = (APPData) getContext().getApplicationContext();
 
+        amount = appData.amount;
     }
 //构造方法
 
@@ -104,7 +101,7 @@ public class AmountView extends LinearLayout implements View.OnClickListener, Te
 
         int btnWidth = obtainStyledAttributes.getDimensionPixelSize(R.styleable.AmountView_btnWidth, LayoutParams.WRAP_CONTENT);
 
-        int tvWidth = obtainStyledAttributes.getDimensionPixelSize(R.styleable.AmountView_tvWidth, 80);
+        int tvWidth = obtainStyledAttributes.getDimensionPixelSize(R.styleable.AmountView_tvWidth, LayoutParams.WRAP_CONTENT);
 
         int tvTextSize = obtainStyledAttributes.getDimensionPixelSize(R.styleable.AmountView_tvTextSize, 0);
 
@@ -172,6 +169,8 @@ public class AmountView extends LinearLayout implements View.OnClickListener, Te
 
                 amount--;
 
+                count++;
+
                 etAmount.setText(amount + "");
 
 
@@ -182,6 +181,8 @@ public class AmountView extends LinearLayout implements View.OnClickListener, Te
             if (amount < goods_storage) {
 
                 amount++;
+
+                count++;
 
                 etAmount.setText(amount + "");
 
@@ -203,29 +204,33 @@ public class AmountView extends LinearLayout implements View.OnClickListener, Te
     @Override
 
     public void beforeTextChanged(@NonNull CharSequence s, int start, int count, int after) {
-        start = appData.amount;
+
     }
 
 
     @Override
 
     public void onTextChanged(CharSequence s, int start, int before, int count) {
+
     }
 
 
     @SuppressLint("SetTextI18n")
     @Override
 
-    public void afterTextChanged(Editable s) {
+    public void afterTextChanged(@NonNull Editable s) {
 
-        if (s.toString().isEmpty())
+//        if (s.toString().isEmpty())
+//
+//            return ;
 
-            return;
-
-        amount = appData.amount;
-//        int a = Integer.parseInt(s.toString());
+        if (count == 0) {
+            amount = appData.amount + Integer.parseInt(s.toString());
+        } else {
+            amount = Integer.parseInt(s.toString());
+        }
 //        a = appData.amount;// Integer.parseInt(s.toString());
-        Log.e("ss", s.toString());
+        Log.e(" init value", s.toString());
         if (amount > goods_storage) {
 
             etAmount.setText(goods_storage + "");
@@ -244,7 +249,7 @@ public class AmountView extends LinearLayout implements View.OnClickListener, Te
 
     public interface OnAmountChangeListener {
 
-        void onAmountChange(View view, int amount);
+        void onAmountChange(@NonNull View view, int amount);
 
     }
 

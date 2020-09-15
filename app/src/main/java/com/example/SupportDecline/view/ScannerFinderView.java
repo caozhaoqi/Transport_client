@@ -1,5 +1,6 @@
 package com.example.SupportDecline.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
@@ -12,6 +13,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
+
+import androidx.annotation.NonNull;
 
 import com.example.SupportDecline.R;
 import com.example.SupportDecline.utils.ScreenUtils;
@@ -42,7 +45,9 @@ public final class ScannerFinderView extends RelativeLayout {
 
     private Rect mFrameRect; //绘制的Rect
     private Rect mRect; //返回的Rect
+    @SuppressLint("HandlerLeak")
     private Handler mHandler = new Handler() {
+        @SuppressLint("HandlerLeak")
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
@@ -51,15 +56,16 @@ public final class ScannerFinderView extends RelativeLayout {
     };
     private OnTouchListener touchListener;
 
-    public ScannerFinderView(Context context) {
+    public ScannerFinderView(@NonNull Context context) {
         this(context, null);
     }
 
-    public ScannerFinderView(Context context, AttributeSet attrs) {
+    public ScannerFinderView(@NonNull Context context, @NonNull AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public ScannerFinderView(Context context, AttributeSet attrs, int defStyleAttr) {
+    @SuppressLint("ClickableViewAccessibility")
+    public ScannerFinderView(@NonNull Context context, @NonNull AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
@@ -93,11 +99,11 @@ public final class ScannerFinderView extends RelativeLayout {
 
             width = width == 0
                     ? MIN_FOCUS_BOX_WIDTH
-                    : width < MIN_FOCUS_BOX_WIDTH ? MIN_FOCUS_BOX_WIDTH : width;
+                    : Math.max(width, MIN_FOCUS_BOX_WIDTH);
 
             height = height == 0
                     ? MIN_FOCUS_BOX_HEIGHT
-                    : height < MIN_FOCUS_BOX_HEIGHT ? MIN_FOCUS_BOX_HEIGHT : height;
+                    : Math.max(height, MIN_FOCUS_BOX_HEIGHT);
 
             int left = (ScrRes.x - width) / 2;
             int top = (ScrRes.y - height) / 5;
@@ -113,6 +119,7 @@ public final class ScannerFinderView extends RelativeLayout {
      *
      * @return Value for property 'rect'.
      */
+    @NonNull
     public Rect getRect() {
         return mRect;
     }
@@ -121,7 +128,7 @@ public final class ScannerFinderView extends RelativeLayout {
      * {@inheritDoc}
      */
     @Override
-    public void onDraw(Canvas canvas) {
+    public void onDraw(@NonNull Canvas canvas) {
         if (isInEditMode()) {
             return;
         }
@@ -129,8 +136,8 @@ public final class ScannerFinderView extends RelativeLayout {
         if (frame == null) {
             return;
         }
-        int width = canvas.getWidth();
-        int height = canvas.getHeight();
+        int width = getWidth();
+        int height = getHeight();
 
         // 绘制焦点框外边的暗色背景
         mPaint.setColor(mMaskColor);
@@ -321,7 +328,7 @@ public final class ScannerFinderView extends RelativeLayout {
         return touchListener;
     }
 
-    private void updateBoxRect(int dW, int dH, boolean isUpward) {
+    void updateBoxRect(int dW, int dH, boolean isUpward) {
 
         int newWidth = (mFrameRect.width() + dW > ScrRes.x - 4 || mFrameRect.width() + dW < MIN_FOCUS_BOX_WIDTH)
                 ? 0 : mFrameRect.width() + dW;

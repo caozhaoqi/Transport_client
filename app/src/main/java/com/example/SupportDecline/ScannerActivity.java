@@ -442,10 +442,11 @@ public class ScannerActivity extends AppCompatActivity implements Callback, Came
                 APPData appData = (APPData) getApplicationContext();
         int i = appData.i;
         appData.phoneNumber_scan[i] = result;
-        appData.qhm[i] = i;
+        appData.qhm[i] = appData.amount + appData.i;
         startActivity(new Intent(ScannerActivity.this, ScanActivity.class));
         i++;
         appData.i += 1;
+        appData.jumpFlag = false;
 
     }
 

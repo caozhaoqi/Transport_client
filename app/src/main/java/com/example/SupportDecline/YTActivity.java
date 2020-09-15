@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -46,7 +47,33 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 /**
- *
+ * SpotBugs: Test for circular dependencies among classes This class has a circular dependency with other classes.
+ * This makes building these classes difficult, as each is dependent on the other to build correctly.
+ * Consider using interfaces to break the hard dependency.
+ * SpotBugs: Test for circular dependencies among classes This class has a circular dependency with other classes.
+ * This makes building these classes difficult, as each is dependent on the other to build correctly.
+ * Consider using interfaces to break the hard dependency. SpotBugs: Test for circular dependencies among classes
+ * This class has a circular dependency with other classes. This makes building these classes difficult, as each
+ * is dependent on the other to build correctly. Consider using interf aces to break the hard dependency.
+ * SpotBugs: Test for circular dependencies among classes This class has a circular dependency with other classes.
+ * This makes building these classes difficult, as each is dependent on the other to build correctly. Consider using
+ * interfaces to break the hard dependency. SpotBugs: Test for circular dependencies among classes This class has
+ * a circular dependency with other classes. This makes building these classes difficult, as each is dependent on the
+ * other to build correctly. Consider using interf aces to break the hard dependency. SpotBugs: Test for circular
+ * dependencies among classes This class has a circular dependency with other classes. This makes building these
+ * classes difficult, as each is dependent on the other to build correctly. Con sider using interfaces to break the
+ * hard dependency.
+ * SpotBugs: Test for circular dependencies among classes This class has a circular dependency with other classes.
+ * This makes building these classes difficult, as each is dependent on the other to build correctly
+ * . Consider using interfaces to break the hard dependency. SpotBugs: Test for circular dependencies
+ * among classes This class has a circular dependency with other classes. This makes building these
+ * classes difficult, as each is dependent on the other to build correctly. Consider using interf aces
+ * to break the hard dependency. SpotBugs: Test for circular dependencies among classes This class has
+ * a circular dependency with other classes. This makes building these classes difficult, as each is
+ * dependent on the other to build correctly. Con sider using interfaces to break the hard dependency.
+ * SpotBugs: Test for circular dependencies among classes This class has a circular dependency with
+ * other classes. This makes building these classes difficult, as each is dependent on the other to
+ * bu ild correctly. Consider using interfaces to break the hard dependency.
  */
 public class YTActivity extends AppCompatActivity implements SnappingStepperValueChangeListener {
 
@@ -127,7 +154,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
         fsts_txt = findViewById(R.id.fsts_txt);
         det_get_num_a = findViewById(R.id.getNum_edt);
         Intent i = getIntent();
-        appData.amount = Integer.parseInt(getnum_edt.getText().toString());
+        //  appData.amount = Integer.parseInt(getnum_edt.getText().toString());
 
         @SuppressLint("SimpleDateFormat")
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd");// HH:mm:ss
@@ -163,7 +190,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
         }
 
         initData();
-        //show
+        //show 显示
         // 对应的公司短信条数
 
         @SuppressLint("InflateParams") final View convertView = LayoutInflater.from(this).inflate(R.layout.yt_list_item,
@@ -182,7 +209,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
             appData.pro = message + det_get_num_a.getText().toString();
             for (int index = 0; index < appData.i; index++) {
                 //get取货码
-                appData.qhm[index] = appData.i;
+                appData.qhm[index] = appData.amount + appData.i;
             }
             try {
                 for (int i5 = 0; i5 < appData.i; i5++) {
@@ -283,7 +310,14 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
                 Intent i = new Intent(YTActivity.this, ScanActivity.class);
                 //数据清空
                 appData.count += 1;
+
+                appData.amount = Integer.parseInt(getnum_edt.getText().toString());
+
+                //save scan data item
+                SharedPreferences userInfo = getSharedPreferences("user_info", 0);
+                userInfo.edit().putInt("name", appData.count).apply();
                 startActivity(i);
+
             }
         });
 
@@ -413,8 +447,8 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
     public void onValueChange(@NonNull View view, int value) {
 
 
-        APPData appData = (APPData) getApplicationContext();
-        appData.i = 2;
+//        APPData appData = (APPData) getApplicationContext();
+//        appData.i = 2;
 
     }
 
@@ -464,7 +498,7 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
                     //然后读取result后面的数组([]号里的内容)，用这个内容来初始化一个JSONArray对象
                     String code = jsonObject.getString("code");
                     if (jsonObject.length() == 0) {
-                        System.out.println("error");
+                        System.out.println("YTActivity error");
                     } else if (code.equals("200")) {
                         System.out.println("successful");
                         delFlag = true;
@@ -545,4 +579,5 @@ public class YTActivity extends AppCompatActivity implements SnappingStepperValu
         }
         Toast.makeText(YTActivity.this, "delete successful!", Toast.LENGTH_LONG).show();
     }
+
 }

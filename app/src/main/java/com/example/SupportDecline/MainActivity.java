@@ -78,12 +78,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * select all transport company
+     * select all transport company data
      */
 
     public void companySelect() {
 
-        String url = "http://" + Constant.IP + ":" + Constant.PORT + "/server/logistics/findAll";
+        String url = Constant.fog + Constant.IP + ":" + Constant.PORT + "/server/logistics/findAll";
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder()

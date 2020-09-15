@@ -1,6 +1,7 @@
 package com.example.SupportDecline;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -48,6 +49,7 @@ public class ScanActivity extends AppCompatActivity {
     int position;
     SnappingStepper snappingStepper;
 
+
     /**
      * {@inheritDocqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq@Params Bundle}
      */
@@ -68,9 +70,14 @@ public class ScanActivity extends AppCompatActivity {
             pn = appData.phoneNumber_scan;
             ahm = appData.qhm;
             if (!appData.INFlag) {
-                if (appData.count > 1) {
-                    pn = null;
-                    ahm = null;
+                if (appData.jumpFlag) {
+                    SharedPreferences userInfo = this.getSharedPreferences("user_info", 0);
+                    int index = userInfo.getInt("name", 0);
+                    for (int i = 0; i < index; i++) {
+                        pn[i] = null;
+                        ahm[i] = Integer.parseInt("null");
+                    }
+
                 }
                 ArrayList<Map<String, Object>> arr_data = new ArrayList<>();
                 // 新增数据
@@ -91,11 +98,13 @@ public class ScanActivity extends AppCompatActivity {
 
             } else {
 
-                if (appData.count > 1) {
+                if (appData.jumpFlag) {
+                    SharedPreferences userInfo = this.getSharedPreferences("user_info", 0);
+                    int index = userInfo.getInt("name", 0);
+                    for (int i = 0; i < index; i++) {
+                        pn[i] = null;
 
-                    pn = null;
-                    ahm = null;
-
+                    }
                 }
                 ArrayList<Map<String, Object>> arr_data = new ArrayList<>();
                 // 新增数据
@@ -141,7 +150,10 @@ public class ScanActivity extends AppCompatActivity {
                 Intent i = new Intent(ScanActivity.this, YTActivity.class);
                 //send scan data
                 sendScanData();
+                APPData appData = (APPData) getApplicationContext();
+                appData.jumpFlag = true;
                 startActivity(i);
+
             }
         });
 
