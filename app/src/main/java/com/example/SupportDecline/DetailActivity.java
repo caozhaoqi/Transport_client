@@ -21,7 +21,9 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
-
+/**
+ * 记录详情页面
+ */
 public class DetailActivity extends AppCompatActivity {
 
     private static final int SEND_SMS = 100;

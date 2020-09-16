@@ -30,7 +30,11 @@ import okhttp3.Response;
 
 import static com.example.SupportDecline.R.id;
 import static com.example.SupportDecline.R.layout;
-
+/**
+ * 注册页面
+ *
+ * @deprecated 目前已屏蔽
+ */
 public class RegisterActivity extends AppCompatActivity {
 
     Button re;

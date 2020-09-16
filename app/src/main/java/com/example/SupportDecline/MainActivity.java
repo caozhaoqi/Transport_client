@@ -42,7 +42,7 @@ import okhttp3.Response;
  *     @author czq
  * 作者：czq
  * 创建时间：2020/9/2 11:39 <p>
- * 描述：
+ * 描述： 项目主页面
  * @name TranSportClient
  * @class name：PACKAGE_NAME
  * @class describe
@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                         APPData appData = (APPData) getApplicationContext();
-                        appData.idss = id;
+                        appData.ibis = id;
                         appData.logisticsNames = logisticsName;
                         appData.s_lengths = jsonArray.length();
 

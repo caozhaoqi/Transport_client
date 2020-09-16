@@ -15,7 +15,10 @@ import com.example.SupportDecline.camera.CameraConfigurationUtils;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+/*
 
+扫描所用工具类*
+**/
 public class Tools {
 
     private static Pattern pattern = Pattern.compile("(1|861)\\d{10}$*");
@@ -81,7 +84,7 @@ public class Tools {
                 return new Rect(srcRectLeft, 0, srcRectLeft + srcRectWidth, srcHeight);
             } else {
                 final int srcRectHeight = (int) (srcWidth / dstAspect);
-                final int scrRectTop = (int) (srcHeight - srcRectHeight) / 2;
+                final int scrRectTop = (srcHeight - srcRectHeight) / 2;
                 return new Rect(0, scrRectTop, srcWidth, scrRectTop + srcRectHeight);
             }
         } else {

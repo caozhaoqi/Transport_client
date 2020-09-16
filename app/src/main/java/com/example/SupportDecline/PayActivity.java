@@ -20,6 +20,8 @@ import butterknife.OnClick;
 
 /**
  * The type Pay activity.
+ * <p>
+ * 支付页面
  */
 public class PayActivity extends AppCompatActivity {
 

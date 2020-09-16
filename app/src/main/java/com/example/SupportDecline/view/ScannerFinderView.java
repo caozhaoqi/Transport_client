@@ -19,7 +19,9 @@ import androidx.annotation.NonNull;
 import com.example.SupportDecline.R;
 import com.example.SupportDecline.utils.ScreenUtils;
 
-
+/**
+ * 绘制扫描页面
+ */
 public final class ScannerFinderView extends RelativeLayout {
 
     private static final int[] SCANNER_ALPHA = {0, 64, 128, 192, 255, 192, 128, 64};

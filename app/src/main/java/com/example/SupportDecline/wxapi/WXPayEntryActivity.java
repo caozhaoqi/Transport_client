@@ -12,7 +12,9 @@ import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-
+/*
+ * 微信支付所用页面
+ * */
 public class WXPayEntryActivity extends AppCompatActivity implements IWXAPIEventHandler {
 
     private static final String APP_ID = "您应用的app_Id";

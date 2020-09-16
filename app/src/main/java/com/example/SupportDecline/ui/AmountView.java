@@ -39,7 +39,7 @@ import com.example.SupportDecline.R;
  *     @author czq
  * 作者：czq
  * 创建时间：2020/9/11 17:25 <p>
- * 描述：
+ * 描述：自定义加减控件
  * @name TranSportClient
  * @class name：com.example.SupportDecline.ui
  * @class describe self define fragment

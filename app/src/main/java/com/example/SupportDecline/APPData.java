@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 /**
- *
+ * 存储全局所用数据
  */
 
 public class APPData extends Application {
@@ -33,7 +33,7 @@ public class APPData extends Application {
 
     public int s_length;
     @Nullable
-    public int[] idss;//select id
+    public int[] ibis;//select id
     @Nullable
     public String[] logisticsNames;
 

@@ -36,6 +36,9 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+/**
+ * 扫描数据页面 OCR识别手机号
+ */
 
 public class ScanActivity extends AppCompatActivity {
 

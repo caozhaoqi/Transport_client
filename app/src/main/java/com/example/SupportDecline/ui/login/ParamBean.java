@@ -1,6 +1,9 @@
 package com.example.SupportDecline.ui.login;
 
 import androidx.annotation.NonNull;
+/**
+ * okhttp 发送所需参数
+ */
 
 public class ParamBean {
 

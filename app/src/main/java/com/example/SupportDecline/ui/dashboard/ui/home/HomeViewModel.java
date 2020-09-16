@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-
+/**
+ * 添加所需数据
+ */
 public class HomeViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;

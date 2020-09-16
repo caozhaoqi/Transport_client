@@ -20,7 +20,7 @@ package com.example.SupportDecline;
  *     @author czq
  * 作者：czq
  * 创建时间：2020/9/7 14:54 <p>
- * 描述：
+ * 描述： 查询系统可用内存
  * @name TranSportClient
  * @class name：com.example.SupportDecline
  * @class describe

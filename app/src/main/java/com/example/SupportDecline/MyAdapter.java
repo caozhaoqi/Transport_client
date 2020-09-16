@@ -11,6 +11,7 @@ import java.util.List;
 
 /**
  * Created by czq on 2020/9/1.
+ * 适配器类
  */
 public class MyAdapter extends BaseAdapter implements SwipeLayout.OnSwipeStateChangeListener {
 

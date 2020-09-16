@@ -1,5 +1,7 @@
 package com.example.SupportDecline;
-
+/**
+ * 存储项目所用常量 如：ip地址
+ */
 public class Constant {
 
     public static final String appId = "";//WeChat api data

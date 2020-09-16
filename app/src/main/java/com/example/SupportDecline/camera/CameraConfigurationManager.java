@@ -40,6 +40,11 @@ public final class CameraConfigurationManager {
     // 相机分辨率
     private Point cameraResolution;
 
+    /**
+     * Init from camera parameters.
+     *
+     * @param camera the camera
+     */
     public void initFromCameraParameters(Camera camera) {
         // 需要判断摄像头是否支持缩放
         Camera.Parameters parameters = camera.getParameters();

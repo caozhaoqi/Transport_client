@@ -11,6 +11,9 @@ import com.example.SupportDecline.R;
 import com.example.SupportDecline.data.LoginRepository;
 import com.example.SupportDecline.data.Result;
 import com.example.SupportDecline.data.model.LoggedInUser;
+/**
+ * 登录状态
+ */
 
 public class LoginViewModel extends ViewModel {
 

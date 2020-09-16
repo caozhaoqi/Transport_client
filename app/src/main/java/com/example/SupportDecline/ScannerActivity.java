@@ -48,7 +48,7 @@ import static android.Manifest.permission.CAMERA;
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 
 /**
- * 二维码扫描类。
+ * 二维码扫描类。  执行识别手机号
  */
 public class ScannerActivity extends AppCompatActivity implements Callback, Camera.PictureCallback, Camera.ShutterCallback {
 

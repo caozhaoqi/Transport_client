@@ -19,6 +19,13 @@ public final class CameraConfigurationUtils {
     private static final int MIN_PREVIEW_PIXELS = 480 * 320; // normal screen
     private static final double MAX_ASPECT_DISTORTION = 0.15;
 
+    /**
+     * Find best preview size value point.
+     *
+     * @param parameters       the parameters
+     * @param screenResolution the screen resolution
+     * @return the point
+     */
     public static Point findBestPreviewSizeValue(Camera.Parameters parameters, Point screenResolution) {
 
         List<Camera.Size> rawSupportedSizes = parameters.getSupportedPreviewSizes();

@@ -12,6 +12,13 @@ import java.io.IOException;
  */
 public class LoginDataSource {
 
+    /**
+     * Login result.
+     *
+     * @param username the username
+     * @param password the password
+     * @return the result
+     */
     @Nullable
     public Result<LoggedInUser> login(@NonNull String username, @NonNull String password) {
 
@@ -27,6 +34,9 @@ public class LoginDataSource {
         }
     }
 
+    /**
+     * Logout.
+     */
     public void logout() {
         // TODO: revoke authentication
     }

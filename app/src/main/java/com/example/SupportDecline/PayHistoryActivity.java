@@ -23,7 +23,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import butterknife.BindView;
-
+/**
+ * 支付历史页面
+ */
 public class PayHistoryActivity extends AppCompatActivity {
 
 

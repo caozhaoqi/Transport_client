@@ -83,6 +83,7 @@ public final class CameraManager {
      * Opens the mCamera driver and initializes the hardware parameters.
      *
      * @param holder The surface object which the mCamera will draw preview frames into.
+     * @return the boolean
      * @throws IOException Indicates the mCamera driver failed to open.
      */
     public boolean openDriver(SurfaceHolder holder) throws IOException {
@@ -114,6 +115,8 @@ public final class CameraManager {
 
     /**
      * Closes the camera driver if still in use.
+     *
+     * @return the boolean
      */
     public boolean closeDriver() {
         if (mCamera != null) {
@@ -134,7 +137,7 @@ public final class CameraManager {
      * 打开或关闭闪光灯
      *
      * @param open 控制是否打开
-     * @return 打开或关闭失败，则返回false。
+     * @return 打开或关闭失败 ，则返回false。
      */
     public boolean setFlashLight(boolean open) {
         if (mCamera == null || !mPreviewing) {
@@ -180,6 +183,8 @@ public final class CameraManager {
 
     /**
      * Asks the mCamera hardware to begin drawing preview frames to the screen.
+     *
+     * @return the boolean
      */
     public boolean startPreview() {
         if (mCamera != null && !mPreviewing) {
@@ -196,6 +201,8 @@ public final class CameraManager {
 
     /**
      * Tells the mCamera to stop drawing preview frames.
+     *
+     * @return the boolean
      */
     public boolean stopPreview() {
         if (mCamera != null && mPreviewing) {
@@ -248,6 +255,13 @@ public final class CameraManager {
         }
     }
 
+    /**
+     * Take shot.
+     *
+     * @param shutterCallback     the shutter callback
+     * @param rawPictureCallback  the raw picture callback
+     * @param jpegPictureCallback the jpeg picture callback
+     */
     public void takeShot(Camera.ShutterCallback shutterCallback,
                          Camera.PictureCallback rawPictureCallback,
                          Camera.PictureCallback jpegPictureCallback) {

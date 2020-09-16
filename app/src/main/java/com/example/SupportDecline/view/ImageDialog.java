@@ -13,6 +13,8 @@ import com.example.SupportDecline.R;
 
 
 /**
+ * 自定义控件
+ *
  * @see android.app.Dialog
  */
 public class ImageDialog extends Dialog {

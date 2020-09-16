@@ -18,7 +18,9 @@ import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-
+/***
+ * 自定义按钮控件 --- 扫扫描按钮
+ * */
 @SuppressLint("AppCompatCustomView")
 public class CustomFAB extends ImageButton {
     private static final int RAD = 56;

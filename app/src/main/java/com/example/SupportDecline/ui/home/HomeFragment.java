@@ -210,8 +210,8 @@ public class HomeFragment extends Fragment {
                 assert appData.logisticsNames != null;
 
 
-                assert appData.idss != null;
-                int logisticsId = appData.idss[appData.clickId];
+                assert appData.ibis != null;
+                int logisticsId = appData.ibis[appData.clickId];
                 int servicesUserCpId = appData.id;
                 int id = 0;
                 int smsCount = 0;

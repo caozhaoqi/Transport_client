@@ -9,7 +9,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/***
+ * 支付记录页面
+ * */
 public class PayRecordActivity extends AppCompatActivity {
 
 

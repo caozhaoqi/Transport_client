@@ -10,7 +10,7 @@ import com.example.SupportDecline.APPData;
 
 
 /**
- * ScreenUtils
+ * ScreenUtils 扫描页面所需工具类
  */
 public class ScreenUtils {
 
